@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Notes</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 1200px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card li {
+            margin: 10px 0;
+        }
+
+        .card a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Class Notes</h1>
+
+    <div id="notes-container"></div>
+
+    <script>
+        // Array of notes - Just add new entries here!
+        const notes = [
+            // JavaScript Notes
+            { category: "JavaScript", title: "Day 1 - Introduction to JavaScript", path: "Day-1/index.html" },
+            { category: "JavaScript", title: "Day 2 - JavaScript Basics", path: "Day-2/index.html" },
+            // { category: "JavaScript", title: "Day 3 - Advanced JavaScript", path: "Day-3/index.html" },
+
+            // HTML Notes (uncomment and add when ready)
+            // { category: "HTML", title: "Day 1 - HTML Introduction", path: "HTML/Day-1/index.html" },
+            // { category: "HTML", title: "Day 2 - HTML Forms", path: "HTML/Day-2/index.html" },
+
+            // CSS Notes (uncomment and add when ready)
+            // { category: "CSS", title: "Day 1 - CSS Basics", path: "CSS/Day-1/index.html" },
+            // { category: "CSS", title: "Day 2 - CSS Flexbox", path: "CSS/Day-2/index.html" },
+        ];
+
+        // Function to generate HTML from array
+        function generateNotes() {
+            const container = document.getElementById("notes-container");
+
+            // Group notes by category
+            const groupedNotes = {};
+            notes.forEach(note => {
+                if (!groupedNotes[note.category]) {
+                    groupedNotes[note.category] = [];
+                }
+                groupedNotes[note.category].push(note);
+            });
+
+            // Generate HTML - one card per category
+            let html = '<div class="cards-container">';
+            for (const category in groupedNotes) {
+                html += `
+                    <div class="card">
+                        <div class="card-title">${category}</div>
+                        <ul>
+                `;
+                groupedNotes[category].forEach(note => {
+                    html += `<li><a href="${note.path}">${note.title}</a></li>`;
+                });
+                html += `
+                        </ul>
+                    </div>
+                `;
+            }
+            html += '</div>';
+
+            container.innerHTML = html;
+        }
+
+        // Generate notes when page loads
+        generateNotes();
+    </script>
+
+</body>
+
+</html>

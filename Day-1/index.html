@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Class - Day 1</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 750px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f4;
+            border-radius: 4px;
+            padding: 3px 7px;
+            font-size: 1em;
+        }
+
+        .cheat-sheet-table {
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .cheat-sheet-table th,
+        .cheat-sheet-table td {
+            border: 1px solid #ccc;
+            padding: 6px 12px;
+        }
+
+        .cheat-sheet-table th {
+            background: #f0f0f0;
+        }
+
+        .activity-list li {
+            margin: 8px 0;
+        }
+
+        .mini-section {
+            margin-top: 26px;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background: #f6fcff;
+            border-left: 4px solid #03a9f4;
+            padding: 11px 18px;
+            margin: 12px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript Class - Day 1</h1>
+
+    <!-- 1) What is a Programming Language? (Very simple) -->
+    <div class="mini-section">
+        <strong>✅ 1) What is a Programming Language? (Very simple)</strong>
+        <p>
+            A programming language is a language used to give instructions to a computer.
+        </p>
+        <div class="example-box">
+            <strong>✅ Example:</strong><br>
+            Humans talk in English/Hindi<br>
+            Computers understand binary<br>
+            So we use languages like JavaScript, Python, C++ to talk to computers.
+        </div>
+        <div class="example-box">
+            <strong>Real-life analogy:</strong><br>
+            📌 Think like giving instructions to a robot:<br>
+            <em>“Go forward, stop, turn right, pick up book.”</em><br>
+            That’s programming!
+        </div>
+        <div class="example-box">
+            <strong>Student Question</strong><br>
+            ✅ “Can you tell the computer what to do without a programming language?”<br>
+            <strong>➡️ Answer:</strong> No.
+        </div>
+    </div>
+
+    <!-- 2) What is JavaScript? (Super simple) -->
+    <div class="mini-section">
+        <strong>✅ 2) What is JavaScript? (Super simple)</strong>
+        <p>
+            JavaScript (JS) is a programming language for websites.
+        </p>
+        <ul>
+            <li>✅ Change text</li>
+            <li>✅ Change colors</li>
+            <li>✅ Show popups (alerts)</li>
+            <li>✅ Handle button clicks</li>
+            <li>✅ Create dynamic websites</li>
+        </ul>
+        <div class="example-box">
+            <strong>Example:</strong><br>
+            HTML = structure (skeleton)<br>
+            CSS = design (clothes)<br>
+            JS = actions (brain)
+        </div>
+        <div class="example-box">
+            <strong>📌 Analogy:</strong><br>
+            HTML = car body<br>
+            CSS = paint<br>
+            JS = engine
+        </div>
+    </div>
+
+    <!-- 3) Why do we need JavaScript? -->
+    <div class="mini-section">
+        <strong>✅ 3) Why do we need JavaScript?</strong>
+        <div>
+            Ask students:<br>
+            <em>“What happens if you click a button in HTML only?”</em><br>
+            <strong>➡️ Nothing changes, unless JS is added.</strong><br>
+            <br>
+            JavaScript makes the page interactive.
+        </div>
+    </div>
+
+    <!-- 4) What is <script> Tag? -->
+    <div class="mini-section">
+        <strong>✅ 4) What is &lt;script&gt; Tag?</strong>
+        <div>
+            The <code>&lt;script&gt;</code> tag is used to write JavaScript inside an HTML file.
+        </div>
+        <div class="example-box">
+            Example:
+            <pre><code>&lt;script&gt;
+  alert("Hello Student!");
+&lt;/script&gt;</code></pre>
+            ✅ This code will show a popup.
+        </div>
+        <div>
+            <strong>📌 Important rule:</strong><br>
+            Scripts usually go at the <b>bottom of the HTML body</b>:
+            <ul>
+                <li>✅ Because HTML loads first, then JS runs.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 5) Connecting HTML and JavaScript (2 ways) -->
+    <div class="mini-section">
+        <strong>✅ 5) Connecting HTML and JavaScript (2 ways)</strong>
+        <div>
+            <strong>✅ Method 1: JavaScript inside HTML</strong>
+            <pre><code>&lt;script&gt;
+  console.log("Hello!");
+&lt;/script&gt;</code></pre>
+            <strong>✅ Method 2: External JS file (Best way)</strong>
+            <pre><code>HTML file:
+&lt;script src="script.js"&gt;&lt;/script&gt;
+
+JS file (script.js):
+console.log("Connected!");
+</code></pre>
+            <strong>📌 Teach this clearly:</strong><br>
+            ✅ HTML links JS file like it links CSS file.
+        </div>
+    </div>
+
+    <!-- 6) What is DOM? (Super basic) -->
+    <div class="mini-section">
+        <strong>✅ 6) What is DOM? (Super basic)</strong>
+        <p>
+            <strong>DOM</strong> means <strong>Document Object Model</strong><br>
+            ✅ It is how JavaScript sees HTML.<br>
+            JavaScript can:
+        </p>
+        <ul>
+            <li>✅ Find elements</li>
+            <li>✅ Change elements</li>
+            <li>✅ Add new elements</li>
+        </ul>
+        <div class="example-box">
+            <strong>📌 Analogy:</strong><br>
+            HTML is a room with objects.<br>
+            JS is a person who can change things inside the room.
+        </div>
+    </div>
+
+    <!-- 7) Printing Text Using JavaScript (DOM Manipulation) -->
+    <div class="mini-section">
+        <strong>✅ 7) Printing Text Using JavaScript (DOM Manipulation)</strong>
+        <div>
+            <div>✅ Step 1: Create an element in HTML</div>
+            <pre><code>&lt;h1 id="title"&gt;Welcome&lt;/h1&gt;</code></pre>
+            <div>✅ Step 2: Select it in JS &amp; change it</div>
+            <pre><code>document.getElementById("title").innerText = "Hello from JavaScript!";</code></pre>
+            ✅ Now the heading changes!
+        </div>
+    </div>
+
+    <!-- 8) Full Example: Print Text on Button Click -->
+    <div class="mini-section">
+        <strong>✅ 8) Full Example: Print Text on Button Click</strong>
+        <div class="example-box">
+            <strong>✅ HTML</strong><br>
+            <pre><code>&lt;h2 id="output"&gt;Nothing yet...&lt;/h2&gt;
+&lt;button onclick="showText()"&gt;Click Me&lt;/button&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+            <strong>✅ JS (script.js)</strong><br>
+            <pre><code>function showText() {
+  document.getElementById("output").innerText = "Button clicked! Hello Student!";
+}</code></pre>
+        </div>
+        <div>
+            <strong>📌 What students learn:</strong>
+            <ul>
+                <li>✅ JS function</li>
+                <li>✅ onclick event</li>
+                <li>✅ DOM update</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 9) Mini Student Activities (Super useful) -->
+    <div class="mini-section">
+        <strong>✅ 9) Mini Student Activities (Super useful)</strong>
+        <ol class="activity-list">
+            <li><b>Activity 1</b> — Change text from "Welcome" to "Good Morning"</li>
+            <li><b>Activity 2</b> — Make a button and show:<br>“You clicked me!”</li>
+            <li><b>Activity 3</b> — Change text color using JS:
+                <pre><code>document.getElementById("output").style.color = "red";</code></pre>
+            </li>
+        </ol>
+    </div>
+
+    <!-- 10) Quick Revision / Summary (End of class) -->
+    <div class="mini-section">
+        <strong>✅ 10) Quick Revision / Summary (End of class)</strong>
+        <ul>
+            <li>✅ A programming language gives instructions to computer</li>
+            <li>✅ JavaScript is used for web interactivity</li>
+            <li>✅ &lt;script&gt; tag connects JS with HTML</li>
+            <li>✅ DOM lets JS change HTML</li>
+            <li>✅ <code>innerText</code> is used to print/change text</li>
+        </ul>
+    </div>
+
+    <!-- Bonus: One-Line Cheat Sheet (Give students) -->
+    <div class="mini-section">
+        <strong>✅ Bonus: One-Line Cheat Sheet (Give students)</strong>
+        <table class="cheat-sheet-table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Select element</td>
+                    <td><code>document.getElementById("id")</code></td>
+                </tr>
+                <tr>
+                    <td>Change text</td>
+                    <td><code>.innerText = "..."</code></td>
+                </tr>
+                <tr>
+                    <td>Change HTML</td>
+                    <td><code>.innerHTML = "&lt;b&gt;...&lt;/b&gt;"</code></td>
+                </tr>
+                <tr>
+                    <td>Change style</td>
+                    <td><code>.style.color = "red"</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
