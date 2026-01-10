@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>5️⃣ Sorting – ORDER BY</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>5️⃣ Sorting – ORDER BY</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">📘 Definition</div>
+            <div><strong>ORDER BY</strong> is used to sort data in ascending or descending order.</div>
+        </div>
+    </div>
+
+    <!-- ASCENDING -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1. Ascending Order (ASC)</b>
+            <div class="cheat-title">👉 Default Order</div>
+            <div>ASC is default (lowest to highest, A to Z)</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>SELECT * FROM students ORDER BY age ASC;
+
+-- Or simply (ASC is default)
+SELECT * FROM students ORDER BY age;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Cheapest product first</li>
+                    <li>Oldest orders first</li>
+                    <li>Alphabetical name list</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESCENDING -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2. Descending Order (DESC)</b>
+            <div class="cheat-title">👉 Highest to Lowest</div>
+            <div>DESC sorts from highest to lowest, Z to A</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>SELECT * FROM students ORDER BY age DESC;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Highest marks first</li>
+                    <li>Latest orders first</li>
+                    <li>Most expensive products first</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multiple Columns -->
+    <div class="section">
+        <div class="mini-section">
+            <b>3. Sort by Multiple Columns</b>
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Sort by city first, then by age
+SELECT * FROM students 
+ORDER BY city ASC, age DESC;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Combined with WHERE -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ ORDER BY with WHERE</b>
+            <div class="example-box">
+                <pre><code>-- Filter active students, then sort by age
+SELECT * FROM students 
+WHERE status = 'active' 
+ORDER BY age DESC;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="04-where.html" class="nav-link">← Previous: WHERE</a>
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+        <a href="06-distinct.html" class="nav-link" style="float: right;">Next: DISTINCT →</a>
+    </div>
+</body>
+
+</html>

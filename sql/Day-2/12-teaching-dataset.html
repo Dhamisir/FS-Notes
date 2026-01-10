@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>📊 Teaching Dataset (Create Tables & Sample Data)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 1000px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        .important {
+            background: #ffe5e5;
+            padding: 15px 20px;
+            border-left: 4px solid #e74c3c;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        .step {
+            counter-increment: step-counter;
+            margin: 15px 0;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #35baf6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📊 Teaching Dataset (Create Tables & Sample Data)</h1>
+
+    <div class="important">
+        <strong>🎓 Teaching Approach</strong>
+        <p>We'll use 3 tables: <strong>students</strong>, <strong>courses</strong>, and <strong>enrollments</strong>. 
+        This is enough to cover ALL SQL topics!</p>
+        <p><strong>💡 Tip:</strong> Create these tables first before teaching any SQL topic.</p>
+    </div>
+
+    <!-- Students Table -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1️⃣ STUDENTS TABLE (Main Table)</b>
+            <div class="example-box">
+                <b>🧠 CREATE TABLE Statement</b>
+                <pre><code>CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT CHECK (age >= 18),
+    email VARCHAR(100) UNIQUE,
+    city VARCHAR(30),
+    status VARCHAR(20) DEFAULT 'active'
+);</code></pre>
+            </div>
+
+            <div class="cheat-title">💡 What You Can Teach Using This Table:</div>
+            <div class="practice">
+                <ul>
+                    <li><strong>NOT NULL</strong> → name</li>
+                    <li><strong>CHECK</strong> → age >= 18</li>
+                    <li><strong>DEFAULT</strong> → status</li>
+                    <li><strong>PRIMARY KEY</strong> → student_id</li>
+                    <li><strong>UNIQUE</strong> → email</li>
+                    <li><strong>WHERE, ORDER BY, DISTINCT, LIKE, IS NULL</strong></li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <b>📝 INSERT DUMMY DATA</b>
+                <pre><code>INSERT INTO students VALUES
+(1, 'Amit', 20, 'amit@gmail.com', 'Delhi', 'active'),
+(2, 'Neha', 22, 'neha@gmail.com', 'Mumbai', 'active'),
+(3, 'Ravi', 19, 'ravi@gmail.com', 'Delhi', 'inactive'),
+(4, 'Priya', 21, 'priya@gmail.com', 'Pune', 'active'),
+(5, 'Karan', 23, NULL, 'Mumbai', 'active'),
+(6, 'Anjali', 20, 'anjali@gmail.com', 'Delhi', 'active'),
+(7, 'Rahul', 24, 'rahul@gmail.com', 'Pune', 'inactive');</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Table -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2️⃣ COURSES TABLE</b>
+            <div class="example-box">
+                <b>🧠 CREATE TABLE Statement</b>
+                <pre><code>CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50) NOT NULL,
+    fees INT CHECK (fees > 0)
+);</code></pre>
+            </div>
+
+            <div class="cheat-title">💡 What You Can Teach:</div>
+            <div class="practice">
+                <ul>
+                    <li>Constraints</li>
+                    <li>Primary key</li>
+                    <li>Real-life course data</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <b>📝 INSERT DATA</b>
+                <pre><code>INSERT INTO courses VALUES
+(101, 'Web Development', 15000),
+(102, 'Data Science', 25000),
+(103, 'Python', 12000),
+(104, 'SQL Basics', 8000);</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enrollments Table -->
+    <div class="section">
+        <div class="mini-section">
+            <b>3️⃣ ENROLLMENTS TABLE (Foreign Key + Joins)</b>
+            <div class="example-box">
+                <b>🧠 CREATE TABLE Statement</b>
+                <pre><code>CREATE TABLE enrollments (
+    enroll_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    enroll_date DATE,
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);</code></pre>
+            </div>
+
+            <div class="cheat-title">💡 What You Can Teach:</div>
+            <div class="practice">
+                <ul>
+                    <li>Foreign key</li>
+                    <li>One student → many courses (relationship)</li>
+                    <li>Joins</li>
+                    <li>Group by</li>
+                    <li>Aggregates</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <b>📝 INSERT DATA</b>
+                <pre><code>INSERT INTO enrollments VALUES
+(1, 1, 101, '2024-01-10'),
+(2, 1, 104, '2024-01-12'),
+(3, 2, 102, '2024-01-15'),
+(4, 3, 103, '2024-01-18'),
+(5, 4, 101, '2024-01-20'),
+(6, 5, 104, '2024-01-22'),
+(7, 6, 103, '2024-01-25'),
+(8, 6, 101, '2024-01-28'),
+(9, 7, 102, '2024-01-30');</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Setup Script -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ Complete Setup Script (Copy & Run All)</b>
+            <div class="example-box">
+                <b>🧠 Full SQL Script</b>
+                <pre><code>-- Step 1: Create Students Table
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT CHECK (age >= 18),
+    email VARCHAR(100) UNIQUE,
+    city VARCHAR(30),
+    status VARCHAR(20) DEFAULT 'active'
+);
+
+-- Step 2: Insert Students Data
+INSERT INTO students VALUES
+(1, 'Amit', 20, 'amit@gmail.com', 'Delhi', 'active'),
+(2, 'Neha', 22, 'neha@gmail.com', 'Mumbai', 'active'),
+(3, 'Ravi', 19, 'ravi@gmail.com', 'Delhi', 'inactive'),
+(4, 'Priya', 21, 'priya@gmail.com', 'Pune', 'active'),
+(5, 'Karan', 23, NULL, 'Mumbai', 'active'),
+(6, 'Anjali', 20, 'anjali@gmail.com', 'Delhi', 'active'),
+(7, 'Rahul', 24, 'rahul@gmail.com', 'Pune', 'inactive');
+
+-- Step 3: Create Courses Table
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50) NOT NULL,
+    fees INT CHECK (fees > 0)
+);
+
+-- Step 4: Insert Courses Data
+INSERT INTO courses VALUES
+(101, 'Web Development', 15000),
+(102, 'Data Science', 25000),
+(103, 'Python', 12000),
+(104, 'SQL Basics', 8000);
+
+-- Step 5: Create Enrollments Table
+CREATE TABLE enrollments (
+    enroll_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    enroll_date DATE,
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+-- Step 6: Insert Enrollments Data
+INSERT INTO enrollments VALUES
+(1, 1, 101, '2024-01-10'),
+(2, 1, 104, '2024-01-12'),
+(3, 2, 102, '2024-01-15'),
+(4, 3, 103, '2024-01-18'),
+(5, 4, 101, '2024-01-20'),
+(6, 5, 104, '2024-01-22'),
+(7, 6, 103, '2024-01-25'),
+(8, 6, 101, '2024-01-28'),
+(9, 7, 102, '2024-01-30');
+
+-- Step 7: Verify Data
+SELECT * FROM students;
+SELECT * FROM courses;
+SELECT * FROM enrollments;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teaching Flow -->
+    <div class="section">
+        <div class="mini-section">
+            <b>🧑‍🏫 HOW TO TEACH USING THIS DATA (SEQUENCE)</b>
+            <div class="practice">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Basic SELECT</strong>
+                    <br><code>SELECT * FROM students;</code>
+                    <br><code>SELECT name, city FROM students;</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>WHERE & Operators</strong>
+                    <br><code>SELECT * FROM students WHERE city = 'Delhi';</code>
+                    <br><code>SELECT * FROM students WHERE age > 21;</code>
+                    <br><code>SELECT * FROM students WHERE status = 'active' AND city = 'Mumbai';</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>ORDER BY</strong>
+                    <br><code>SELECT * FROM students ORDER BY age DESC;</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>DISTINCT</strong>
+                    <br><code>SELECT DISTINCT city FROM students;</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>LIKE</strong>
+                    <br><code>SELECT * FROM students WHERE name LIKE 'A%';</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">6</span>
+                    <strong>IS NULL</strong>
+                    <br><code>SELECT * FROM students WHERE email IS NULL;</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">7</span>
+                    <strong>Aggregate Functions</strong>
+                    <br><code>SELECT COUNT(*) FROM students;</code>
+                    <br><code>SELECT MAX(age) FROM students;</code>
+                    <br><code>SELECT MIN(age) FROM students;</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">8</span>
+                    <strong>GROUP BY</strong>
+                    <br><code>SELECT city, COUNT(*) FROM students GROUP BY city;</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">9</span>
+                    <strong>HAVING</strong>
+                    <br><code>SELECT city, COUNT(*) FROM students GROUP BY city HAVING COUNT(*) > 2;</code>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">10</span>
+                    <strong>JOINS (Real Power!)</strong>
+                    <br><code>SELECT s.name, c.course_name FROM enrollments e JOIN students s ON e.student_id = s.student_id JOIN courses c ON e.course_id = c.course_id;</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Summary -->
+    <div class="section">
+        <div class="mini-section">
+            <b>📋 Data Summary</b>
+            <div class="practice">
+                <ul>
+                    <li><strong>7 students</strong> across 3 cities (Delhi, Mumbai, Pune)</li>
+                    <li><strong>4 courses</strong> with different fees</li>
+                    <li><strong>9 enrollments</strong> showing which student took which course</li>
+                    <li>One student (Karan) has <strong>NULL email</strong> (for IS NULL examples)</li>
+                    <li>Some students have <strong>multiple enrollments</strong> (for GROUP BY)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="11-joins.html" class="nav-link">← Previous: JOINS</a>
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+    </div>
+</body>
+
+</html>

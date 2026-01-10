@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>7️⃣ Operators (Conditions)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background: #35baf6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>7️⃣ Operators (Conditions)</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">📘 Definition</div>
+            <div>Operators help combine multiple conditions in WHERE clause.</div>
+        </div>
+    </div>
+
+    <!-- Operators Table -->
+    <div class="section">
+        <div class="mini-section">
+            <b>📊 Operators Reference</b>
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Meaning</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>AND</code></td>
+                    <td>Both conditions true</td>
+                    <td><code>age > 18 AND city='Delhi'</code></td>
+                </tr>
+                <tr>
+                    <td><code>OR</code></td>
+                    <td>Any one true</td>
+                    <td><code>city='Delhi' OR city='Mumbai'</code></td>
+                </tr>
+                <tr>
+                    <td><code>NOT</code></td>
+                    <td>Opposite</td>
+                    <td><code>NOT status='inactive'</code></td>
+                </tr>
+                <tr>
+                    <td><code>IN</code></td>
+                    <td>Match list</td>
+                    <td><code>city IN ('Delhi','Pune')</code></td>
+                </tr>
+                <tr>
+                    <td><code>BETWEEN</code></td>
+                    <td>Range</td>
+                    <td><code>age BETWEEN 18 AND 25</code></td>
+                </tr>
+                <tr>
+                    <td><code>IS NULL</code></td>
+                    <td>Empty value</td>
+                    <td><code>email IS NULL</code></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- AND -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1. AND Operator</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Both conditions must be true</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>SELECT * FROM students 
+WHERE age > 18 AND city = 'Delhi';</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows students who are above 18 AND from Delhi
+            </div>
+        </div>
+    </div>
+
+    <!-- OR -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2. OR Operator</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>At least one condition must be true</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>SELECT * FROM students 
+WHERE city = 'Delhi' OR city = 'Mumbai';</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows students from Delhi OR Mumbai
+            </div>
+        </div>
+    </div>
+
+    <!-- NOT -->
+    <div class="section">
+        <div class="mini-section">
+            <b>3. NOT Operator</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Opposite of the condition</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>SELECT * FROM students 
+WHERE NOT status = 'inactive';
+
+-- Same as:
+SELECT * FROM students 
+WHERE status != 'inactive';</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows all students except inactive ones
+            </div>
+        </div>
+    </div>
+
+    <!-- IN -->
+    <div class="section">
+        <div class="mini-section">
+            <b>4. IN Operator</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Matches any value in a list</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>SELECT * FROM students 
+WHERE city IN ('Delhi', 'Pune', 'Mumbai');</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows students from Delhi, Pune, or Mumbai
+                <br><small>Same as: <code>city='Delhi' OR city='Pune' OR city='Mumbai'</code></small>
+            </div>
+        </div>
+    </div>
+
+    <!-- BETWEEN -->
+    <div class="section">
+        <div class="mini-section">
+            <b>5. BETWEEN Operator</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Checks if value is in a range (inclusive)</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>SELECT * FROM students 
+WHERE age BETWEEN 18 AND 25;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows students with age between 18 and 25 (both included)
+                <br><small>Same as: <code>age >= 18 AND age <= 25</code></small>
+            </div>
+        </div>
+    </div>
+
+    <!-- IS NULL -->
+    <div class="section">
+        <div class="mini-section">
+            <b>6. IS NULL Operator</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Checks for empty/NULL values</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Find students with no email
+SELECT * FROM students 
+WHERE email IS NULL;
+
+-- Find students with email
+SELECT * FROM students 
+WHERE email IS NOT NULL;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows students who have no email address
+            </div>
+        </div>
+    </div>
+
+    <!-- Combined Examples -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ Combined Examples</b>
+            <div class="example-box">
+                <pre><code>-- Multiple conditions
+SELECT * FROM students 
+WHERE status = 'active' 
+  AND city IN ('Delhi', 'Mumbai') 
+  AND age BETWEEN 18 AND 25;
+
+-- Complex query
+SELECT * FROM students 
+WHERE (city = 'Delhi' OR city = 'Pune') 
+  AND status = 'active' 
+  AND email IS NOT NULL;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Filter customers by multiple conditions</li>
+                    <li>Search forms with multiple filters</li>
+                    <li>Advanced filtering in reports</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="06-distinct.html" class="nav-link">← Previous: DISTINCT</a>
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+        <a href="08-like.html" class="nav-link" style="float: right;">Next: LIKE →</a>
+    </div>
+</body>
+
+</html>

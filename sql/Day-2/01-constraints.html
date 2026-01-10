@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>1️⃣ Constraints (Rules on Table Columns)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>1️⃣ Constraints (Rules on Table Columns)</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">📘 Definition</div>
+            <div><strong>Constraint</strong> = rule you apply on a column to keep data correct and meaningful.</div>
+        </div>
+    </div>
+
+    <!-- NOT NULL -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1. NOT NULL</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Column cannot be empty</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>CREATE TABLE students (
+    name VARCHAR(50) NOT NULL
+);</code></pre>
+            </div>
+
+            <div class="cheat-title">💡 Meaning</div>
+            <div>Every student must have a name</div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Name, email, phone → usually NOT NULL</li>
+                    <li>Because missing these makes data useless</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECK -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2. CHECK</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Restricts values using a condition</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>CREATE TABLE students (
+    age INT CHECK (age >= 18)
+);</code></pre>
+            </div>
+
+            <div class="cheat-title">💡 Meaning</div>
+            <div>Age must be 18 or above</div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Age ≥ 18 for voting</li>
+                    <li>Salary ≥ 0</li>
+                    <li>Marks between 0–100</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DEFAULT -->
+    <div class="section">
+        <div class="mini-section">
+            <b>3. DEFAULT</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Sets a value automatically if user doesn't give one</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>CREATE TABLE students (
+    status VARCHAR(20) DEFAULT 'active'
+);</code></pre>
+            </div>
+
+            <div class="cheat-title">💡 Meaning</div>
+            <div>If no status given → active</div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Account status = active</li>
+                    <li>Country = India</li>
+                    <li>Role = user</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Combined Example -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ Complete Example (All Constraints Together)</b>
+            <div class="example-box">
+                <pre><code>CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT CHECK (age >= 18),
+    email VARCHAR(100) UNIQUE,
+    status VARCHAR(20) DEFAULT 'active'
+);</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+        <a href="02-keys.html" class="nav-link" style="float: right;">Next: Keys →</a>
+    </div>
+</body>
+
+</html>

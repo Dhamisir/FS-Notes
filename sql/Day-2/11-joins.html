@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🔟+1️⃣ JOINS (Combining Tables)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔟+1️⃣ JOINS (Combining Tables)</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">📘 Definition</div>
+            <div><strong>JOIN</strong> combines rows from two or more tables based on a related column.</div>
+        </div>
+    </div>
+
+    <!-- Why JOIN -->
+    <div class="section">
+        <div class="mini-section">
+            <b>💡 Why Use JOIN?</b>
+            <div class="practice">
+                <p>Our tables are related:</p>
+                <ul>
+                    <li><strong>students</strong> table has student information</li>
+                    <li><strong>enrollments</strong> table links students to courses</li>
+                    <li><strong>courses</strong> table has course information</li>
+                </ul>
+                <p>JOIN helps us see all this information together!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- INNER JOIN -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1. INNER JOIN (Most Common)</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Returns only matching rows from both tables</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Show student names with their enrolled courses
+SELECT s.name, c.course_name
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id
+JOIN courses c ON e.course_id = c.course_id;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows which student is enrolled in which course
+                <br><small>Only shows students who have enrollments</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOIN Explanation -->
+    <div class="section">
+        <div class="mini-section">
+            <b>🔍 How JOIN Works</b>
+            <div class="example-box">
+                <pre><code>-- Step 1: Start with enrollments table
+-- Step 2: JOIN students table using student_id
+-- Step 3: JOIN courses table using course_id
+-- Result: We get student name + course name together
+
+SELECT 
+    s.name AS student_name,
+    c.course_name,
+    e.enroll_date
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id
+JOIN courses c ON e.course_id = c.course_id;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple JOIN Example -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2. Simple Two-Table JOIN</b>
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Students with their enrollment dates
+SELECT s.name, e.enroll_date
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOIN with WHERE -->
+    <div class="section">
+        <div class="mini-section">
+            <b>3. JOIN with WHERE Clause</b>
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Active students and their courses
+SELECT s.name, c.course_name
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id
+JOIN courses c ON e.course_id = c.course_id
+WHERE s.status = 'active';</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOIN with Aggregate -->
+    <div class="section">
+        <div class="mini-section">
+            <b>4. JOIN with Aggregate Functions</b>
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Count courses per student
+SELECT s.name, COUNT(c.course_id) AS course_count
+FROM students s
+JOIN enrollments e ON s.student_id = e.student_id
+JOIN courses c ON e.course_id = c.course_id
+GROUP BY s.name;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- LEFT JOIN -->
+    <div class="section">
+        <div class="mini-section">
+            <b>5. LEFT JOIN (Optional)</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Returns all rows from left table, even if no match in right table</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Show ALL students, even if they have no enrollment
+SELECT s.name, c.course_name
+FROM students s
+LEFT JOIN enrollments e ON s.student_id = e.student_id
+LEFT JOIN courses c ON e.course_id = c.course_id;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows all students, course_name will be NULL for students with no enrollments
+            </div>
+        </div>
+    </div>
+
+    <!-- Real Life Examples -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ Complete Real-Life Examples</b>
+            <div class="example-box">
+                <pre><code>-- Example 1: Student names with course names and fees
+SELECT 
+    s.name AS student_name,
+    c.course_name,
+    c.fees
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id
+JOIN courses c ON e.course_id = c.course_id;
+
+-- Example 2: Total fees per student
+SELECT 
+    s.name,
+    SUM(c.fees) AS total_fees
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id
+JOIN courses c ON e.course_id = c.course_id
+GROUP BY s.name;
+
+-- Example 3: Courses enrolled by students from Delhi
+SELECT 
+    s.name,
+    c.course_name
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id
+JOIN courses c ON e.course_id = c.course_id
+WHERE s.city = 'Delhi';</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOIN Types Summary -->
+    <div class="section">
+        <div class="mini-section">
+            <b>📊 JOIN Types Summary</b>
+            <div class="practice">
+                <ul>
+                    <li><strong>INNER JOIN</strong> (or just JOIN): Only matching rows</li>
+                    <li><strong>LEFT JOIN</strong>: All rows from left table + matching from right</li>
+                    <li><strong>RIGHT JOIN</strong>: All rows from right table + matching from left</li>
+                    <li><strong>FULL JOIN</strong>: All rows from both tables</li>
+                </ul>
+                <p><small>For beginners, focus on INNER JOIN first!</small></p>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="10-aggregate-functions.html" class="nav-link">← Previous: Aggregate Functions</a>
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+        <a href="12-teaching-dataset.html" class="nav-link" style="float: right;">Next: Teaching Dataset →</a>
+    </div>
+</body>
+
+</html>

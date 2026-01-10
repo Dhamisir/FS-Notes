@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🔟 Aggregate Functions (Summary Data)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background: #35baf6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔟 Aggregate Functions (Summary Data)</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">📘 Definition</div>
+            <div><strong>Aggregate Functions</strong> calculate totals, averages, counts from multiple rows.</div>
+        </div>
+    </div>
+
+    <!-- Functions Table -->
+    <div class="section">
+        <div class="mini-section">
+            <b>📊 Aggregate Functions Reference</b>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Use</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>COUNT()</code></td>
+                    <td>Number of rows</td>
+                    <td><code>COUNT(*)</code></td>
+                </tr>
+                <tr>
+                    <td><code>SUM()</code></td>
+                    <td>Total</td>
+                    <td><code>SUM(salary)</code></td>
+                </tr>
+                <tr>
+                    <td><code>AVG()</code></td>
+                    <td>Average</td>
+                    <td><code>AVG(age)</code></td>
+                </tr>
+                <tr>
+                    <td><code>MAX()</code></td>
+                    <td>Highest value</td>
+                    <td><code>MAX(marks)</code></td>
+                </tr>
+                <tr>
+                    <td><code>MIN()</code></td>
+                    <td>Lowest value</td>
+                    <td><code>MIN(age)</code></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- COUNT -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1. COUNT() - Count Rows</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Returns the number of rows</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Count all students
+SELECT COUNT(*) FROM students;
+
+-- Count students with email
+SELECT COUNT(email) FROM students;
+
+-- Count with condition
+SELECT COUNT(*) FROM students WHERE city = 'Delhi';</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Total number of users</li>
+                    <li>Number of orders today</li>
+                    <li>Count of active students</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUM -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2. SUM() - Total</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Adds all values in a column</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Total fees from enrollments
+SELECT SUM(fees) FROM courses;
+
+-- Total salary in company
+SELECT SUM(salary) FROM employees;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Total revenue</li>
+                    <li>Total sales amount</li>
+                    <li>Sum of all salaries</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- AVG -->
+    <div class="section">
+        <div class="mini-section">
+            <b>3. AVG() - Average</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Calculates average value</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Average age of students
+SELECT AVG(age) FROM students;
+
+-- Average salary
+SELECT AVG(salary) FROM employees;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Average marks</li>
+                    <li>Average salary per department</li>
+                    <li>Average order value</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAX -->
+    <div class="section">
+        <div class="mini-section">
+            <b>4. MAX() - Maximum Value</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Returns highest value</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Highest age
+SELECT MAX(age) FROM students;
+
+-- Highest marks
+SELECT MAX(marks) FROM students;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Highest salary</li>
+                    <li>Maximum order value</li>
+                    <li>Top score</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- MIN -->
+    <div class="section">
+        <div class="mini-section">
+            <b>5. MIN() - Minimum Value</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Returns lowest value</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Lowest age
+SELECT MIN(age) FROM students;
+
+-- Lowest price
+SELECT MIN(price) FROM products;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Lowest price</li>
+                    <li>Minimum salary</li>
+                    <li>Cheapest product</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multiple Aggregates -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ Multiple Aggregate Functions</b>
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Get all statistics at once
+SELECT 
+    COUNT(*) as total_students,
+    AVG(age) as avg_age,
+    MAX(age) as max_age,
+    MIN(age) as min_age
+FROM students;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- With GROUP BY -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ Aggregate Functions with GROUP BY</b>
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Count students per city
+SELECT city, COUNT(*) 
+FROM students 
+GROUP BY city;
+
+-- Average age per city
+SELECT city, AVG(age) 
+FROM students 
+GROUP BY city;
+
+-- Max and Min age per city
+SELECT city, MAX(age), MIN(age) 
+FROM students 
+GROUP BY city;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>💡 Note:</b> When using GROUP BY, aggregate functions calculate per group
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Example -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ Complete Example</b>
+            <div class="example-box">
+                <pre><code>-- Statistics per city (only active students)
+SELECT 
+    city,
+    COUNT(*) as total,
+    AVG(age) as avg_age,
+    MAX(age) as oldest,
+    MIN(age) as youngest
+FROM students 
+WHERE status = 'active'
+GROUP BY city
+HAVING COUNT(*) > 1
+ORDER BY total DESC;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="09-group-by-having.html" class="nav-link">← Previous: GROUP BY & HAVING</a>
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+        <a href="11-joins.html" class="nav-link" style="float: right;">Next: JOINS →</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>9️⃣ GROUP BY & HAVING</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        .warning {
+            background: #ffe5e5;
+            padding: 10px 15px;
+            border-left: 4px solid #e74c3c;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>9️⃣ GROUP BY & HAVING</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">📘 Definition</div>
+            <div><strong>GROUP BY</strong> groups rows with the same value. <strong>HAVING</strong> filters after grouping.</div>
+        </div>
+    </div>
+
+    <!-- GROUP BY Basics -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1. GROUP BY - Basic Usage</b>
+            <div class="cheat-title">👉 Syntax</div>
+            <div><code>SELECT column, aggregate_function() FROM table GROUP BY column;</code></div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Count students per city
+SELECT city, COUNT(*) 
+FROM students 
+GROUP BY city;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows how many students are in each city
+                <br><small>Example output: Delhi: 3, Mumbai: 2, Pune: 2</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- How GROUP BY Works -->
+    <div class="section">
+        <div class="mini-section">
+            <b>💡 How GROUP BY Works</b>
+            <div class="example-box">
+                <pre><code>-- Before GROUP BY (raw data):
+student_id | name  | city
+-----------|-------|------
+1          | Amit  | Delhi
+2          | Neha  | Mumbai
+3          | Ravi  | Delhi
+4          | Priya | Pune
+
+-- After GROUP BY city:
+city   | COUNT(*)
+-------|---------
+Delhi  | 2
+Mumbai | 1
+Pune   | 1</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- More GROUP BY Examples -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ More GROUP BY Examples</b>
+            <div class="example-box">
+                <pre><code>-- Count students per city
+SELECT city, COUNT(*) 
+FROM students 
+GROUP BY city;
+
+-- Average age per city
+SELECT city, AVG(age) 
+FROM students 
+GROUP BY city;
+
+-- Group by multiple columns
+SELECT city, status, COUNT(*) 
+FROM students 
+GROUP BY city, status;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Users per city</li>
+                    <li>Sales per month</li>
+                    <li>Employees per department</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- HAVING -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2. HAVING - Filter After Grouping</b>
+            <div class="cheat-title">👉 Important Difference</div>
+            <div class="warning">
+                <strong>⚠️ WHERE vs HAVING:</strong>
+                <ul>
+                    <li><strong>WHERE</strong> filters rows BEFORE grouping</li>
+                    <li><strong>HAVING</strong> filters groups AFTER grouping</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Cities with more than 2 students
+SELECT city, COUNT(*) 
+FROM students 
+GROUP BY city 
+HAVING COUNT(*) > 2;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Result:</b> Shows only cities that have more than 2 students
+            </div>
+        </div>
+    </div>
+
+    <!-- HAVING vs WHERE -->
+    <div class="section">
+        <div class="mini-section">
+            <b>📊 WHERE vs HAVING Comparison</b>
+            <div class="example-box">
+                <pre><code>-- WHERE: Filter before grouping
+SELECT city, COUNT(*) 
+FROM students 
+WHERE age > 20          -- Filter individual rows first
+GROUP BY city;
+
+-- HAVING: Filter after grouping
+SELECT city, COUNT(*) 
+FROM students 
+GROUP BY city 
+HAVING COUNT(*) > 2;    -- Filter groups after counting</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Combined Example -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ Complete Example (WHERE + GROUP BY + HAVING)</b>
+            <div class="example-box">
+                <pre><code>-- Step by step:
+-- 1. WHERE: Get only active students
+-- 2. GROUP BY: Group by city
+-- 3. HAVING: Show cities with more than 1 active student
+SELECT city, COUNT(*) 
+FROM students 
+WHERE status = 'active'    -- Filter rows first
+GROUP BY city              -- Group by city
+HAVING COUNT(*) > 1;       -- Filter groups after</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- More HAVING Examples -->
+    <div class="section">
+        <div class="mini-section">
+            <b>✅ More HAVING Examples</b>
+            <div class="example-box">
+                <pre><code>-- Cities with more than 10 users
+SELECT city, COUNT(*) 
+FROM users 
+GROUP BY city 
+HAVING COUNT(*) > 10;
+
+-- Products sold more than 100 times
+SELECT product_id, SUM(quantity) 
+FROM orders 
+GROUP BY product_id 
+HAVING SUM(quantity) > 100;
+
+-- Average age per city (only cities with avg age > 21)
+SELECT city, AVG(age) 
+FROM students 
+GROUP BY city 
+HAVING AVG(age) > 21;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Cities with more than 10 users</li>
+                    <li>Products sold more than 100 times</li>
+                    <li>Departments with average salary above threshold</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="08-like.html" class="nav-link">← Previous: LIKE</a>
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+        <a href="10-aggregate-functions.html" class="nav-link" style="float: right;">Next: Aggregate Functions →</a>
+    </div>
+</body>
+
+</html>

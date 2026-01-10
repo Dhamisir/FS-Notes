@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>6️⃣ DISTINCT</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>6️⃣ DISTINCT</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">📘 Definition</div>
+            <div><strong>DISTINCT</strong> removes duplicate values from the result.</div>
+        </div>
+    </div>
+
+    <!-- Basic DISTINCT -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1. Basic DISTINCT</b>
+            <div class="cheat-title">👉 Syntax</div>
+            <div><code>SELECT DISTINCT column FROM table;</code></div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Without DISTINCT (shows duplicates)
+SELECT city FROM students;
+
+-- With DISTINCT (removes duplicates)
+SELECT DISTINCT city FROM students;</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>List of cities users belong to</li>
+                    <li>Unique departments in company</li>
+                    <li>List of all countries</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multiple Columns -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2. DISTINCT with Multiple Columns</b>
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>-- Unique combinations of city and status
+SELECT DISTINCT city, status FROM students;</code></pre>
+            </div>
+            <div class="cheat-title">💡 Note</div>
+            <div>This returns unique combinations of both columns together.</div>
+        </div>
+    </div>
+
+    <!-- Comparison Example -->
+    <div class="section">
+        <div class="mini-section">
+            <b>📊 Before vs After DISTINCT</b>
+            <div class="example-box">
+                <pre><code>-- Before: Shows all cities (with duplicates)
+SELECT city FROM students;
+-- Result: Delhi, Mumbai, Delhi, Pune, Mumbai, Delhi, Pune
+
+-- After: Shows unique cities only
+SELECT DISTINCT city FROM students;
+-- Result: Delhi, Mumbai, Pune</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="05-order-by.html" class="nav-link">← Previous: ORDER BY</a>
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+        <a href="07-operators.html" class="nav-link" style="float: right;">Next: Operators →</a>
+    </div>
+</body>
+
+</html>

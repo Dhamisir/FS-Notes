@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2️⃣ Keys in Database (Uniqueness & Relationships)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background: #35baf6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>2️⃣ Keys in Database (Uniqueness & Relationships)</h1>
+
+    <!-- Primary Key -->
+    <div class="section">
+        <div class="mini-section">
+            <b>1. Primary Key</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <ul>
+                <li>Uniquely identifies each row</li>
+                <li>Cannot be NULL, cannot repeat</li>
+            </ul>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50)
+);</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Aadhaar number</li>
+                    <li>Employee ID</li>
+                    <li>Roll number</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate Key -->
+    <div class="section">
+        <div class="mini-section">
+            <b>2. Candidate Key</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Columns that can become primary key</div>
+
+            <div class="example-box">
+                <b>🧠 Example</b>
+                <ul>
+                    <li>Email</li>
+                    <li>Phone number</li>
+                </ul>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Email is unique</li>
+                    <li>Phone number is unique</li>
+                    <li>But only one is chosen as Primary Key</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Foreign Key -->
+    <div class="section">
+        <div class="mini-section">
+            <b>3. Foreign Key</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Creates relationship between tables</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);</code></pre>
+            </div>
+
+            <div class="cheat-title">💡 Meaning</div>
+            <div>Order belongs to a user</div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Student belongs to a class</li>
+                    <li>Employee belongs to a department</li>
+                    <li>Order belongs to a customer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNIQUE -->
+    <div class="section">
+        <div class="mini-section">
+            <b>4. UNIQUE</b>
+            <div class="cheat-title">👉 Meaning</div>
+            <div>Value must be unique but can be NULL</div>
+
+            <div class="example-box">
+                <b>🧠 Example Code</b>
+                <pre><code>CREATE TABLE students (
+    email VARCHAR(50) UNIQUE
+);</code></pre>
+            </div>
+
+            <div class="practice">
+                <b>📝 Real Life Usage:</b>
+                <ul>
+                    <li>Email ID</li>
+                    <li>Username</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="section">
+        <div class="mini-section">
+            <b>📊 Key Comparison</b>
+            <table>
+                <tr>
+                    <th>Key Type</th>
+                    <th>Can be NULL?</th>
+                    <th>Can Repeat?</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td>Primary Key</td>
+                    <td>❌ No</td>
+                    <td>❌ No</td>
+                    <td>Identify each row uniquely</td>
+                </tr>
+                <tr>
+                    <td>UNIQUE</td>
+                    <td>✅ Yes (one NULL allowed)</td>
+                    <td>❌ No</td>
+                    <td>Ensure uniqueness</td>
+                </tr>
+                <tr>
+                    <td>Foreign Key</td>
+                    <td>✅ Yes</td>
+                    <td>✅ Yes</td>
+                    <td>Link to another table</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="01-constraints.html" class="nav-link">← Previous: Constraints</a>
+        <a href="sql-index.html" class="nav-link">← Back to Index</a>
+        <a href="03-select.html" class="nav-link" style="float: right;">Next: SELECT →</a>
+    </div>
+</body>
+
+</html>
