@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>8️⃣ Day 1 Assignment – React Basics</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #d35400;
+            border-bottom: 3px solid #e67e22;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #fffef7;
+            padding: 16px 22px;
+            border-left: 4px solid #f1c40f;
+            border-radius: 6px;
+        }
+
+        .task-box {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .task-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        .badge {
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+        }
+
+        /* Solution Styles */
+        details {
+            margin-top: 10px;
+            background: #f0f7ff;
+            border-radius: 6px;
+            padding: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #0066cc;
+            outline: none;
+        }
+
+        summary:hover {
+            color: #004499;
+        }
+
+        .solution-content {
+            margin-top: 10px;
+            padding: 10px;
+            background: #ffffff;
+            border-left: 3px solid #0066cc;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎯 Day 1 Assignment: Getting Started</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <p>Welcome to your first React assignment! These tasks will help you understand the core concepts we
+                discussed today.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <!-- Task 1 -->
+        <div class="task-box">
+            <span class="badge">Task 1</span>
+            <span class="task-title">Build Your First React App</span>
+            <p>Use Vite to create a new project named <code>my-first-react-app</code>. Clear the default code in
+                <code>App.jsx</code> and make it display "Hello, I am [Your Name], and I am learning React!"
+            </p>
+
+            <details>
+                <summary>💡 View Solution</summary>
+                <div class="solution-content">
+                    <p>Modify <code>App.jsx</code>:</p>
+                    <pre><code>function App() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Hello, I am [Your Name], and I am learning React!&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</code></pre>
+                </div>
+            </details>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="task-box">
+            <span class="badge">Task 2</span>
+            <span class="task-title">Component Practice</span>
+            <p>Create a new component folder. Inside, create a <code>Header.jsx</code> and a <code>Footer.jsx</code>
+                component. Import and show them in your <code>App.jsx</code>.</p>
+
+            <details>
+                <summary>💡 View Solution</summary>
+                <div class="solution-content">
+                    <p><b>1. Header.jsx:</b></p>
+                    <pre><code>export default function Header() {
+  return &lt;header&gt;&lt;h2&gt;My Awesome Page&lt;/h2&gt;&lt;/header&gt;;
+}</code></pre>
+                    <p><b>2. Footer.jsx:</b></p>
+                    <pre><code>export default function Footer() {
+  return &lt;footer&gt;&lt;p&gt;© 2024 My Portfolio&lt;/p&gt;&lt;/footer&gt;;
+}</code></pre>
+                    <p><b>3. App.jsx:</b></p>
+                    <pre><code>import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Header /&gt;
+      &lt;h1&gt;Welcome to My Site&lt;/h1&gt;
+      &lt;Footer /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</code></pre>
+                </div>
+            </details>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="task-box">
+            <span class="badge">Task 3</span>
+            <span class="task-title">JSX Challenge</span>
+            <p>Create a variable <code>currentTime</code> using <code>new Date().toLocaleTimeString()</code>. Display it
+                in your component using JSX curly braces. Check if it updates when you refresh the page.</p>
+
+            <details>
+                <summary>💡 View Solution</summary>
+                <div class="solution-content">
+                    <pre><code>function App() {
+  const currentTime = new Date().toLocaleTimeString();
+
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Current Time: {currentTime}&lt;/h1&gt;
+      &lt;p&gt;Refresh the page to see the time update!&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</code></pre>
+                </div>
+            </details>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="task-box">
+            <span class="badge">Task 4 (Theoretical)</span>
+            <span class="task-title">The "Why React" Summary</span>
+            <p>Write down 3 differences between a Traditional Website (MPA) and a Single Page Application (SPA) in your
+                own words.</p>
+
+            <details>
+                <summary>💡 View Solution</summary>
+                <div class="solution-content">
+                    <ul>
+                        <li><b>Reloading:</b> MPA reloads the whole page on every click; SPA only updates the part that
+                            changed.</li>
+                        <li><b>Performance:</b> SPA feels faster and smoother after initial load; MPA can have "white
+                            flashes" between pages.</li>
+                        <li><b>Data:</b> MPA requests full HTML from server; SPA usually requests only data (JSON) and
+                            updates UI using JavaScript.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <div class="section"
+        style="background: #e8f8f5; padding: 20px; border-radius: 8px; border-left: 5px solid #1abc9c;">
+        <h3 style="color: #16a085; margin-top: 0;">🚀 Why React is Powerful?</h3>
+        <p>Imagine building a Facebook feed. In traditional JS, adding a new post means manually finding the container,
+            creating 10+ elements (div, img, span, p), setting their classes, and appending them. <strong>In React, you
+                just add the post to a list (Array), and React handles the UI!</strong></p>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="07-components-jsx.html" class="nav-link">← Previous</a>
+        <a href="react-index.html" class="nav-link" style="float: right;">Back to Index</a>
+    </div>
+</body>
+
+</html>

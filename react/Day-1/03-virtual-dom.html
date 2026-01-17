@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3️⃣ Virtual DOM & Performance</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .mini-section {
+            margin-top: 20px;
+            background: #f7fcff;
+            padding: 16px 22px;
+            border-left: 4px solid #35baf6;
+            border-radius: 6px;
+        }
+
+        .example-box {
+            background: #f5fff5;
+            border-left: 4px solid #27ae60;
+            padding: 12px 17px;
+            margin: 13px 0;
+        }
+
+        .practice {
+            background: #fff8e1;
+            padding: 5px 12px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+
+        code,
+        pre {
+            background: #f4f4f6;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+        }
+
+        pre {
+            padding: 12px;
+            overflow-x: auto;
+        }
+
+        .cheat-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #195568;
+            margin-top: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>3️⃣ Virtual DOM & Performance Optimization</h1>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">📂 What is DOM?</div>
+            <div><strong>DOM</strong> = Document Object Model. It represents the HTML structure as a tree.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">❌ Problem with Real DOM</div>
+            <ul>
+                <li>Updating the Real DOM is slow</li>
+                <li>Changing one thing might cause the entire page to re-render</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">⚡ What is Virtual DOM?</div>
+            <div>Virtual DOM is a <strong>lightweight copy</strong> of the real DOM stored in memory.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="mini-section">
+            <div class="cheat-title">🔄 How Virtual DOM Works</div>
+            <ol>
+                <li>React creates a <strong>Virtual DOM</strong> when the app loads.</li>
+                <li>When a change happens, React creates a <strong>New Virtual DOM</strong>.</li>
+                <li>React compares the old vs new Virtual DOM (<strong>Diffing</strong>).</li>
+                <li>React updates <strong>only the changed parts</strong> in the real DOM.</li>
+            </ol>
+            <div class="example-box">
+                <b>🚀 Result</b><br>
+                ⚡ Faster performance & Less memory usage
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="02-why-react.html" class="nav-link">← Previous</a>
+        <a href="04-spa-vs-mpa.html" class="nav-link" style="float: right;">Next: SPA vs MPA →</a>
+    </div>
+</body>
+
+</html>

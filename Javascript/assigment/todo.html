@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #todoInput {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .parent {
+            display: flex;
+            gap: 20px;
+        }
+
+        #addBtn {
+            width: 25%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #addBtn:hover {
+            background-color: #45a049;
+        }
+
+        #todoList {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        #todoList div {
+            background-color: #f1f1f1;
+            margin: 10px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple Todo App</h1>
+
+    <div class="parent">
+        <input type="text" id="todoInput" placeholder="Enter a todo item...">
+        <button id="addBtn" onclick="addTodo()">Add</button>
+    </div>
+    <div id="todoList"></div>
+
+    <script>
+        function addTodo() {
+            const todoInput = document.getElementById('todoInput').value;
+            const todoList = document.getElementById('todoList');
+            const div = document.createElement('div');
+            div.innerText = todoInput;
+            todoList.appendChild(div);
+        }
+    </script>
+</body>
+
+</html>
