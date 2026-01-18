@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2️⃣ Basic Setup & Routes – React Day 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            position: relative;
+            margin: 20px 0;
+            font-family: 'Consolas', monospace;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: #0174af;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .note-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-prev {
+            background: #e3f2fd;
+            color: #0174af;
+        }
+
+        .btn-next {
+            background: #0174af;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🛠️ Basic Setup & Defining Routes</h1>
+
+    <p>React doesn't have a built-in router, so we use a very popular library called <code>react-router-dom</code>.</p>
+
+    <span class="step-badge">Step 1</span>
+    <h3>Install the Library</h3>
+    <div class="code-block">
+        npm install react-router-dom
+    </div>
+
+    <span class="step-badge">Step 2</span>
+    <h3>Wrap your App with BrowserRouter</h3>
+    <p>In your <code>main.jsx</code> or <code>App.jsx</code>, import <code>BrowserRouter</code> and wrap your entire
+        application code with it.</p>
+    <div class="code-block">
+        import { BrowserRouter } from "react-router-dom";<br><br>
+        function App() {<br>
+        &nbsp;&nbsp;return (<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;BrowserRouter&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;RoutesHere /&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/BrowserRouter&gt;<br>
+        &nbsp;&nbsp;);<br>
+        }
+    </div>
+    <div class="note-box">
+        📌 <strong>BrowserRouter:</strong> It watches the URL in the browser address bar and tells React when it
+        changes.
+    </div>
+
+    <span class="step-badge">Step 3</span>
+    <h3>Define your Routes</h3>
+    <p>Use <code>Routes</code> as a container and <code>Route</code> to map a URL to a component.</p>
+    <div class="code-block">
+        import { Routes, Route } from "react-router-dom";<br><br>
+        function RoutesHere() {<br>
+        &nbsp;&nbsp;return (<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;Routes&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Route path="/" element={&lt;Home /&gt;} /&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Route path="/login" element={&lt;Login /&gt;} /&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Route path="/about" element={&lt;About /&gt;} /&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/Routes&gt;<br>
+        &nbsp;&nbsp;);<br>
+        }
+    </div>
+
+    <div class="nav-links">
+        <a href="01-react-routing.html" class="btn btn-prev">⬅ Previous Topic</a>
+        <a href="index.html" class="btn btn-prev">🏠 Back to Index</a>
+        <a href="03-navigation.html" class="btn btn-next">Next: Navigation ➡</a>
+    </div>
+</body>
+
+</html>

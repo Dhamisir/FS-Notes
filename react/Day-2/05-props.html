@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>5️⃣ Props – React Day 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Consolas', monospace;
+        }
+
+        .analogy {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .rule-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-prev {
+            background: #e3f2fd;
+            color: #0174af;
+        }
+
+        .btn-next {
+            background: #0174af;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📦 Props (Short for Properties)</h1>
+
+    <div class="analogy">
+        <h3>🧠 What are Props?</h3>
+        <p>Think of props like <strong>arguments</strong> passed to a function. They allow you to pass data from a
+            <strong>Parent</strong> component to a <strong>Child</strong> component.
+        </p>
+    </div>
+
+    <h2>🧩 Simple Example</h2>
+    <p>Imagine a Student ID Card component. The "machine" (component) is the same, but the student's name changes.</p>
+
+    <h3>Defining the Component (Child)</h3>
+    <div class="code-block">
+        function StudentCard(props) {<br>
+        &nbsp;&nbsp;return (<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Name: {props.name}&lt;/h2&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Roll No: {props.roll}&lt;/p&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &nbsp;&nbsp;);<br>
+        }
+    </div>
+
+    <h3>Using the Component (Parent)</h3>
+    <div class="code-block">
+        function App() {<br>
+        &nbsp;&nbsp;return (<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;StudentCard name="Rahul" roll="101" /&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;StudentCard name="Anita" roll="102" /&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &nbsp;&nbsp;);<br>
+        }
+    </div>
+
+    <div class="rule-box">
+        <h3>⚠️ Critical Rule: Props are Read-Only!</h3>
+        <p>A component can <strong>never</strong> modify its own props. If you want to change data, you need
+            <strong>State</strong> (our next topic).
+        </p>
+    </div>
+
+    <div class="nav-links">
+        <a href="04-dynamic-routes.html" class="btn btn-prev">⬅ Previous Topic</a>
+        <a href="index.html" class="btn btn-prev">🏠 Back to Index</a>
+        <a href="06-state.html" class="btn btn-next">Next: State ➡</a>
+    </div>
+</body>
+
+</html>

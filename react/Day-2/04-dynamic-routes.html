@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4️⃣ Dynamic Routes – React Day 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Consolas', monospace;
+        }
+
+        .hint-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-prev {
+            background: #e3f2fd;
+            color: #0174af;
+        }
+
+        .btn-next {
+            background: #0174af;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔗 Dynamic Routes (The :id syntax)</h1>
+
+    <p>What if you have 1,000 users? You can't create 1,000 routes like <code>/user/1</code>, <code>/user/2</code>, etc.
+        Instead, we use <strong>Dynamic Parameters</strong>.</p>
+
+    <h2>1️⃣ Setting up a Dynamic Route</h2>
+    <p>Use a colon <code>:</code> followed by a name (like <code>id</code> or <code>username</code>) to mark a part of
+        the URL as dynamic.</p>
+    <div class="code-block">
+        &lt;Route path="/user/:id" element={&lt;UserProfile /&gt;} /&gt;
+    </div>
+
+    <h2>2️⃣ Reading the Parameter (useParams)</h2>
+    <p>To use that <code>id</code> inside your component, React Router provides a hook called <code>useParams</code>.
+    </p>
+
+    <div class="code-block">
+        import { useParams } from "react-router-dom";<br><br>
+        function UserProfile() {<br>
+        &nbsp;&nbsp;const { id } = useParams();<br><br>
+        &nbsp;&nbsp;return (<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;User Profile ID: {id}&lt;/h1&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &nbsp;&nbsp;);<br>
+        }
+    </div>
+
+    <div class="hint-box">
+        💡 <strong>Real World Example:</strong> On Amazon, <code>/product/B09G96T85F</code> uses a dynamic route to show
+        different product details based on the ID.
+    </div>
+
+    <div class="nav-links">
+        <a href="03-navigation.html" class="btn btn-prev">⬅ Previous Topic</a>
+        <a href="index.html" class="btn btn-prev">🏠 Back to Index</a>
+        <a href="05-props.html" class="btn btn-next">Next: Props ➡</a>
+    </div>
+</body>
+
+</html>

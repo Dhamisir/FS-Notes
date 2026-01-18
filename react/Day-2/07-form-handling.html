@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>7️⃣ Form Handling – React Day 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Consolas', monospace;
+        }
+
+        .info-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-prev {
+            background: #e3f2fd;
+            color: #0174af;
+        }
+
+        .btn-next {
+            background: #0174af;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📝 Form Handling (Controlled Components)</h1>
+
+    <p>In standard HTML, the input box "holds" its own value. In React, we want <strong>React to control
+            everything</strong>.</p>
+
+    <div class="info-box">
+        <h3>🧠 What is a Controlled Component?</h3>
+        <p>It means the value of the input is synced with a <strong>State</strong> variable. Every time the user types,
+            the state updates, and the input shows the state value.</p>
+    </div>
+
+    <h2>🧩 Single Input Example</h2>
+    <div class="code-block">
+        function NameForm() {<br>
+        &nbsp;&nbsp;const [name, setName] = useState("");<br><br>
+        &nbsp;&nbsp;return (<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="text" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value={name} {/* Sync state to input */}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onChange={(e) =&gt; setName(e.target.value)} {/* Sync input to
+        state */}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Preview Name: {name}&lt;/p&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &nbsp;&nbsp;);<br>
+        }
+    </div>
+
+    <h2>🚀 Handling Form Submission</h2>
+    <p>When the user clicks "Submit", we need to prevent the page from refreshing 🔄.</p>
+    <div class="code-block">
+        const handleSubmit = (e) =&gt; {<br>
+        &nbsp;&nbsp;e.preventDefault(); // 🛑 Very important! Stops page reload<br>
+        &nbsp;&nbsp;alert("Form submitted with name: " + name);<br>
+        };<br><br>
+        &lt;form onSubmit={handleSubmit}&gt;<br>
+        &nbsp;&nbsp;&lt;input ... /&gt;<br>
+        &nbsp;&nbsp;&lt;button type="submit"&gt;Submit&lt;/button&gt;<br>
+        &lt;/form&gt;
+    </div>
+
+    <h3>🔑 Why use <code>e.preventDefault()</code>?</h3>
+    <p>By default, when you submit a form, the browser tries to send it to the server and reloads the page. We want
+        React to handle it instead, so we use this function to stop the default browser behavior.</p>
+
+    <div class="nav-links">
+        <a href="06-state.html" class="btn btn-prev">⬅ Previous Topic</a>
+        <a href="index.html" class="btn btn-prev">🏠 Back to Index</a>
+        <a href="08-assignment.html" class="btn btn-next" style="background: #e67e22;">Final: Assignment ➡</a>
+    </div>
+</body>
+
+</html>

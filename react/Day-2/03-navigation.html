@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3️⃣ Navigation with Link – React Day 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Consolas', monospace;
+        }
+
+        .warning-box {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-prev {
+            background: #e3f2fd;
+            color: #0174af;
+        }
+
+        .btn-next {
+            background: #0174af;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🚀 Navigation Without Page Reload</h1>
+
+    <p>In React, if you use a standard <code>&lt;a href="..."&gt;</code> tag, the <strong>entire page will
+            reload</strong>.
+        This kills the performance benefit of using React!</p>
+
+    <div class="warning-box">
+        <h3>❌ The Wrong Way (Standard HTML)</h3>
+        <p>Using <code>&lt;a href="/login"&gt;Login&lt;/a&gt;</code> causes a full reload. You will lose your app's
+            state!
+        </p>
+    </div>
+
+    <div class="success-box">
+        <h3>✅ The React Way (Link Component)</h3>
+        <p>Instead, we use the <code>&lt;Link&gt;</code> component provided by <code>react-router-dom</code>.</p>
+        <div class="code-block">
+            import { Link } from "react-router-dom";<br><br>
+            &lt;Link to="/login"&gt;Login&lt;/Link&gt;
+        </div>
+    </div>
+
+    <h2>🧩 Practical Example: A Navbar</h2>
+    <p>You can create a <code>Navbar</code> component that appears on every page.</p>
+    <div class="code-block">
+        import { Link } from "react-router-dom";<br><br>
+        function Navbar() {<br>
+        &nbsp;&nbsp;return (<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Link to="/"&gt;Home&lt;/Link&gt; |<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Link to="/login"&gt;Login&lt;/Link&gt; |<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Link to="/about"&gt;About&lt;/Link&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br>
+        &nbsp;&nbsp;);<br>
+        }
+    </div>
+
+    <h3>🧠 Why use Link?</h3>
+    <ul>
+        <li>It changes the URL in the address bar.</li>
+        <li>It tells React to "swap" the component.</li>
+        <li><strong>It does NOT</strong> refresh the browser tab.</li>
+    </ul>
+
+    <div class="nav-links">
+        <a href="02-basic-setup.html" class="btn btn-prev">⬅ Previous Topic</a>
+        <a href="index.html" class="btn btn-prev">🏠 Back to Index</a>
+        <a href="04-dynamic-routes.html" class="btn btn-next">Next: Dynamic Routes ➡</a>
+    </div>
+</body>
+
+</html>

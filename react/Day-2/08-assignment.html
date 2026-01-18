@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>🎯 Day 2 Assignment – React Interactivity</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 32px;
+      max-width: 900px;
+      line-height: 1.6;
+      background: #f9fbfc;
+    }
+
+    h1 {
+      color: #d35400;
+      border-bottom: 3px solid #e67e22;
+      padding-bottom: 10px;
+    }
+
+    .task-box {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .task-title {
+      font-weight: bold;
+      color: #2c3e50;
+      font-size: 1.2em;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      background: #e74c3c;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    /* Solution Styles */
+    details {
+      margin-top: 15px;
+      background: #f0f7ff;
+      border-radius: 6px;
+      padding: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #0066cc;
+      outline: none;
+    }
+
+    .solution-content {
+      margin-top: 10px;
+      padding: 10px;
+      background: #ffffff;
+      border-left: 3px solid #0066cc;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+    }
+
+    .nav-links {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-prev {
+      background: #e3f2fd;
+      color: #0174af;
+    }
+
+    .btn-home {
+      background: #e67e22;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🎯 Day 2 Assignment: Adding Life to your App</h1>
+
+  <!-- Task 1 -->
+  <div class="task-box">
+    <span class="badge">Task 1</span>
+    <span class="task-title">Simple Multi-page Navigation</span>
+    <p>Create a React app with 3 pages: <strong>Home</strong>, <strong>Projects</strong>, and
+      <strong>Contact</strong>.
+      Implement a Sidebar navigation using <code>react-router-dom</code>. Make sure switching pages doesn't reload
+      the browser.
+    </p>
+
+    <details>
+      <summary>💡 View Solution</summary>
+      <div class="solution-content">
+        <pre><code>import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;nav&gt;
+        &lt;Link to="/"&gt;Home&lt;/Link&gt; | 
+        &lt;Link to="/projects"&gt;Projects&lt;/Link&gt; | 
+        &lt;Link to="/contact"&gt;Contact&lt;/Link&gt;
+      &lt;/nav&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;h1&gt;Home Page&lt;/h1&gt;} /&gt;
+        &lt;Route path="/projects" element={&lt;h1&gt;My Projects&lt;/h1&gt;} /&gt;
+        &lt;Route path="/contact" element={&lt;h1&gt;Contact Me&lt;/h1&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}</code></pre>
+      </div>
+    </details>
+  </div>
+
+  <!-- Task 2 -->
+  <div class="task-box">
+    <span class="badge">Task 2</span>
+    <span class="task-title">Profile Props Challenge</span>
+    <p>Create a <code>UserProfile</code> component that accepts <code>name</code>, <code>age</code>, and
+      <code>location</code> as props.
+      Render a list of 5 users by calling the component 5 times with different data.
+    </p>
+
+    <details>
+      <summary>💡 View Solution</summary>
+      <div class="solution-content">
+        <pre><code>function UserProfile({ name, age, city }) {
+  return (
+    &lt;div style={{ border: '1px solid gray', margin: '10px', padding: '10px' }}&gt;
+      &lt;h2&gt;Name: {name}&lt;/h2&gt;
+      &lt;p&gt;Age: {age}&lt;/p&gt;
+      &lt;p&gt;City: {city}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;UserProfile name="Rahul" age={25} city="Delhi" /&gt;
+      &lt;UserProfile name="Sanya" age={22} city="Mumbai" /&gt;
+      {/* Add 3 more... */}
+    &lt;/div&gt;
+  );
+}</code></pre>
+      </div>
+    </details>
+  </div>
+
+  <!-- Task 3 -->
+  <div class="task-box">
+    <span class="badge">Task 3</span>
+    <span class="task-title">The Toggle State</span>
+    <p>Create a "Dark Mode" toggle button. Use a state <code>isDarkMode</code> (boolean).
+      When clicked, change the background color of a <code>div</code> from white to black and change the text from
+      "Good Morning" to "Good Night".</p>
+
+    <details>
+      <summary>💡 View Solution</summary>
+      <div class="solution-content">
+        <pre><code>import { useState } from "react";
+
+function ThemeToggle() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  return (
+    &lt;div style={{ 
+      background: isDarkMode ? "black" : "white", 
+      color: isDarkMode ? "white" : "black",
+      height: "200px", padding: "20px" 
+    }}&gt;
+      &lt;h1&gt;{isDarkMode ? "Good Night 🌙" : "Good Morning ☀️"}&lt;/h1&gt;
+      &lt;button onClick={() =&gt; setIsDarkMode(!isDarkMode)}&gt;
+        Switch to {isDarkMode ? "Light" : "Dark"} Mode
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+      </div>
+    </details>
+  </div>
+
+  <!-- Task 4 -->
+  <div class="task-box">
+    <span class="badge">Task 4</span>
+    <span class="task-title">The Feedback Form</span>
+    <p>Create a form with a <code>textarea</code> for comments and a <code>select</code> dropdown for 1-5 star
+      ratings.
+      When the form is submitted, show an alert with the user's feedback. (Don't forget
+      <code>preventDefault</code>!)
+    </p>
+
+    <details>
+      <summary>💡 View Solution</summary>
+      <div class="solution-content">
+        <pre><code>import { useState } from "react";
+
+function FeedbackForm() {
+  const [comment, setComment] = useState("");
+  const [rate, setRate] = useState("5");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Rating: ${rate}, Comment: ${comment}`);
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;textarea value={comment} onChange={(e) => setComment(e.target.value)} /&gt;
+      &lt;select value={rate} onChange={(e) => setRate(e.target.value)}&gt;
+        &lt;option value="1"&gt;1 Star&lt;/option&gt;
+        &lt;option value="5"&gt;5 Stars&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;button type="submit"&gt;Send Feedback&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</code></pre>
+      </div>
+    </details>
+  </div>
+
+  <div class="nav-links">
+    <a href="07-form-handling.html" class="btn btn-prev">⬅ Previous Topic</a>
+    <a href="index.html" class="btn btn-home">🏠 Back to Day 2 Index</a>
+  </div>
+</body>
+
+</html>
