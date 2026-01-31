@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🥈 Backend BRD: Expense Tracker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #195568;
+            margin-top: 28px;
+            border-left: 4px solid #35baf6;
+            padding-left: 12px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .box {
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+
+        .overview {
+            background: #f7fcff;
+            border-left: 4px solid #35baf6;
+        }
+
+        .backend {
+            background: #e8f5e9;
+            border-left: 4px solid #388e3c;
+        }
+
+        .crud {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+        }
+
+        .tech {
+            background: #f4f4f6;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        .next-fullstack {
+            background: #4caf50;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .next-fullstack:hover {
+            background: #388e3c;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🥈 Backend BRD: Expense Tracker</h1>
+    <a href="index.html" class="nav-link">⬅️ Back to Backend</a>
+
+    <div class="section box overview">
+        <h2>Overview</h2>
+        <p><strong>Level:</strong> Beginner → Intermediate. Build APIs only; test with Postman/Thunder Client.</p>
+        <p><strong>What you build:</strong> Auth (login → JWT). Income/Expense CRUD; categories; filter by
+            date/category; summary endpoint (monthly totals).</p>
+    </div>
+
+    <div class="section box backend">
+        <h2>API & data</h2>
+        <ul>
+            <li>Auth: login (JWT)</li>
+            <li>Income/Expense: CRUD; fields: amount, date, category, note, type (income/expense), user</li>
+            <li>Categories: list (or enum); filter by category/date in API</li>
+            <li>Summary endpoint: total income, total expenses, balance for a month</li>
+        </ul>
+        <div class="tech"><strong>Tech:</strong> Node.js + Express. Database: PostgreSQL (BIG plus). Auth: JWT.</div>
+    </div>
+
+    <div class="section box crud">
+        <h2>CRUD covered</h2>
+        <ul>
+            <li><strong>Create:</strong> Add expense (and income)</li>
+            <li><strong>Read:</strong> Expense list & summary</li>
+            <li><strong>Update:</strong> Edit expense</li>
+            <li><strong>Delete:</strong> Remove expense</li>
+        </ul>
+    </div>
+
+    <p><strong>Resume line:</strong> <em>Developed an Expense Tracker application with REST APIs, PostgreSQL database,
+            and interactive dashboards to analyze monthly spending.</em></p>
+
+    <a href="../fullstack/02-expense-tracker.html" class="next-fullstack">➡️ Fullstack: Integrate frontend + backend</a>
+</body>
+
+</html>

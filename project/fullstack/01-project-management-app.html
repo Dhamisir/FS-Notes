@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🥇 Fullstack BRD: Task / Project Management App</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #195568;
+            margin-top: 28px;
+            border-left: 4px solid #35baf6;
+            padding-left: 12px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .box {
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+
+        .overview {
+            background: #f7fcff;
+            border-left: 4px solid #35baf6;
+        }
+
+        .backend {
+            background: #e8f5e9;
+            border-left: 4px solid #388e3c;
+        }
+
+        .frontend {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+        }
+
+        .integrate {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .tech {
+            background: #f4f4f6;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        ol {
+            margin: 8px 0;
+            padding-left: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🥇 Fullstack BRD: Task / Project Management App</h1>
+    <a href="index.html" class="nav-link">⬅️ Back to Fullstack</a>
+
+    <div class="section box overview">
+        <h2>Overview</h2>
+        <p><strong>Level:</strong> Beginner. <strong>Stack:</strong> React + Tailwind | Node.js + Express | MongoDB or
+            PostgreSQL | JWT.</p>
+        <p>Users: Register/Login → Create projects → Add tasks under projects → Update task status (To Do / In Progress
+            / Done) → Delete tasks/projects. Full CRUD + auth.</p>
+    </div>
+
+    <h2>Fullstack build order (single flow)</h2>
+
+    <div class="section">
+        <h3>Step 1 – Backend</h3>
+        <div class="box backend">
+            <ol>
+                <li>Express app; DB connection (MongoDB or PostgreSQL).</li>
+                <li>User model: email, password (hashed), name. Auth: register, login → JWT.</li>
+                <li>Project model: name, description, userId. CRUD; protect with JWT.</li>
+                <li>Task model: title, status (To Do / In Progress / Done), projectId. CRUD; protect with JWT.</li>
+                <li>Test all routes with Postman/Thunder Client.</li>
+            </ol>
+            <div class="tech"><strong>Tech:</strong> Node.js + Express. DB: MongoDB or PostgreSQL. Auth: JWT (basic).
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Step 2 – Frontend</h3>
+        <div class="box frontend">
+            <ol>
+                <li>React + Tailwind app; routing (e.g. React Router).</li>
+                <li>Auth: Register/Login pages; store JWT (e.g. localStorage); auth context.</li>
+                <li>Dashboard: list projects (call API); create/edit/delete project.</li>
+                <li>Project detail: list tasks; add/edit/delete task; update status dropdown.</li>
+                <li>Form validation; optional pagination.</li>
+            </ol>
+            <div class="tech"><strong>Tech:</strong> React + Tailwind. Extras: form validation, pagination.</div>
+        </div>
+    </div>
+
+    <div class="section box integrate">
+        <h3>Step 3 – Integration</h3>
+        <ul>
+            <li>Frontend base URL → backend API (e.g. <code>http://localhost:5000/api</code>).</li>
+            <li>All list/create/update/delete calls go to backend; use JWT in <code>Authorization</code> header.</li>
+            <li>Handle 401 → redirect to login. Optional: refresh token.</li>
+        </ul>
+    </div>
+
+    <p><strong>Resume line:</strong> <em>Built a full-stack Project Management application with React, Node.js, Express,
+            and MongoDB featuring JWT authentication and complete CRUD operations.</em></p>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🥉 Fullstack BRD: User Management / Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #195568;
+            margin-top: 28px;
+            border-left: 4px solid #35baf6;
+            padding-left: 12px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .box {
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+
+        .overview {
+            background: #f7fcff;
+            border-left: 4px solid #35baf6;
+        }
+
+        .backend {
+            background: #e8f5e9;
+            border-left: 4px solid #388e3c;
+        }
+
+        .frontend {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+        }
+
+        .integrate {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .tech {
+            background: #f4f4f6;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: #03a9f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            background: #0277bd;
+        }
+
+        ol {
+            margin: 8px 0;
+            padding-left: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🥉 Fullstack BRD: User Management / Admin Dashboard</h1>
+    <a href="index.html" class="nav-link">⬅️ Back to Fullstack</a>
+
+    <div class="section box overview">
+        <h2>Overview</h2>
+        <p><strong>Level:</strong> Beginner → Intermediate. <strong>Stack:</strong> React + Tailwind | Node.js + Express
+            | PostgreSQL | JWT + role checks.</p>
+        <p>Admin panel: create users, edit details, activate/deactivate, search & paginate users. Role-based access
+            (Admin / User).</p>
+    </div>
+
+    <h2>Fullstack build order (single flow)</h2>
+
+    <div class="section">
+        <h3>Step 1 – Backend</h3>
+        <div class="box backend">
+            <ol>
+                <li>Express app; PostgreSQL connection.</li>
+                <li>User model: name, email, password (hashed), role (Admin/User), status (active/inactive).</li>
+                <li>Auth: login → JWT with role in payload.</li>
+                <li>User CRUD: list (search by name/email, pagination), create, update (role, status), soft delete
+                    (deactivate).</li>
+                <li>Middleware: Admin-only for create/edit/delete/list-all; User can read own profile.</li>
+                <li>Test with Postman/Thunder Client.</li>
+            </ol>
+            <div class="tech"><strong>Tech:</strong> Node.js + Express. DB: PostgreSQL. Auth: JWT + role checks.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Step 2 – Frontend</h3>
+        <div class="box frontend">
+            <ol>
+                <li>React + Tailwind app; routing; auth (login, JWT, auth context with role).</li>
+                <li>Admin layout: sidebar/nav; show/hide menu by role.</li>
+                <li>User list: table (name, email, role, status); search; pagination (call API with page, limit,
+                    search).</li>
+                <li>Create user form (name, email, role, password).</li>
+                <li>Edit user: change role, activate/deactivate.</li>
+                <li>Guard routes: redirect non-admin to dashboard or 403.</li>
+            </ol>
+            <div class="tech"><strong>Tech:</strong> React + Tailwind.</div>
+        </div>
+    </div>
+
+    <div class="section box integrate">
+        <h3>Step 3 – Integration</h3>
+        <ul>
+            <li>Frontend → backend API for auth and user CRUD.</li>
+            <li>JWT in <code>Authorization</code> header; 401 → login; 403 → show "Access denied".</li>
+            <li>Role from JWT used for UI and route guards.</li>
+        </ul>
+    </div>
+
+    <p><strong>Resume line:</strong> <em>Implemented an Admin Dashboard with role-based access control and RESTful APIs
+            for managing users and permissions.</em></p>
+</body>
+
+</html>
