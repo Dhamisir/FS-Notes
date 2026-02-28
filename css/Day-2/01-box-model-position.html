@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Day 2 - Mastery of the Box Model & Positioning</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 1000px;
+            line-height: 1.6;
+            background: #f4f7f6;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 40px;
+            background: #eef2f3;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #16a085;
+            border-left: 5px solid #16a085;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        .intro-box {
+            background: #fff8e1;
+            padding: 20px;
+            border-left: 5px solid #ffc107;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        .box-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .demo-box {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            border: 5px solid #2c3e50;
+            margin: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+            font-size: 0.95em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .pro-tip {
+            background: #e8f5e9;
+            padding: 15px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        /* Box Model Viz */
+        .box-viz {
+            border: 2px dashed #999;
+            padding: 30px;
+            background: #ffccbc;
+            /* Margin */
+            display: inline-block;
+            text-align: center;
+        }
+
+        .box-viz-border {
+            border: 5px solid #333;
+            padding: 30px;
+            background: #fff59d;
+            /* Padding */
+        }
+
+        .box-viz-content {
+            background: #90caf9;
+            padding: 20px;
+            border: 1px solid #1976d2;
+        }
+
+        .property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .property-table th,
+        .property-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .property-table th {
+            background: #34495e;
+            color: white;
+        }
+
+        .z-index-demo {
+            position: relative;
+            height: 150px;
+            margin: 20px 0;
+        }
+
+        .z-box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" style="text-decoration: none; font-weight: bold; color: #3498db;">← Back to Curriculum</a>
+
+    <h1>📦 Mastery: Box Model & Positioning</h1>
+
+    <div class="intro-box">
+        Everything in CSS is a box. If you master how these boxes are sized, spaced, and stacked, you can build any UI.
+    </div>
+
+    <h2>1. The Enhanced Box Model</h2>
+    <p>The box model consists of: <strong>Content</strong>, <strong>Padding</strong>, <strong>Border</strong>, and
+        <strong>Margin</strong>.</p>
+
+    <div class="box-viz">
+        Margin
+        <div class="box-viz-border">
+            Border
+            <div class="box-viz-content">
+                Padding
+                <div style="background: white; padding: 5px; border: 1px solid #000;">Content</div>
+            </div>
+        </div>
+    </div>
+
+    <h3>A. The "Border-Box" Revolution</h3>
+    <p>By default, browser uses <code>content-box</code>. This means if you set a width of 200px and add 20px padding,
+        the box becomes 240px. <strong>This is a nightmare for layouts.</strong></p>
+
+    <div class="code-block">
+        /* THE SOLUTION: Add this to the top of every CSS project */
+        * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        }
+    </div>
+    <div class="pro-tip">
+        <strong>Why?</strong> With <code>border-box</code>, width: 200px means the box stays 200px, and padding/border
+        grow <em>inward</em>.
+    </div>
+
+    <h3>B. Sizing Boundaries</h3>
+    <table class="property-table">
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Use Case</th>
+        </tr>
+        <tr>
+            <td><code>width / height</code></td>
+            <td>Fixed size</td>
+            <td>Specific icons or images</td>
+        </tr>
+        <tr>
+            <td><code>min-width</code></td>
+            <td>Don't go smaller than this</td>
+            <td>Buttons with long text</td>
+        </tr>
+        <tr>
+            <td><code>max-width</code></td>
+            <td>Don't grow bigger than this</td>
+            <td>Responsive images or containers</td>
+        </tr>
+        <tr>
+            <td><code>overflow</code></td>
+            <td>What happens if content is too big?</td>
+            <td><code>hidden</code>, <code>scroll</code>, <code>auto</code></td>
+        </tr>
+    </table>
+
+    <h2>2. Advanced Positioning</h2>
+    <p>Positioning allows you to take elements out of the normal "document flow".</p>
+
+    <h3>A. The Position Family</h3>
+    <ol>
+        <li><span class="highlight">Static:</span> Default. Elements follow each other naturally.</li>
+        <li><span class="highlight">Relative:</span> Moves slightly from its original spot without affecting neighbors.
+            <strong>Crucial as a "parent" for Absolute.</strong></li>
+        <li><span class="highlight">Absolute:</span> Teleports the element relative to its nearest "Relative" parent.
+        </li>
+        <li><span class="highlight">Fixed:</span> Glued to the viewport. Stays there even when you scroll.</li>
+        <li><span class="highlight">Sticky:</span> A hybrid. Behaves normally until it reaches a scroll point, then
+            sticks.</li>
+    </ol>
+
+    <h3>B. Z-Index (The Third Dimension)</h3>
+    <p>Controls which element is "on top". Only works on positioned elements (relative, absolute, etc.).</p>
+    <div class="z-index-demo">
+        <div class="z-box" style="background: #e74c3c; z-index: 1; top: 0; left: 0;">z: 1</div>
+        <div class="z-box" style="background: #2ecc71; z-index: 10; top: 20px; left: 20px;">z: 10</div>
+        <div class="z-box" style="background: #3498db; z-index: 5; top: 40px; left: 40px;">z: 5</div>
+    </div>
+    <div class="code-block">
+        .modal {
+        position: fixed;
+        z-index: 999; /* Always on top of everything */
+        }
+    </div>
+
+    <h2>3. The "Invisible" Essentials</h2>
+    <ul>
+        <li><code>opacity: 0.5;</code> — Element is transparent but still takes space and is clickable.</li>
+        <li><code>visibility: hidden;</code> — Invisible but still takes space.</li>
+        <li><code>display: none;</code> — Element is GONE. No space taken, not clickable.</li>
+        <li><code>cursor: pointer;</code> — Changes mouse to a "hand" icon (use on buttons!).</li>
+    </ul>
+
+</body>
+
+</html>

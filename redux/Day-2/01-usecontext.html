@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redux Day 2 - Solving Prop Drilling with useContext</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #764abc;
+            border-bottom: 3px solid #ac8ee3;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0288d1;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background: #fff8e1;
+            padding: 15px 20px;
+            border-left: 4px solid #ffc107;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            padding: 15px 20px;
+            border-left: 4px solid #4caf50;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .problem-box {
+            background: #ffebee;
+            padding: 15px 20px;
+            border-left: 4px solid #f44336;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .filename {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Back to Day 2
+    </a>
+
+    <h1>✅ STEP 1 — Fix Using useContext + useState</h1>
+
+    <div class="intro">
+        <p>In Day 1, we saw how passing <code>user</code> and <code>logout</code> through multiple layers was painful.
+            Now, we remove prop drilling completely using the <strong>Context API</strong>.</p>
+    </div>
+
+    <h2>1️⃣ Create AuthContext</h2>
+    <span class="filename">AuthContext.js</span>
+    <pre><code>import React, { createContext, useState } from "react";
+
+export const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState({
+    name: "John",
+    role: "Admin",
+    email: "john@example.com"
+  });
+
+  const logout = () => {
+    setUser(null);
+  };
+
+  return (
+    &lt;AuthContext.Provider value={{ user, logout }}&gt;
+      {children}
+    &lt;/AuthContext.Provider&gt;
+  );
+}</code></pre>
+
+    <h2>2️⃣ Wrap App with Provider</h2>
+    <span class="filename">App.js</span>
+    <pre><code>import React from "react";
+import { AuthProvider } from "./AuthContext";
+import DashboardLayout from "./DashboardLayout";
+
+function App() {
+  return (
+    &lt;AuthProvider&gt;
+      &lt;DashboardLayout /&gt;
+    &lt;/AuthProvider&gt;
+  );
+}
+
+export default App;</code></pre>
+
+    <h2>3️⃣ Use Context Anywhere (No Props)</h2>
+    <p>Now components can "subscribe" to the context only if they need it.</p>
+    <span class="filename">Sidebar.js</span>
+    <pre><code>import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
+
+function Sidebar() {
+  const { user } = useContext(AuthContext);
+
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;{user?.name}&lt;/h3&gt;
+      &lt;p&gt;{user?.role}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Sidebar;</code></pre>
+
+    <span class="filename">ProfileSettings.js</span>
+    <pre><code>import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
+
+function ProfileSettings() {
+  const { logout } = useContext(AuthContext);
+
+  return (
+    &lt;button onClick={logout}&gt;Logout&lt;/button&gt;
+  );
+}
+
+export default ProfileSettings;</code></pre>
+
+    <div class="success-box">
+        <h3>🎯 What We Solved</h3>
+        <ul>
+            <li><strong>No prop drilling</strong>: Components like <code>Content</code> and <code>ProfilePage</code> no
+                longer need to see props they don't use.</li>
+            <li><strong>No forwarding props</strong>: We stopped manually passing data through layers.</li>
+            <li><strong>Any component can access user</strong>: Global availability.</li>
+        </ul>
+    </div>
+
+    <div class="problem-box">
+        <h3>🚨 But Now Show The Problem</h3>
+        <p>Ask students:</p>
+        <p>What if we add: Login, Logout, Update email, Change role, Reset password, Block user, Track login attempts?
+        </p>
+        <p>Everything lives together in one file. Logic becomes messy.</p>
+    </div>
+
+</body>
+
+</html>

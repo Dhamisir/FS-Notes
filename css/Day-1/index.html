@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🎨 CSS Day 1 – The Foundation of Styling</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .nav-container {
+            background: #f7fcff;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .nav-item {
+            margin: 10px 0;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #195568;
+            font-weight: 500;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            color: #3498db;
+        }
+
+        .topic-number {
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .intro {
+            background: #e3f2fd;
+            padding: 15px 20px;
+            border-left: 4px solid #2196f3;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎨 CSS Day 1 – The Foundation of Styling</h1>
+    <a href="../../index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Home
+    </a>
+
+    <div class="intro">
+        <h3>🎓 Learning Goals</h3>
+        <p>Today we transform boring HTML into beautiful websites. We understand the structure of CSS and the best
+            practices for managing it.</p>
+        <ul>
+            <li>Understand the evolution of CSS (Inline to External)</li>
+            <li>Master Target Selection (ID, Class, Element)</li>
+            <li>Learn the most common styling properties</li>
+        </ul>
+    </div>
+
+    <div class="nav-container">
+        <h2>📖 Topics</h2>
+
+        <div class="nav-item">
+            <a href="01-types-of-css.html"><span class="topic-number">1️⃣</span>Types of CSS & Evolution (Problems vs
+                Solutions)</a>
+        </div>
+
+        <div class="nav-item">
+            <a href="02-selectors.html"><span class="topic-number">2️⃣</span>Targeting Elements (Selectors &
+                Specificity)</a>
+        </div>
+
+        <div class="nav-item">
+            <a href="03-properties.html"><span class="topic-number">3️⃣</span>Essential CSS Properties</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redux Day 2 - Organizing Logic with useReducer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #764abc;
+            border-bottom: 3px solid #ac8ee3;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0288d1;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background: #f3e5f5;
+            padding: 15px 20px;
+            border-left: 4px solid #ab47bc;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            padding: 15px 20px;
+            border-left: 4px solid #4caf50;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .filename {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Back to Day 2
+    </a>
+
+    <h1>🔥 STEP 2 — useReducer + Context</h1>
+
+    <div class="intro">
+        <p>When state logic becomes complex (many ways to update the same state), <code>useState</code> inside context
+            becomes hard to manage. This is where we introduce the "Action-based" pattern using <code>useReducer</code>.
+        </p>
+    </div>
+
+    <h2>1️⃣ Create reducer</h2>
+    <span class="filename">AuthContext.js</span>
+    <pre><code>import React, { createContext, useReducer } from "react";
+
+export const AuthContext = createContext();
+
+const initialState = {
+  user: {
+    name: "John",
+    role: "Admin",
+    email: "john@example.com"
+  }
+};
+
+function authReducer(state, action) {
+  switch (action.type) {
+    case "LOGIN":
+      return { ...state, user: action.payload };
+
+    case "LOGOUT":
+      return { ...state, user: null };
+
+    case "UPDATE_EMAIL":
+      return {
+        ...state,
+        user: { ...state.user, email: action.payload }
+      };
+
+    default:
+      return state;
+  }
+}
+
+export function AuthProvider({ children }) {
+  const [state, dispatch] = useReducer(authReducer, initialState);
+
+  return (
+    &lt;AuthContext.Provider value={{ state, dispatch }}&gt;
+      {children}
+    &lt;/AuthContext.Provider&gt;
+  );
+}</code></pre>
+
+    <h2>2️⃣ Use It</h2>
+    <span class="filename">ProfileSettings.js</span>
+    <pre><code>import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
+
+function ProfileSettings() {
+  const { dispatch } = useContext(AuthContext);
+
+  return (
+    &lt;button onClick={() => dispatch({ type: "LOGOUT" })}&gt;
+      Logout
+    &lt;/button&gt;
+  );
+}
+
+export default ProfileSettings;</code></pre>
+
+    <div class="success-box">
+        <h3>🎯 What Students Learn</h3>
+        <p><code>useReducer</code> gives us:</p>
+        <ul>
+            <li><strong>Centralized logic</strong>: All business rules for updating state are in one function (the
+                reducer).</li>
+            <li><strong>Predictable updates</strong>: You can see exactly what happens for every "Action".</li>
+            <li><strong>Action-based system</strong>: Components just say *what* happened, not *how* to change the
+                state.</li>
+            <li><strong>Easier to scale</strong>: Adding new features just means adding a new case to the switch
+                statement.</li>
+        </ul>
+    </div>
+
+    <div class="intro" style="background: #fff3e0; border-left-color: #ff9800;">
+        <p><strong>Now say to students:</strong></p>
+        <p>"If our app grows even bigger... what if we have Auth, Cart, Theme, Notifications, Products, and Orders? Do
+            we create 6 separate contexts?"</p>
+        <p>This leads us to the ultimate solution: <strong>Redux</strong>.</p>
+    </div>
+
+</body>
+
+</html>

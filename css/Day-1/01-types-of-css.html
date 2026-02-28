@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Day 1 - Types of CSS & Evolution</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background: #fff8e1;
+            padding: 15px 20px;
+            border-left: 4px solid #ffc107;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .problem-box {
+            background: #ffebee;
+            padding: 15px 20px;
+            border-left: 4px solid #f44336;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .solution-box {
+            background: #e8f5e9;
+            padding: 15px 20px;
+            border-left: 4px solid #4caf50;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Back to Day 1
+    </a>
+
+    <h1>🎨 Types of CSS & Their Evolution</h1>
+
+    <div class="intro">
+        <p>CSS (Cascading Style Sheets) can be added to an HTML document in three ways. Each method was an improvement
+            over the previous one to solve specific problems in web development.</p>
+    </div>
+
+    <!-- INLINE CSS -->
+    <h2>1️⃣ Inline CSS</h2>
+    <p>Style is applied directly inside the HTML tag using the <code>style</code> attribute.</p>
+    <pre><code>&lt;h1 style="color: blue; text-align: center;"&gt;Hello World&lt;/h1&gt;
+&lt;p style="color: red; font-size: 20px;"&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+
+    <div class="problem-box">
+        <h3>🚨 Problem with Inline CSS:</h3>
+        <ul>
+            <li><strong>Repetition</strong>: If you have 10 paragraphs and want them all red, you must write the style
+                10 times.</li>
+            <li><strong>Messy HTML</strong>: Logic and styling are mixed together, making the code hard to read.</li>
+            <li><strong>Hard to Maintain</strong>: If you want to change the color from red to green, you must update 10
+                different tags.</li>
+        </ul>
+    </div>
+
+    <!-- INTERNAL CSS -->
+    <h2>2️⃣ Internal (Embedded) CSS</h2>
+    <div class="solution-box">
+        <h3>✅ Solution: Internal CSS</h3>
+        <p>Internal CSS solves the repetition problem by moving styles to a <code>&lt;style&gt;</code> tag inside the
+            <code>&lt;head&gt;</code> section.</p>
+    </div>
+    <pre><code>&lt;head&gt;
+  &lt;style&gt;
+    p {
+      color: red;
+      font-size: 20px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Paragraph 1&lt;/p&gt;
+  &lt;p&gt;Paragraph 2&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+
+    <div class="problem-box">
+        <h3>🚨 Problem with Internal CSS:</h3>
+        <ul>
+            <li><strong>Limited Scope</strong>: Styles only apply to that specific page. If your website has 50 pages,
+                you must copy-paste the <code>&lt;style&gt;</code> tag into 50 files.</li>
+            <li><strong>Large File Size</strong>: HTML files become very heavy as styles grow.</li>
+        </ul>
+    </div>
+
+    <!-- EXTERNAL CSS -->
+    <h2>3️⃣ External CSS</h2>
+    <div class="solution-box">
+        <h3>✅ Final Solution: External CSS</h3>
+        <p>This is the professional way. We create a separate <code>.css</code> file and link it to our HTML pages using
+            the <code>&lt;link&gt;</code> tag. This solves the "Multiple Page" problem.</p>
+    </div>
+
+    <span style="font-weight: bold;">Step 1: Create style.css</span>
+    <pre><code>/* style.css */
+p {
+  color: red;
+  font-size: 20px;
+}</code></pre>
+
+    <span style="font-weight: bold;">Step 2: Link in HTML</span>
+    <pre><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+
+    <div class="intro" style="background: #e8f5e9; border-left-color: #4caf50;">
+        <h3>💪 Why External is Best:</h3>
+        <ul>
+            <li><strong>Change Once, Apply Everywhere</strong>: Update the CSS file, and all 50 pages change instantly.
+            </li>
+            <li><strong>Clean Code</strong>: HTML is for structure, CSS is for look. Separated logic.</li>
+            <li><strong>Caching</strong>: Browsers download the CSS file once and reuse it for other pages, making the
+                site faster.</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

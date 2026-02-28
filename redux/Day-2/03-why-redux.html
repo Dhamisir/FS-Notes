@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redux Day 2 - Why Redux Exists</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #764abc;
+            border-bottom: 3px solid #ac8ee3;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0288d1;
+            margin-top: 30px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #f7fcff;
+            color: #764abc;
+        }
+
+        .highlight-box {
+            background: #e3f2fd;
+            padding: 15px 20px;
+            border-left: 4px solid #2196f3;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .intro {
+            background: #fff8e1;
+            padding: 15px 20px;
+            border-left: 4px solid #ffc107;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Back to Day 2
+    </a>
+
+    <h1>🏢 STEP 3 — Why Redux Exists</h1>
+
+    <div class="intro">
+        <p>Redux isn't just "another way to do state". It's a professional architectural pattern for large-scale
+            applications.</p>
+    </div>
+
+    <h2>When to use Redux?</h2>
+    <ul>
+        <li><strong>Many global states</strong>: Not just Auth, but complex domain data.</li>
+        <li><strong>Many teams</strong>: Working on different parts of the state tree.</li>
+        <li><strong>Need DevTools</strong>: Time-travel debugging and state snapshotting.</li>
+        <li><strong>Need Middleware</strong>: For logging, crash reporting, or complex API handling.</li>
+        <li><strong>Large Scale App</strong>: Where Prop Drilling and Context nesting become a nightmare.</li>
+    </ul>
+
+    <div class="highlight-box">
+        <h3>🎓 Final Teaching Comparison</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Problem Solved</th>
+                    <th>New Problem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>useState</strong></td>
+                    <td>Local state</td>
+                    <td>Prop drilling</td>
+                </tr>
+                <tr>
+                    <td><strong>useContext</strong></td>
+                    <td>Remove drilling</td>
+                    <td>Logic gets messy in Provider</td>
+                </tr>
+                <tr>
+                    <td><strong>useReducer</strong></td>
+                    <td>Organized logic</td>
+                    <td>Multiple contexts/Provider nesting</td>
+                </tr>
+                <tr>
+                    <td><strong>Redux</strong></td>
+                    <td>Large scale management</td>
+                    <td>More boilerplate/setup</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="success-box" style="background: #e1f5fe; padding: 20px; border-left: 4px solid #03a9f4;">
+        <h3>💡 Best Teaching Line</h3>
+        <p>Tell students:</p>
+        <p><em>"Context is for <strong>avoiding prop drilling</strong>. useReducer is for <strong>complex
+                    logic</strong>. Redux is for <strong>large-scale architecture</strong>."</em></p>
+    </div>
+
+</body>
+
+</html>

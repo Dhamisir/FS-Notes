@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redux Day 1 - Admin Dashboard Example</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #764abc;
+            border-bottom: 3px solid #ac8ee3;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0288d1;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background: #fff8e1;
+            padding: 15px 20px;
+            border-left: 4px solid #ffc107;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .problem-box {
+            background: #ffebee;
+            padding: 15px 20px;
+            border-left: 4px solid #f44336;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .solution-line {
+            background: #e3f2fd;
+            padding: 15px 20px;
+            border-left: 4px solid #2196f3;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .filename {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            padding: 15px 20px;
+            border-left: 4px solid #4caf50;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Back to Day 1
+    </a>
+
+    <h1>🎯 Real Example: Admin Dashboard</h1>
+
+    <div class="intro">
+        <p>In this scenario, state isn't just "static" data; it includes <strong>actions</strong> (functions) like
+            logout that need to be triggered deep in the tree.</p>
+        <ul>
+            <li><strong>user</strong> → needed in Layout, Sidebar, Header, and Profile</li>
+            <li><strong>logout</strong> → needed way down in ProfileSettings</li>
+        </ul>
+        <p>Now prop drilling becomes a natural part of the architecture.</p>
+    </div>
+
+    <h2>🧱 Component Structure</h2>
+    <pre><code>App
+ └── DashboardLayout
+      ├── Sidebar
+      ├── Header
+      └── Content
+            └── ProfilePage
+                  └── ProfileSettings</code></pre>
+
+    <h2>🔥 App.js</h2>
+    <p>State lives here (normal situation).</p>
+    <span class="filename">App.js</span>
+    <pre><code>import React, { useState } from "react";
+import DashboardLayout from "./DashboardLayout";
+
+function App() {
+  const [user, setUser] = useState({
+    name: "John",
+    role: "Admin",
+    email: "john@example.com"
+  });
+
+  const logout = () => {
+    setUser(null);
+  };
+
+  return (
+    &lt;DashboardLayout user={user} logout={logout} /&gt;
+  );
+}
+
+export default App;</code></pre>
+
+    <h2>🔹 DashboardLayout.js</h2>
+    <div class="success-box">
+        <p>Layout <strong>ACTUALLY</strong> uses <code>user</code>, so this feels correct.</p>
+    </div>
+    <span class="filename">DashboardLayout.js</span>
+    <pre><code>import Sidebar from "./Sidebar";
+import Header from "./Header";
+import Content from "./Content";
+
+function DashboardLayout({ user, logout }) {
+  return (
+    &lt;div style={{ display: "flex" }}&gt;
+      &lt;Sidebar user={user} /&gt;
+      &lt;div style={{ flex: 1 }}&gt;
+        &lt;Header user={user} /&gt;
+        &lt;Content user={user} logout={logout} /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default DashboardLayout;</code></pre>
+
+    <h2>🔹 Sidebar.js</h2>
+    <p>Uses <code>user</code> to show name and role.</p>
+    <span class="filename">Sidebar.js</span>
+    <pre><code>function Sidebar({ user }) {
+  return (
+    &lt;div style={{ width: "200px", background: "#eee" }}&gt;
+      &lt;h3&gt;{user.name}&lt;/h3&gt;
+      &lt;p&gt;{user.role}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Sidebar;</code></pre>
+
+    <h2>🔹 Header.js</h2>
+    <p>Uses <code>user</code> for a greeting.</p>
+    <span class="filename">Header.js</span>
+    <pre><code>function Header({ user }) {
+  return (
+    &lt;header style={{ background: "#ddd", padding: "10px" }}&gt;
+      &lt;h2&gt;Welcome, {user.name}&lt;/h2&gt;
+    &lt;/header&gt;
+  );
+}
+
+export default Header;</code></pre>
+
+    <h2>🔹 Content.js</h2>
+    <div class="problem-box">
+        <p>Main <strong>DOES NOT</strong> use <code>logout</code>. But must pass it down.</p>
+    </div>
+    <span class="filename">Content.js</span>
+    <pre><code>import ProfilePage from "./ProfilePage";
+
+function Content({ user, logout }) {
+  return (
+    &lt;div style={{ padding: "20px" }}&gt;
+      &lt;ProfilePage user={user} logout={logout} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Content;</code></pre>
+
+    <h2>🔹 ProfilePage.js</h2>
+    <p>Uses <code>user</code>, but only <strong>FORWARDS</strong> <code>logout</code> deeper.</p>
+    <span class="filename">ProfilePage.js</span>
+    <pre><code>import ProfileSettings from "./ProfileSettings";
+
+function ProfilePage({ user, logout }) {
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;Profile Info&lt;/h3&gt;
+      &lt;p&gt;Email: {user.email}&lt;/p&gt;
+      &lt;ProfileSettings logout={logout} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default ProfilePage;</code></pre>
+
+    <h2>🔹 ProfileSettings.js</h2>
+    <p>Finally, the component that <strong>actually</strong> needs the function.</p>
+    <span class="filename">ProfileSettings.js</span>
+    <pre><code>function ProfileSettings({ logout }) {
+  return (
+    &lt;div&gt;
+      &lt;button onClick={logout}&gt;Logout&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default ProfileSettings;</code></pre>
+
+    <h2 class="highlight">🎯 Now This Is Real Prop Drilling</h2>
+    <div class="intro">
+        <p>Ask students:</p>
+        <ul>
+            <li>Does DashboardLayout use user? ✅ Yes</li>
+            <li>Does Sidebar use user? ✅ Yes</li>
+            <li>Does Header use user? ✅ Yes</li>
+            <li>Does ProfilePage use user? ✅ Yes</li>
+        </ul>
+        <p>So it is not artificial.</p>
+    </div>
+
+    <div class="problem-box">
+        <p><strong>But:</strong></p>
+        <ul>
+            <li>Does Content use logout? ❌ No</li>
+            <li>Does ProfilePage use logout? ❌ No (only forwards)</li>
+        </ul>
+        <p>Still we must pass logout through 2 levels where it isn't needed.</p>
+    </div>
+
+    <p>Now imagine adding: Notifications, Theme, Language, Permissions, Subscription plan...</p>
+    <pre><code>&lt;DashboardLayout
+  user={user}
+  logout={logout}
+  theme={theme}
+  language={language}
+  notifications={notifications}
+  permissions={permissions}
+/&gt;</code></pre>
+
+    <div class="solution-line">
+        💡 What You Tell Students:
+        <br><br>
+        Prop drilling is not "fake". It happens naturally when:
+        <ul>
+            <li>Global data lives in App</li>
+            <li>Multiple branches need it</li>
+            <li>Deep components trigger actions</li>
+        </ul>
+        <strong>That’s when we introduce Context or Redux.</strong>
+    </div>
+
+</body>
+
+</html>

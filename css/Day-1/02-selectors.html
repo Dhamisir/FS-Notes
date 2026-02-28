@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Day 1 - ID, Class & Element Selectors</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        .selector-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .symbol {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22;
+            margin-right: 10px;
+        }
+
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Back to Day 1
+    </a>
+
+    <h1>🎯 CSS Selectors</h1>
+
+    <p>Selectors are used to "find" (or select) the HTML elements you want to style. There are 3 main types used by
+        beginners:</p>
+
+    <!-- ELEMENT SELECTOR -->
+    <div class="selector-card">
+        <h2>1️⃣ Element Selector</h2>
+        <p>Targets all elements with a specific tag name.</p>
+        <pre><code>/* Styles ALL h1 tags on the page */
+h1 {
+  color: blue;
+}</code></pre>
+        <p><strong>Use case:</strong> Setting default styles for the whole site (e.g., body font, paragraph spacing).
+        </p>
+    </div>
+
+    <!-- CLASS SELECTOR -->
+    <div class="selector-card">
+        <h2>2️⃣ Class Selector (<span class="symbol">.</span>)</h2>
+        <p>Targets elements with a specific <code>class</code> attribute. It starts with a dot.</p>
+        <pre><code>/* HTML */
+&lt;button class="btn-primary"&gt;Click Me&lt;/button&gt;
+&lt;p class="btn-primary"&gt;I am just text with class&lt;/p&gt;
+
+/* CSS */
+.btn-primary {
+  background-color: blue;
+  color: white;
+}</code></pre>
+        <p><strong>Gold Rule:</strong> Classes are **Reusable**. You can use the same class on many elements.</p>
+    </div>
+
+    <!-- ID SELECTOR -->
+    <div class="selector-card">
+        <h2>3️⃣ ID Selector (<span class="symbol">#</span>)</h2>
+        <p>Targets a specific element with a unique <code>id</code>. It starts with a hash.</p>
+        <pre><code>/* HTML */
+&lt;div id="main-header"&gt;Logo Here&lt;/div&gt;
+
+/* CSS */
+#main-header {
+  height: 100px;
+  background-color: #333;
+}</code></pre>
+        <p><strong>Gold Rule:</strong> ID must be **Unique**. One ID per page. IDs have higher priority than classes.
+        </p>
+    </div>
+
+    <div class="selector-card" style="border-left: 4px solid #e74c3c;">
+        <h3>⚖️ Priority (Specificity)</h3>
+        <p>If you style the same element with all three, which one wins?</p>
+        <ol>
+            <li><strong>ID Selector</strong> (🥇 Winner - Strongest)</li>
+            <li><strong>Class Selector</strong> (🥈)</li>
+            <li><strong>Element Selector</strong> (🥉 Weakest)</li>
+        </ol>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🟣 Redux Day 1 – State Management & Prop Drilling</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #764abc;
+            border-bottom: 3px solid #ac8ee3;
+            padding-bottom: 10px;
+        }
+
+        .nav-container {
+            background: #f7fcff;
+            padding: 20px;
+            border-left: 4px solid #764abc;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .nav-item {
+            margin: 10px 0;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 4px;
+            border-left: 3px solid #ac8ee3;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #195568;
+            font-weight: 500;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            color: #764abc;
+        }
+
+        .topic-number {
+            color: #764abc;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .intro {
+            background: #f3e5f5;
+            padding: 15px 20px;
+            border-left: 4px solid #ab47bc;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .redux-logo {
+            float: right;
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png" class="redux-logo" alt="Redux Logo">
+    <h1>🟣 Redux Day 1 – State Management & Prop Drilling</h1>
+    <a href="../../index.html"
+        style="display:inline-block; margin-bottom:18px; background:#f3e5f5; color:#764abc; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #ac8ee3;">
+        ⬅️ Home
+    </a>
+
+    <div class="intro">
+        <h3>🎓 Day 1: The "Why" of Redux</h3>
+        <p>Before diving into Redux code, we must understand the problem it solves. Modern React apps often struggle
+            with complex state shared across many components.</p>
+        <ul>
+            <li>Understand the Prop Drilling problem</li>
+            <li>Identify when state becomes "Global"</li>
+            <li>Learn the cost of complex prop chains</li>
+        </ul>
+    </div>
+
+    <div class="nav-container">
+        <h2>📖 Topics</h2>
+
+        <div class="nav-item">
+            <a href="01-prop-drilling.html"><span class="topic-number">1️⃣</span>The Problem: Prop Drilling (Theme +
+                Auth + Cart)</a>
+        </div>
+
+        <div class="nav-item">
+            <a href="02-admin-dashboard.html"><span class="topic-number">2️⃣</span>Real Example: Admin Dashboard (Deep
+                Actions)</a>
+        </div>
+
+        <!-- Future topics can be added here -->
+        <!-- 
+        <div class="nav-item">
+            <a href="02-what-is-redux.html"><span class="topic-number">2️⃣</span>What is Redux? (The Central Store)</a>
+        </div>
+        -->
+    </div>
+
+</body>
+
+</html>

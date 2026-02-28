@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Day 2 - Flexbox (Step-by-Step Mastery)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 1000px;
+            line-height: 1.6;
+            background: #fdfdfd;
+            color: #333;
+        }
+
+        h1 {
+            color: #764abc;
+            border-bottom: 4px solid #764abc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            padding: 10px;
+            border-left: 5px solid #764abc;
+            background: #f4f0fa;
+        }
+
+        .container-label {
+            font-weight: bold;
+            color: #764abc;
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* The Normal Flow */
+        .normal-container {
+            border: 2px dashed #999;
+            padding: 10px;
+            margin: 10px 0;
+            background: #eee;
+        }
+
+        /* Flex Container */
+        .flex-container {
+            border: 2px solid #764abc;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            min-height: 100px;
+            background: #f9f6ff;
+        }
+
+        .box {
+            background: #9b59b6;
+            color: white;
+            padding: 20px;
+            margin: 5px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            min-width: 60px;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            margin: 10px 0;
+        }
+
+        .explanation {
+            background: #eef2f3;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #e67e22;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" style="text-decoration: none; font-weight: bold; color: #764abc;">← Back to Day 2</a>
+
+    <h1>💪 Flexbox: From Zero to Hero (Step-by-Step)</h1>
+
+    <p>Don't just memorize properties. <strong>See the change</strong> as we apply them one by one.</p>
+
+    <!-- STEP 1 -->
+    <h2>Step 1: The "Normal" Document Flow</h2>
+    <p>By default, <code>div</code> elements are <strong>block</strong> level. They stack on top of each other and take
+        100% width.</p>
+
+    <span class="container-label">Before Flexbox:</span>
+    <div class="normal-container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+    </div>
+    <div class="explanation">
+        <strong>Observation:</strong> Boxes are vertical. They don't sit side-by-side even if there is space.
+    </div>
+
+    <!-- STEP 2 -->
+    <h2>Step 2: Add <code>display: flex</code></h2>
+    <p>The moment you add this to the PARENT, all children become "flex items".</p>
+
+    <span class="container-label">After <code>display: flex;</code></span>
+    <div class="flex-container" style="display: flex;">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+    </div>
+    <div class="code-block">
+        .container {
+        display: flex;
+        }
+    </div>
+    <div class="explanation">
+        <strong>Observation:</strong> Magic! Boxes immediately jump to a <strong>row</strong>. They now only take as
+        much width as their content needs.
+    </div>
+
+    <!-- STEP 3 -->
+    <h2>Step 3: Horizontal Control (The Main Axis)</h2>
+    <p>Now that they are in a row, how do we move them left, right, or center? We use <code>justify-content</code>.</p>
+
+    <span class="container-label">With <code>justify-content: center;</code></span>
+    <div class="flex-container" style="display: flex; justify-content: center;">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+    </div>
+
+    <span class="container-label">With <code>justify-content: space-between;</code></span>
+    <div class="flex-container" style="display: flex; justify-content: space-between;">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+    </div>
+
+    <div class="code-block">
+        justify-content: flex-start; /* Default (Left) */
+        justify-content: center; /* Perfect Center */
+        justify-content: flex-end; /* Right */
+        justify-content: space-between; /* Push boxes to edges */
+        justify-content: space-around; /* Even space around boxes */
+    </div>
+
+    <!-- STEP 4 -->
+    <h2>Step 4: Vertical Control (The Cross Axis)</h2>
+    <p>How do we move boxes up and down? We use <code>align-items</code>.</p>
+
+    <span class="container-label">With <code>align-items: center;</code> (Container height is 150px)</span>
+    <div class="flex-container" style="display: flex; align-items: center; height: 150px;">
+        <div class="box">Perfectly Centered Vertically</div>
+    </div>
+    <div class="code-block">
+        align-items: flex-start; /* Top */
+        align-items: center; /* Middle */
+        align-items: flex-end; /* Bottom */
+        align-items: stretch; /* Default (take full height) */
+    </div>
+
+    <!-- STEP 5 -->
+    <h2>Step 5: The Direction Swap</h2>
+    <p>What if we want them back in a column but still want to use Flex powers? <code>flex-direction</code>.</p>
+
+    <span class="container-label">With <code>flex-direction: column;</code></span>
+    <div class="flex-container" style="display: flex; flex-direction: column;">
+        <div class="box">Row is now Column</div>
+        <div class="box">Alignment now works Vertically</div>
+    </div>
+    <div class="explanation">
+        <strong>CRITICAL:</strong> When you switch to <code>column</code>, <code>justify-content</code> now controls
+        top/bottom, and <code>align-items</code> now controls left/right. The axes swap!
+    </div>
+
+    <!-- STEP 6 -->
+    <h2>Step 6: Don't Squash! (flex-wrap)</h2>
+    <p>By default, Flex tries to force everything into one line. If you have 50 boxes, they will shrink until they
+        break. <code>flex-wrap</code> fixes this.</p>
+
+    <div class="code-block">
+        flex-wrap: wrap; /* Let items jump to the next line */
+        gap: 15px; /* The "Pro" way to add space between wrapped items */
+    </div>
+
+</body>
+
+</html>

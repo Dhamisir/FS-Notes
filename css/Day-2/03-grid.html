@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Day 2 - CSS Grid (Step-by-Step Mastery)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 1000px;
+            line-height: 1.6;
+            background: #fdfdfd;
+            color: #333;
+        }
+
+        h1 {
+            color: #d35400;
+            border-bottom: 4px solid #d35400;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            padding: 10px;
+            border-left: 5px solid #d35400;
+            background: #fdf2e9;
+        }
+
+        .container-label {
+            font-weight: bold;
+            color: #d35400;
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            border: 2px solid #d35400;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            background: #fff8f3;
+        }
+
+        .item {
+            background: #e67e22;
+            color: white;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            margin: 10px 0;
+        }
+
+        .explanation {
+            background: #eef2f3;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" style="text-decoration: none; font-weight: bold; color: #d35400;">← Back to Day 2</a>
+
+    <h1>🕸️ CSS Grid: Master the Matrix (Step-by-Step)</h1>
+
+    <p>Flexbox is for <strong>one-way</strong> layouts. Grid is for <strong>two-way</strong> (Rows AND Columns) layouts.
+        Let's build it piece by piece.</p>
+
+    <!-- STEP 1 -->
+    <h2>Step 1: The Skeleton</h2>
+    <p>We start with a parent and children. Initially, they just stack.</p>
+
+    <span class="container-label">Normal Flow:</span>
+    <div style="border: 2px dashed #999; padding: 10px;">
+        <div class="item" style="margin-bottom: 5px;">1</div>
+        <div class="item" style="margin-bottom: 5px;">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <!-- STEP 2 -->
+    <h2>Step 2: Create the Columns</h2>
+    <p>Tell the container how many columns you want using <code>grid-template-columns</code>.</p>
+
+    <span class="container-label">Adding <code>grid-template-columns: 200px 200px 200px;</code></span>
+    <div class="grid-container" style="display: grid; grid-template-columns: 200px 200px 200px;">
+        <div class="item">Box 1</div>
+        <div class="item">Box 2</div>
+        <div class="item">Box 3</div>
+    </div>
+    <div class="code-block">
+        .container {
+        display: grid;
+        grid-template-columns: 200px 200px 200px; /* 3 Columns of 200px each */
+        }
+    </div>
+    <div class="explanation">
+        <strong>Observation:</strong> The boxes are side-by-side, but they are "hard coded" to 200px. What happens if
+        the screen gets smaller? They will break or cause scroll.
+    </div>
+
+    <!-- STEP 3 -->
+    <h2>Step 3: Use Flexible Units (<code>fr</code>)</h2>
+    <p><code>fr</code> stands for <strong>Fraction</strong>. It means "take 1 share of whatever space is left".</p>
+
+    <span class="container-label">Adding <code>grid-template-columns: 1fr 2fr 1fr;</code></span>
+    <div class="grid-container" style="display: grid; grid-template-columns: 1fr 2fr 1fr;">
+        <div class="item">1 Share</div>
+        <div class="item">2 Shares (Double wide)</div>
+        <div class="item">1 Share</div>
+    </div>
+    <div class="code-block">
+        grid-template-columns: repeat(3, 1fr); /* Shortcut for 1fr 1fr 1fr */
+    </div>
+
+    <!-- STEP 4 -->
+    <h2>Step 4: The Clean Space (Gap)</h2>
+    <p>Stop using <code>margin</code> to space out boxes. Use <code>gap</code>.</p>
+
+    <span class="container-label">Adding <code>gap: 20px;</code></span>
+    <div class="grid-container" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </div>
+    <div class="code-block">
+        gap: 20px; /* Perfectly even space between all rows and columns */
+    </div>
+
+    <!-- STEP 5 -->
+    <h2>Step 5: Spanning (Merging Cells)</h2>
+    <p>You can tell an item to take up multiple cells. This is how you make Sidebars and Main content.</p>
+
+    <span class="container-label">Item 1 spans 2 columns: <code>grid-column: span 2;</code></span>
+    <div class="grid-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+        <div class="item" style="grid-column: span 2; background: #c0392b;">Big Box (Span 2)</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </div>
+    <div class="code-block">
+        .header {
+        grid-column: 1 / 4; /* Start at line 1, end at line 4 (Full width of 3 columns) */
+        }
+    </div>
+
+    <!-- STEP 6 -->
+    <h2>Step 6: The "Holy Grail" Responsive Layout</h2>
+    <p>This is the most professional way to build a grid that works on mobile and desktop without any more code.</p>
+
+    <div class="code-block">
+        .container {
+        display: grid;
+        /* Magically wraps boxes as the screen grows/shrinks */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        }
+    </div>
+    <div class="explanation">
+        <strong>Breakdown:</strong><br>
+        - <code>auto-fit</code>: Fit as many as you can.<br>
+        - <code>minmax(250px, 1fr)</code>: Every box must be at least 250px, but can grow to 1fr.
+    </div>
+
+</body>
+
+</html>

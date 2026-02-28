@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redux Day 1 - Prop Drilling Issue</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #0174af;
+            border-bottom: 3px solid #35baf6;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0288d1;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #03a9f4;
+        }
+
+        .intro {
+            background: #fff8e1;
+            padding: 15px 20px;
+            border-left: 4px solid #ffc107;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .problem-box {
+            background: #ffebee;
+            padding: 15px 20px;
+            border-left: 4px solid #f44336;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .solution-line {
+            background: #e3f2fd;
+            padding: 15px 20px;
+            border-left: 4px solid #2196f3;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .filename {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Back to Day 1
+    </a>
+
+    <h1>🎯 Realistic Example: Theme + Auth + Cart</h1>
+
+    <div class="intro">
+        <p>Now we create a real situation where state is needed across many distant components:</p>
+        <ul>
+            <li><strong>user</strong> → needed in Profile + Header</li>
+            <li><strong>theme</strong> → needed in Layout</li>
+            <li><strong>cartCount</strong> → needed in Navbar + Product</li>
+            <li><strong>addToCart</strong> → needed in Product</li>
+        </ul>
+        <p>Now prop drilling becomes unavoidable.</p>
+    </div>
+
+    <h2>🧱 App Structure</h2>
+    <pre><code>App
+ └── Layout
+      ├── Header
+      │     └── Navbar
+      └── Main
+            └── ProductPage
+                  └── ProductCard</code></pre>
+
+    <h2>🔥 App.js (Everything Lives Here)</h2>
+    <span class="filename">App.js</span>
+    <pre><code>import React, { useState } from "react";
+import Layout from "./Layout";
+
+function App() {
+  const [user, setUser] = useState({ name: "John" });
+  const [theme, setTheme] = useState("light");
+  const [cartCount, setCartCount] = useState(0);
+
+  const addToCart = () => {
+    setCartCount(cartCount + 1);
+  };
+
+  return (
+    &lt;Layout
+      user={user}
+      theme={theme}
+      setTheme={setTheme}
+      cartCount={cartCount}
+      addToCart={addToCart}
+    /&gt;
+  );
+}
+
+export default App;</code></pre>
+
+    <h2>🔹 Layout.js</h2>
+    <p>Layout <strong>USES</strong> theme, but must still pass down everything else.</p>
+    <span class="filename">Layout.js</span>
+    <pre><code>import Header from "./Header";
+import Main from "./Main";
+
+function Layout({ user, theme, setTheme, cartCount, addToCart }) {
+  return (
+    &lt;div style={{ background: theme === "light" ? "#fff" : "#333", color: theme === "light" ? "#000" : "#fff" }}&gt;
+      &lt;button onClick={() => setTheme(theme === "light" ? "dark" : "light")}&gt;
+        Toggle Theme
+      &lt;/button&gt;
+
+      &lt;Header user={user} cartCount={cartCount} /&gt;
+      &lt;Main addToCart={addToCart} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Layout;</code></pre>
+
+    <div class="intro">
+        <p><strong>Observation:</strong> Layout uses <code>theme</code> and <code>setTheme</code>, but it still must
+            pass <code>user</code>, <code>cartCount</code>, and <code>addToCart</code> to its children.</p>
+    </div>
+
+    <h2>🔹 Header.js</h2>
+    <p>Header <strong>USES</strong> user.</p>
+    <span class="filename">Header.js</span>
+    <pre><code>import Navbar from "./Navbar";
+
+function Header({ user, cartCount }) {
+  return (
+    &lt;header&gt;
+      &lt;h2&gt;Welcome {user.name}&lt;/h2&gt;
+      &lt;Navbar cartCount={cartCount} /&gt;
+    &lt;/header&gt;
+  );
+}
+
+export default Header;</code></pre>
+
+    <h2>🔹 Navbar.js</h2>
+    <p>Navbar <strong>USES</strong> cartCount.</p>
+    <span class="filename">Navbar.js</span>
+    <pre><code>function Navbar({ cartCount }) {
+  return &lt;h4&gt;Cart: {cartCount}&lt;/h4&gt;;
+}
+
+export default Navbar;</code></pre>
+
+    <h2>🔹 Main.js</h2>
+    <div class="problem-box">
+        <p>Main <strong>DOES NOT Use</strong> addToCart, but it MUST pass it.</p>
+    </div>
+    <span class="filename">Main.js</span>
+    <pre><code>import ProductPage from "./ProductPage";
+
+function Main({ addToCart }) {
+  return (
+    &lt;main&gt;
+      &lt;ProductPage addToCart={addToCart} /&gt;
+    &lt;/main&gt;
+  );
+}
+
+export default Main;</code></pre>
+
+    <h2>🔹 ProductPage.js</h2>
+    <div class="problem-box">
+        <p>ProductPage also <strong>DOES NOT Use</strong> addToCart.</p>
+    </div>
+    <span class="filename">ProductPage.js</span>
+    <pre><code>import ProductCard from "./ProductCard";
+
+function ProductPage({ addToCart }) {
+  return (
+    &lt;div&gt;
+      &lt;ProductCard addToCart={addToCart} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default ProductPage;</code></pre>
+
+    <h2>🔹 ProductCard.js</h2>
+    <p>Finally, ProductCard <strong>USES</strong> addToCart.</p>
+    <span class="filename">ProductCard.js</span>
+    <pre><code>function ProductCard({ addToCart }) {
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;Product 1&lt;/h3&gt;
+      &lt;button onClick={addToCart}&gt;Add to Cart&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default ProductCard;</code></pre>
+
+    <h2 class="highlight">🧨 Now The Pain Is Real</h2>
+    <div class="problem-box">
+        <p>Ask students:</p>
+        <ul>
+            <li>Why does <strong>Main</strong> need <code>addToCart</code>? ❌ It doesn’t.</li>
+            <li>Why does <strong>ProductPage</strong> need it? ❌ It doesn’t.</li>
+            <li>Why is <strong>Layout</strong> passing <code>user</code> + <code>cartCount</code>?</li>
+        </ul>
+    </div>
+
+    <p>What if we add even more global state? Notifications, Language, Currency, Role, Wishlist...</p>
+    <pre><code>&lt;Layout
+  user={user}
+  theme={theme}
+  language={language}
+  currency={currency}
+  cartCount={cartCount}
+  notifications={notifications}
+  addToCart={addToCart}
+  clearCart={clearCart}
+  logout={logout}
+/&gt;</code></pre>
+    <p>This becomes unmanageable.</p>
+
+    <div class="solution-line">
+        🎯 Now You Tell Students:
+        <br>
+        We are not passing props because components need them.
+        <br>
+        We are passing them because children need them.
+        <br>
+        <strong>That is the real definition of prop drilling.</strong>
+    </div>
+
+    <div class="intro">
+        <h3>💡 Strong Teaching Line</h3>
+        <p>Prop drilling is not inherently "wrong". It becomes a problem when you have:</p>
+        <ul>
+            <li>Many layers</li>
+            <li>Many states</li>
+            <li>Many teams working on different parts</li>
+            <li>Large applications</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

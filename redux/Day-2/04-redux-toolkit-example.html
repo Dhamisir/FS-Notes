@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redux Day 2 - Basic Redux Toolkit Example</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 900px;
+            line-height: 1.6;
+            background: #f9fbfc;
+        }
+
+        h1 {
+            color: #764abc;
+            border-bottom: 3px solid #ac8ee3;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0288d1;
+            margin-top: 30px;
+        }
+
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .filename {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html"
+        style="display:inline-block; margin-bottom:18px; background:#e3f2fd; color:#0167b1; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #90caf9;">
+        ⬅️ Back to Day 2
+    </a>
+
+    <h1>🚀 Basic Redux Example (RTK)</h1>
+
+    <p>We use <strong>Redux Toolkit (RTK)</strong> because it is the professional way to write Redux today.</p>
+
+    <h2>1️⃣ store.js</h2>
+    <span class="filename">store.js</span>
+    <pre><code>import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./authSlice";
+
+export const store = configureStore({
+  reducer: {
+    auth: authReducer
+  }
+});</code></pre>
+
+    <h2>2️⃣ authSlice.js</h2>
+    <span class="filename">authSlice.js</span>
+    <pre><code>import { createSlice } from "@reduxjs/toolkit";
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState: {
+    user: {
+      name: "John",
+      role: "Admin",
+      email: "john@example.com"
+    }
+  },
+  reducers: {
+    login: (state, action) => {
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.user = null;
+    }
+  }
+});
+
+export const { login, logout } = authSlice.actions;
+export default authSlice.reducer;</code></pre>
+
+    <h2>3️⃣ Wrap App</h2>
+    <pre><code>import { Provider } from "react-redux";
+import { store } from "./store";
+
+&lt;Provider store={store}&gt;
+  &lt;App /&gt;
+&lt;/Provider&gt;</code></pre>
+
+    <h2>4️⃣ Use In Component</h2>
+    <span class="filename">ProfileSettings.js</span>
+    <pre><code>import { useDispatch, useSelector } from "react-redux";
+import { logout } from "./authSlice";
+
+function ProfileSettings() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.user);
+
+  return (
+    &lt;button onClick={() => dispatch(logout())}&gt;
+      Logout {user?.name}
+    &lt;/button&gt;
+  );
+}</code></pre>
+
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Day 2 - Mastery Assignments</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 1200px;
+            line-height: 1.6;
+            background: #f4f7f6;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #e67e22;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .intro {
+            background: #fff3e0;
+            padding: 20px;
+            border-left: 5px solid #ff9800;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .assignment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .assignment-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .assignment-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 250px;
+            background: #eee;
+            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .content h3 {
+            margin: 0 0 10px 0;
+            color: #e67e22;
+        }
+
+        .content p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-flex {
+            background: #e1f5fe;
+            color: #03a9f4;
+        }
+
+        .badge-grid {
+            background: #f3e5f5;
+            color: #764abc;
+        }
+
+        .badge-layout {
+            background: #e8f5e9;
+            color: #4caf50;
+        }
+
+        .btn-view {
+            display: block;
+            text-align: center;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin-top: auto;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-view:hover {
+            background: #e67e22;
+        }
+
+        .bonus-card {
+            border: 3px solid #f1c40f;
+        }
+
+        @media (max-width: 600px) {
+            .assignment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../index.html" style="text-decoration: none; font-weight: bold; color: #2c3e50;">← Back to Curriculum</a>
+
+    <h1>🎯 CSS Day 2: Layout Challenges</h1>
+
+    <div class="intro">
+        <h3>Building the Web Piece by Piece</h3>
+        <p>Use the <strong>Flexbox</strong> and <strong>Grid</strong> techniques you learned today to recreate these UI
+            designs. Don't worry about exact pixel matching—focus on the <strong>Structure</strong> and
+            <strong>Responsiveness</strong>.
+        </p>
+    </div>
+
+    <div class="assignment-grid">
+        <!-- 1 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="1.png" alt="Assignment 1">
+            </div>
+            <div class="content">
+                <span class="badge badge-flex">Flexbox</span>
+                <h3>Challenge 01</h3>
+                <p>Recreate this basic card layout using Flexbox properties.</p>
+            </div>
+            <a href="1.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 2 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="2.png" alt="Assignment 2">
+            </div>
+            <div class="content">
+                <span class="badge badge-grid">Grid</span>
+                <h3>Challenge 02</h3>
+                <p>Master the simple grid system using fr units.</p>
+            </div>
+            <a href="2.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 3 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="3.png" alt="Assignment 3">
+            </div>
+            <div class="content">
+                <span class="badge badge-layout">Layout</span>
+                <h3>Challenge 03</h3>
+                <p>Complex spacing and alignment within a container.</p>
+            </div>
+            <a href="3.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 4 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="4.png" alt="Assignment 4">
+            </div>
+            <div class="content">
+                <span class="badge badge-flex">Flexbox</span>
+                <h3>Challenge 04</h3>
+                <p>A centered hero section or call-to-action block.</p>
+            </div>
+            <a href="4.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 5 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="5.png" alt="Assignment 5">
+            </div>
+            <div class="content">
+                <span class="badge badge-grid">Grid</span>
+                <h3>Challenge 05</h3>
+                <p>Using Grid areas to define a visual structure.</p>
+            </div>
+            <a href="5.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 6 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="6.png" alt="Assignment 6">
+            </div>
+            <div class="content">
+                <span class="badge badge-layout">Layout</span>
+                <h3>Challenge 06</h3>
+                <p>Developing a sidebar and main content layout.</p>
+            </div>
+            <a href="6.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 7 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="7.png" alt="Assignment 7">
+            </div>
+            <div class="content">
+                <span class="badge badge-flex">Flexbox</span>
+                <h3>Challenge 07</h3>
+                <p>Navbar with split elements using space-between.</p>
+            </div>
+            <a href="7.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 8 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="8.png" alt="Assignment 8">
+            </div>
+            <div class="content">
+                <span class="badge badge-grid">Grid</span>
+                <h3>Challenge 08</h3>
+                <p>A fully responsive gallery using auto-fit and minmax.</p>
+            </div>
+            <a href="8.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 9 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="9.png" alt="Assignment 9">
+            </div>
+            <div class="content">
+                <span class="badge badge-layout">Layout</span>
+                <h3>Challenge 09</h3>
+                <p>Complex header with nested flex containers.</p>
+            </div>
+            <a href="9.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- 10 -->
+        <div class="assignment-card">
+            <div class="image-container">
+                <img src="10.png" alt="Assignment 10">
+            </div>
+            <div class="content">
+                <span class="badge badge-grid">Grid</span>
+                <h3>Challenge 10</h3>
+                <p>The "Holy Grail" website layout with Grid.</p>
+            </div>
+            <a href="10.png" target="_blank" class="btn-view">View Full Design</a>
+        </div>
+
+        <!-- Bonus -->
+        <div class="assignment-card bonus-card">
+            <div class="image-container">
+                <img src="bonus.png" alt="Bonus Assignment">
+            </div>
+            <div class="content">
+                <span class="badge" style="background: #f1c40f; color: #000;">Award Grade</span>
+                <h3>Bonus Challenge</h3>
+                <p>The ultimate test of everything you've learned today.</p>
+            </div>
+            <a href="bonus.png" target="_blank" class="btn-view" style="background: #f1c40f; color: #000;">View Final
+                Boss</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
