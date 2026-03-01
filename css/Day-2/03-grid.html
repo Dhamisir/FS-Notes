@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CSS Day 2 - CSS Grid (Step-by-Step Mastery)</title>
+    <title>CSS Day 2 - CSS Grid (Mastery & Proofs)</title>
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
@@ -60,6 +60,7 @@
             border-radius: 6px;
             font-family: 'Consolas', monospace;
             margin: 10px 0;
+            white-space: pre-wrap;
         }
 
         .explanation {
@@ -67,6 +68,39 @@
             padding: 15px;
             border-radius: 4px;
             margin: 10px 0;
+        }
+
+        /* Simple Grid Example Styles */
+        .simple-container {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            border: 2px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            background: #ebf5fb;
+        }
+
+        .simple-box {
+            background: lightblue;
+            padding: 40px;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 8px;
+            color: black;
+            font-weight: bold;
+        }
+
+        @media (max-width: 900px) {
+            .simple-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .simple-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -83,6 +117,14 @@
     <h2>Step 1: The Skeleton</h2>
     <p>We start with a parent and children. Initially, they just stack.</p>
 
+    <div class="code-block">
+        &lt;div class="container"&gt;
+        &lt;div class="item"&gt;1&lt;/div&gt;
+        &lt;div class="item"&gt;2&lt;/div&gt;
+        &lt;div class="item"&gt;3&lt;/div&gt;
+        &lt;/div&gt;
+    </div>
+
     <span class="container-label">Normal Flow:</span>
     <div style="border: 2px dashed #999; padding: 10px;">
         <div class="item" style="margin-bottom: 5px;">1</div>
@@ -94,17 +136,18 @@
     <h2>Step 2: Create the Columns</h2>
     <p>Tell the container how many columns you want using <code>grid-template-columns</code>.</p>
 
-    <span class="container-label">Adding <code>grid-template-columns: 200px 200px 200px;</code></span>
-    <div class="grid-container" style="display: grid; grid-template-columns: 200px 200px 200px;">
-        <div class="item">Box 1</div>
-        <div class="item">Box 2</div>
-        <div class="item">Box 3</div>
-    </div>
     <div class="code-block">
         .container {
         display: grid;
         grid-template-columns: 200px 200px 200px; /* 3 Columns of 200px each */
         }
+    </div>
+
+    <span class="container-label">Adding <code>grid-template-columns: 200px 200px 200px;</code></span>
+    <div class="grid-container" style="display: grid; grid-template-columns: 200px 200px 200px;">
+        <div class="item" style="margin: 5px;">Box 1</div>
+        <div class="item" style="margin: 5px;">Box 2</div>
+        <div class="item" style="margin: 5px;">Box 3</div>
     </div>
     <div class="explanation">
         <strong>Observation:</strong> The boxes are side-by-side, but they are "hard coded" to 200px. What happens if
@@ -115,19 +158,34 @@
     <h2>Step 3: Use Flexible Units (<code>fr</code>)</h2>
     <p><code>fr</code> stands for <strong>Fraction</strong>. It means "take 1 share of whatever space is left".</p>
 
+    <div class="code-block">
+        .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        }
+
+        /* OR shortcut for 3 equal columns */
+        grid-template-columns: repeat(3, 1fr);
+    </div>
+
     <span class="container-label">Adding <code>grid-template-columns: 1fr 2fr 1fr;</code></span>
     <div class="grid-container" style="display: grid; grid-template-columns: 1fr 2fr 1fr;">
-        <div class="item">1 Share</div>
-        <div class="item">2 Shares (Double wide)</div>
-        <div class="item">1 Share</div>
-    </div>
-    <div class="code-block">
-        grid-template-columns: repeat(3, 1fr); /* Shortcut for 1fr 1fr 1fr */
+        <div class="item" style="margin: 5px;">1 Share</div>
+        <div class="item" style="margin: 5px;">2 Shares (Double wide)</div>
+        <div class="item" style="margin: 5px;">1 Share</div>
     </div>
 
     <!-- STEP 4 -->
     <h2>Step 4: The Clean Space (Gap)</h2>
     <p>Stop using <code>margin</code> to space out boxes. Use <code>gap</code>.</p>
+
+    <div class="code-block">
+        .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px; /* Perfectly even space between all rows and columns */
+        }
+    </div>
 
     <span class="container-label">Adding <code>gap: 20px;</code></span>
     <div class="grid-container" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
@@ -138,13 +196,21 @@
         <div class="item">5</div>
         <div class="item">6</div>
     </div>
-    <div class="code-block">
-        gap: 20px; /* Perfectly even space between all rows and columns */
-    </div>
 
     <!-- STEP 5 -->
     <h2>Step 5: Spanning (Merging Cells)</h2>
     <p>You can tell an item to take up multiple cells. This is how you make Sidebars and Main content.</p>
+
+    <div class="code-block">
+        .item-1 {
+        grid-column: span 2; /* Take 2 columns */
+        }
+
+        /* Specific Line Spanning */
+        .header {
+        grid-column: 1 / 4; /* Start at line 1, end at line 4 (Full width) */
+        }
+    </div>
 
     <span class="container-label">Item 1 spans 2 columns: <code>grid-column: span 2;</code></span>
     <div class="grid-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
@@ -154,15 +220,10 @@
         <div class="item">5</div>
         <div class="item">6</div>
     </div>
-    <div class="code-block">
-        .header {
-        grid-column: 1 / 4; /* Start at line 1, end at line 4 (Full width of 3 columns) */
-        }
-    </div>
 
     <!-- STEP 6 -->
-    <h2>Step 6: The "Holy Grail" Responsive Layout</h2>
-    <p>This is the most professional way to build a grid that works on mobile and desktop without any more code.</p>
+    <h2>Step 6: The "Holy Grail" (Auto-fit & Minmax)</h2>
+    <p>This is the professional way to build a grid that works on all screens without media queries.</p>
 
     <div class="code-block">
         .container {
@@ -175,7 +236,69 @@
     <div class="explanation">
         <strong>Breakdown:</strong><br>
         - <code>auto-fit</code>: Fit as many as you can.<br>
-        - <code>minmax(250px, 1fr)</code>: Every box must be at least 250px, but can grow to 1fr.
+        - <code>minmax(250px, 1fr)</code>: Every box must be at least 250px, but can grow to fill the rest.
+    </div>
+
+    <hr style="margin: 50px 0;">
+
+    <!-- NEW SECTION: REAL WORLD EXAMPLE -->
+    <h1>🌍 Real-World: Responsive Grid with Media Queries</h1>
+
+    <div class="explanation">
+        <h3>✅ Copy This (Complete Structure)</h3>
+        <p>This is the standard way to change layout for Desktop, Tablet, and Mobile.</p>
+    </div>
+
+    <div class="code-block">
+        /* 1. Turns on grid and sets 3 columns for Desktop */
+        .container {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* 2. Tablet = 2 columns (below 900px) */
+        @media (max-width: 900px) {
+        .container {
+        grid-template-columns: repeat(2, 1fr);
+        }
+        }
+
+        /* 3. Mobile = 1 column (below 600px) */
+        @media (max-width: 600px) {
+        .container {
+        grid-template-columns: 1fr;
+        }
+        }
+    </div>
+
+    <div class="simple-container">
+        <div class="simple-box">Box 1</div>
+        <div class="simple-box">Box 2</div>
+        <div class="simple-box">Box 3</div>
+        <div class="simple-box">Box 4</div>
+        <div class="simple-box">Box 5</div>
+    </div>
+
+    <div class="explanation">
+        <h3>🎓 How to Explain to Students:</h3>
+        <ol>
+            <li><strong>display: grid</strong> → turns on the grid engine.</li>
+            <li><strong>grid-template-columns</strong> → controls the number and size of columns.</li>
+            <li><strong>repeat(3, 1fr)</strong> → creates 3 equal fractions of space.</li>
+            <li><strong>Media query</strong> → changes columns for different screen widths.</li>
+        </ol>
+        <p><strong>Standard Breakpoints:</strong><br>
+            📱 <strong>Mobile:</strong> 0px to 600px (1 column)<br>
+            📱 <strong>Tablet:</strong> 600px to 900px (2 columns)<br>
+            💻 <strong>Desktop:</strong> 900px and above (3 columns)</p>
+    </div>
+
+    <div class="explanation" style="background: #fff;">
+        <h3>👀 Visual Result</h3>
+        <p>💻 <strong>Desktop:</strong> Box 1 | Box 2 | Box 3 ... then Box 4 | Box 5<br>
+            📱 <strong>Tablet:</strong> Box 1 | Box 2 ... then Box 3 | Box 4 ...then Box 5<br>
+            📱 <strong>Mobile:</strong> All boxes stack in 1 column.</p>
     </div>
 
 </body>

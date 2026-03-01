@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Day 2 - Mastery of Position Property</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            max-width: 1000px;
+            line-height: 1.6;
+            background: #fdfdfd;
+            color: #333;
+            height: 2000px;
+            /* Added height to demonstrate sticky and fixed */
+        }
+
+        h1 {
+            color: #2980b9;
+            border-bottom: 4px solid #2980b9;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            padding: 10px;
+            border-left: 5px solid #2980b9;
+            background: #e1f5fe;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .box {
+            width: 120px;
+            height: 120px;
+            background: lightblue;
+            text-align: center;
+            line-height: 120px;
+            font-weight: bold;
+            border: 1px solid #3498db;
+            color: #2c3e50;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            margin: 15px 0;
+            white-space: pre-wrap;
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #2980b9;
+            color: white;
+        }
+
+        /* Specific Classes for Demo */
+        .relative-box {
+            position: relative;
+            top: 30px;
+            left: 30px;
+            background: orange;
+        }
+
+        .parent-container {
+            position: relative;
+            height: 250px;
+            background: #ecf0f1;
+            border: 2px dashed #95a5a6;
+            margin-top: 10px;
+        }
+
+        .absolute-box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #e74c3c;
+            color: white;
+        }
+
+        .fixed-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sticky-box {
+            position: sticky;
+            top: 0;
+            background: #8e44ad;
+            color: white;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" style="text-decoration: none; font-weight: bold; color: #2980b9;">← Back to Day 2</a>
+
+    <h1>� What is Position?</h1>
+    <p>Position controls: <strong>“Where an element sits on the page.”</strong></p>
+
+    <p>There are 5 main values:</p>
+    <ul>
+        <li><code>static</code></li>
+        <li><code>relative</code></li>
+        <li><code>absolute</code></li>
+        <li><code>fixed</code></li>
+        <li><code>sticky</code></li>
+    </ul>
+
+    <hr>
+
+    <!-- STATIC -->
+    <div class="section">
+        <h2>1️⃣ position: static (Default)</h2>
+        <div class="code-block">
+            /* CSS */
+            .box {
+            position: static;
+            }
+
+            &lt;!-- HTML --&gt;
+            &lt;div class="box"&gt;Box 1&lt;/div&gt;
+            &lt;div class="box"&gt;Box 2&lt;/div&gt;
+        </div>
+        <div class="explanation">
+            <ul>
+                <li>👉 This is default.</li>
+                <li>👉 Elements follow normal page flow.</li>
+                <li>👉 <code>top, left, right, bottom</code> DO NOT work.</li>
+            </ul>
+        </div>
+
+        <p><strong>Example:</strong> Boxes appear one below another.</p>
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+    </div>
+
+    <!-- RELATIVE -->
+    <div class="section">
+        <h2>2️⃣ position: relative</h2>
+        <div class="code-block">
+            /* CSS */
+            .box {
+            position: relative;
+            top: 30px;
+            left: 30px;
+            }
+
+            &lt;!-- HTML --&gt;
+            &lt;div class="box relative"&gt;Relative&lt;/div&gt;
+        </div>
+        <div class="explanation">
+            <ul>
+                <li>👉 Moves element from its normal position</li>
+                <li>👉 <strong>BUT original space is still reserved</strong></li>
+                <li>👉 Think of it like: “Move, but don’t disturb others.”</li>
+            </ul>
+        </div>
+
+        <div style="background: #eee; border: 1px dashed #999; padding: 10px; display: inline-block;">
+            <div class="box relative-box">1.Relative</div>
+            <div class="box" style="background: #bdc3c7;">2.Static</div>
+        </div>
+        <p style="margin-top: 20px;">👉 <strong>VISUAL PROOF:</strong> Box 1 has moved, but <strong>Box 2 did NOT move
+                up</strong> to fill the gap. It stayed in its original position. This proves that <code>relative</code>
+            keeps its original space reserved.</p>
+    </div>
+
+    <!-- ABSOLUTE -->
+    <div class="section">
+        <h2>3️⃣ position: absolute</h2>
+        <div class="code-block">
+            /* CSS */
+            .parent {
+            position: relative;
+            height: 250px;
+            }
+
+            .child {
+            position: absolute;
+            top: 0;
+            right: 0;
+            }
+
+            &lt;!-- HTML --&gt;
+            &lt;div class="parent"&gt;
+            &lt;div class="box absolute"&gt;Absolute&lt;/div&gt;
+            &lt;/div&gt;
+        </div>
+        <div class="explanation">
+            <ul>
+                <li>👉 Removed from normal flow (No space reserved)</li>
+                <li>👉 Positioned relative to the <strong>nearest positioned parent</strong></li>
+                <li>👉 Very important: If no parent has position set → It uses the whole page (body).</li>
+            </ul>
+        </div>
+
+        <div class="parent-container"
+            style="background: #eee; border: 1px dashed #999; height: 200px; position: relative;">
+            <div class="box absolute-box">Absolute</div>
+            <div class="box" style="background: #bdc3c7;">Static Box</div>
+        </div>
+        <p style="margin-top: 20px;">👉 <strong>VISUAL PROOF:</strong> Notice how the gray "Static Box" is sitting at
+            the top? The red "Absolute" box is floating <strong>on top of it</strong>. This proves Absolute elements are
+            <strong>removed from the flow</strong>—other elements don't even know they exist!</p>
+    </div>
+
+    <!-- FIXED -->
+    <div class="section">
+        <h2>4️⃣ position: fixed</h2>
+        <div class="code-block">
+            /* CSS */
+            .box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            }
+
+            &lt;!-- HTML --&gt;
+            &lt;div class="box fixed"&gt;Fixed&lt;/div&gt;
+        </div>
+        <div class="explanation">
+            <ul>
+                <li>👉 Stays fixed on screen.</li>
+                <li>👉 Doesn’t move when scrolling.</li>
+                <li>👉 Example: Chat buttons, Sticky help icons.</li>
+            </ul>
+        </div>
+        <p>👉 <strong>VISUAL PROOF:</strong> Look at the <strong>bottom-right corner</strong> of your screen. No matter
+            how much you scroll, the green box stays <strong>EXACTLY</strong> in that spot. It is glued to your browser
+            window.</p>
+        <div class="box fixed-box">Fixed</div>
+    </div>
+
+    <!-- STICKY -->
+    <div class="section">
+        <h2>5️⃣ position: sticky</h2>
+        <div class="code-block">
+            /* CSS */
+            .box {
+            position: sticky;
+            top: 0;
+            }
+
+            &lt;!-- HTML --&gt;
+            &lt;div class="box sticky"&gt;Sticky&lt;/div&gt;
+        </div>
+        <div class="explanation">
+            <ul>
+                <li>👉 Acts normal at first.</li>
+                <li>👉 When scrolling reaches it → <strong>sticks</strong> to the viewport.</li>
+                <li>👉 Used for: Sticky navbars, Table headers.</li>
+            </ul>
+        </div>
+        <div style="background: #f1f1f1; height: 400px; padding: 10px; border: 1px solid #ccc;">
+            <div class="box sticky-box">Sticky Header</div>
+            <p style="padding-top: 20px;">Scroll inside this gray area. The purple box will move like a normal box...
+                until it hits the top. <strong>Then it sticks!</strong></p>
+            <p style="padding-top: 200px;">Keep scrolling... it will stay stuck at the top while I pass by.</p>
+        </div>
+        <p style="margin-top: 20px;">👉 <strong>VISUAL PROOF:</strong> This acts like a mix of Relative and Fixed. It
+            follows the flow until a certain point, then stops.</p>
+    </div>
+
+    <!-- SUMMARY -->
+    <hr>
+    <h2>🔥 Quick Comparison Table</h2>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Moves?</th>
+                <th>Keeps Space?</th>
+                <th>Relative To</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>static</strong></td>
+                <td>❌</td>
+                <td>✅</td>
+                <td>Normal flow</td>
+            </tr>
+            <tr>
+                <td><strong>relative</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Itself</td>
+            </tr>
+            <tr>
+                <td><strong>absolute</strong></td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>Parent</td>
+            </tr>
+            <tr>
+                <td><strong>fixed</strong></td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>Screen</td>
+            </tr>
+            <tr>
+                <td><strong>sticky</strong></td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Scroll position</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="explanation" style="border-left-color: #f1c40f; background: #fffde7;">
+        <h3>🎓 How To Explain To Students Simply</h3>
+        <ul>
+            <li><strong>Static</strong> → normal</li>
+            <li><strong>Relative</strong> → move slightly</li>
+            <li><strong>Absolute</strong> → free from layout</li>
+            <li><strong>Fixed</strong> → fixed to screen</li>
+            <li><strong>Sticky</strong> → sticks on scroll</li>
+        </ul>
+    </div>
+
+    <div class="explanation" style="border-left-color: #2980b9;">
+        <h3>🧠 How To Prove Each One (What To Say)</h3>
+        <p><strong>🔹 Static:</strong> Ask "Did it move?" No → normal flow.</p>
+        <p><strong>🔹 Relative:</strong> Ask "Did it move?" → Yes | "Did the space remain?" → Yes (Proves space
+            reserved).</p>
+        <p><strong>🔹 Absolute:</strong> Ask "Did it push text down?" → No | "Is it floating?" → Yes (Proves removed
+            from flow).</p>
+        <p><strong>🔹 Sticky:</strong> Tell them to scroll slowly. Watch it move normally, then stick.</p>
+        <p><strong>🔹 Fixed:</strong> Scroll the page. It never moves from the bottom-right corner.</p>
+    </div>
+
+</body>
+
+</html>
