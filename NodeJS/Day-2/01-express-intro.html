@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Express Setup & Basic API</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007acc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #eef7ff;
+            border-left: 5px solid #007acc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .assignment-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>🛠 Express.js Setup & Your First API</h1>
+        <p>Express is a fast and minimal framework for Node.js. It simplifies HTTP handling and routing.</p>
+
+        <div class="mini-section">
+            <h2>1. Installation</h2>
+            <pre><code>npm install express</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>2. Your First Server</h2>
+            <pre><code>const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello Backend World!');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>3. API endpoint for Testing (/user)</h2>
+            <p>Let's create an endpoint that returns data in JSON format.</p>
+            <div class="example-box">
+                <pre><code>app.get('/user', (req, res) => {
+  res.json({
+    id: 1,
+    name: "John Doe",
+    role: "Developer"
+  });
+});</code></pre>
+            </div>
+        </div>
+
+        <div class="assignment-box">
+            <h2 style="color: #2e7d32;">🎯 Minute Activity</h2>
+            <ol>
+                <li>Install express and create a server on <code>PORT 5000</code>.</li>
+                <li>Create a <code>/health</code> route that returns <code>"Server is OK"</code>.</li>
+                <li>Create a <code>/user</code> route that returns an object with your name and city.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

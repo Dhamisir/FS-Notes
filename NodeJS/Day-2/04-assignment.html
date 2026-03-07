@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 - Day 2 Final Assignment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2e7d32;
+            border-bottom: 3px solid #4caf50;
+            padding-bottom: 10px;
+        }
+
+        section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #4caf50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>🎯 Day 2 Project: The User Management API</h1>
+        <p>Combine Express, Folder Structure, and Logic.</p>
+
+        <section>
+            <h2>Task 1: Basic Server Setup</h2>
+            <ul>
+                <li>Initialize <code>npm init -y</code>.</li>
+                <li>Install <code>express</code>.</li>
+                <li>Create <code>index.js</code> as the main file.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Task 2: API Architecture (MVC)</h2>
+            <ul>
+                <li>Create <code>routes/user.routes.js</code>.</li>
+                <li>Create <code>controllers/user.controller.js</code>.</li>
+                <li>Build a <code>/profile</code> route that returns a hardcoded user object.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Task 3: Multiple Routes</h2>
+            <ul>
+                <li>Add a <code>POST /login</code> endpoint (even if it just returns <code>"Logged in"</code>).</li>
+                <li>Add a <code>GET /all</code> endpoint to list users.</li>
+                <li>Test all routes using Postman or your browser.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Task 4: Bonus Challenge</h2>
+            <ul>
+                <li>Add a simple middleware that logs the current time on every request.</li>
+            </ul>
+        </section>
+    </div>
+</body>
+
+</html>

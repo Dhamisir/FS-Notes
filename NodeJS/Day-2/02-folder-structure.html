@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Folder Structure (Routes & Controllers)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007acc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .folder-tree {
+            background: #f8f9fa;
+            border: 1px dashed #007acc;
+            padding: 15px;
+            font-family: monospace;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>📂 Project Structure (Routes & Controllers)</h1>
+        <p>In real-world apps, we don't write all code in one <code>index.js</code>. We separate it to keep things
+            "clean".</p>
+
+        <div class="mini-section">
+            <h2>1. The Professional Tree</h2>
+            <div class="folder-tree">
+                ├── index.js (Entry Point)<br>
+                ├── routes/<br>
+                │ └── user.routes.js (Entry to paths)<br>
+                └── controllers/<br>
+                └── user.controller.js (Logic)
+            </div>
+        </div>
+
+        <div class="mini-section">
+            <h2>2. Controllers (The Logic)</h2>
+            <p>This file contains the "action" that happens when a route is hit.</p>
+            <pre><code>// controllers/user.controller.js
+exports.getUser = (req, res) => {
+  res.send({ name: "Rahul", age: 25 });
+};</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>3. Routes (The Paths)</h2>
+            <p>This links the URL path to the Controller function.</p>
+            <pre><code>// routes/user.routes.js
+const express = require('express');
+const router = express.Router();
+const userCtrl = require('../controllers/user.controller');
+
+router.get('/profile', userCtrl.getUser);
+
+module.exports = router;</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>4. Integrating in main index.js</h2>
+            <pre><code>const userRoutes = require('./routes/user.routes');
+app.use('/user', userRoutes); // All user routes start with /user</code></pre>
+        </div>
+
+        <div class="assignment-box"
+            style="background: #e8f5e9; border-left: 5px solid #4caf50; padding: 20px; margin-top: 20px;">
+            <h2 style="color: #2e7d32;">🎯 Activity</h2>
+            <ol>
+                <li>Create a <code>product.routes.js</code> and <code>product.controller.js</code>.</li>
+                <li>Setup a <code>/all</code> route that returns a list of items.</li>
+                <li>Test it in the browser at <code>localhost:PORT/product/all</code>.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

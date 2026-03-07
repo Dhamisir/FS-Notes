@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - JS Basics Recap (Context: Server)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #68a063;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #68a063;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>♻️ JS Basics (Recap for Backend)</h1>
+        <p>Before jumping into Node, ensure you understand how JS works on the terminal without a browser.</p>
+
+        <div class="mini-section">
+            <h2>1. No DOM on Server</h2>
+            <p>There is no <code>document</code> or <code>window</code> in Node.js.</p>
+            <pre><code>// Browser JS:
+document.getElementById("my-id").innerHTML = "Hello"; // Works
+
+// Node.js (Server) JS:
+document.getElementById("my-id").innerHTML = "Hello"; // ERROR!</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>2. Printing to Terminal</h2>
+            <p>Use <code>console.log()</code> to see output in your command prompt / terminal.</p>
+            <pre><code>console.log("Server side is running...");</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>3. ES6 Features (Arrow Functions)</h2>
+            <p>Node fully supports modern JS syntax.</p>
+            <pre><code>const add = (a, b) => a + b;
+console.log(add(5, 5)); // 10</code></pre>
+        </div>
+    </div>
+</body>
+
+</html>
