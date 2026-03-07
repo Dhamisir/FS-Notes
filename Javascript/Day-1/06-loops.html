@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 - Loops</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f1c40f;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .assignment-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>🔄 Loops (Doing things repeatedly)</h1>
+        <p>Loops are used to execute a block of code multiple times without writing it over and over.</p>
+
+        <div class="mini-section">
+            <h2>1. For Loop (Most Popular)</h2>
+            <p>Use this when you know exactly how many times you want to repeat.</p>
+            <pre><code>// Print 1 to 5
+for (let i = 1; i <= 5; i++) {
+  console.log("Value is: " + i);
+}</code></pre>
+            <p><b>Structure:</b> (Start; Condition; Step)</p>
+        </div>
+
+        <div class="mini-section">
+            <h2>2. While Loop</h2>
+            <p>Repeats <b>while</b> a condition is true.</p>
+            <pre><code>let count = 1;
+while (count <= 5) {
+  console.log("Count is: " + count);
+  count++; // Don't forget this, or it will loop forever!
+}</code></pre>
+        </div>
+
+        <div class="assignment-box">
+            <h2 style="color: #2e7d32;">🎯 Minute Assignment</h2>
+            <ol>
+                <li>Write a loop that prints numbers from <b>10 down to 1</b>.</li>
+                <li>Write a loop that prints the <b>Multiplication Table of 5</b> (5 * 1 = 5, 5 * 2 = 10, etc).</li>
+                <li>Extra: Print only the <b>Even</b> numbers between 1 and 20.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

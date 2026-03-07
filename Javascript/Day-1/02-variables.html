@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Variables (var, let, const)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f1c40f;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #fff9db;
+            border-left: 5px solid #f1c40f;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .assignment-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>📦 Variables (var, let, const)</h1>
+
+        <p>A <strong>Variable</strong> is a container for storing data values. Imagine it's a box with a label on it.
+        </p>
+
+        <div class="mini-section">
+            <h2>1. Three ways to declare variables:</h2>
+
+            <div class="example-box">
+                <strong><code>var</code> (The OLD Way):</strong>
+                <p>Not recommended nowadays because it has scope issues.</p>
+                <pre><code>var name = "Rahul";</code></pre>
+
+                <strong><code>let</code> (The NEW Standard):</strong>
+                <p>Used for values that <b>change</b>.</p>
+                <pre><code>let score = 10;
+score = 11; // OK</code></pre>
+
+                <strong><code>const</code> (For CONSTANTS):</strong>
+                <p>Used for values that <b>NEVER change</b>.</p>
+                <pre><code>const pi = 3.14;
+pi = 3.15; // ERROR!</code></pre>
+            </div>
+        </div>
+
+        <div class="mini-section">
+            <h2>2. Naming Rules (Best Practices)</h2>
+            <ul>
+                <li>Must start with <b>letter, $ or _</b></li>
+                <li>Cannot start with a <b>number</b></li>
+                <li>Use <span class="highlight">camelCase</span> (firstName, myScore)</li>
+                <li>Be <b>descriptive</b> (use <code>let age = 20</code> instead of <code>let a = 20</code>)</li>
+            </ul>
+        </div>
+
+        <div class="assignment-box">
+            <h2 style="color: #2e7d32;">🎯 Minute Assignment</h2>
+            <ol>
+                <li>Create a variable for your <code>fullName</code>. (Think: var, let, or const?)</li>
+                <li>Create a variable for your <code>currentCity</code>.</li>
+                <li>Try adding two numbers using variables and print them in the console.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Functions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #e3f2fd;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .assignment-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>🛠 Functions (Reusable Blocks of Code)</h1>
+        <p>A <strong>Function</strong> is a block of code designed to perform a particular task. You can "call" it
+            whenever you need it.</p>
+
+        <div class="mini-section">
+            <h2>1. Basic Function</h2>
+            <pre><code>function sayHello() {
+  console.log("Hello there!");
+}
+
+sayHello(); // This runs the function</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>2. Functions with Parameters</h2>
+            <p>Parameters act like slots where you can pass data into a function.</p>
+            <pre><code>function greetUser(name) {
+  console.log("Hello, " + name + "!");
+}
+
+greetUser("Rahul"); // Hello, Rahul!
+greetUser("Simran"); // Hello, Simran!</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>3. Return Statement</h2>
+            <p>Functions can <b>return</b> a value back to where they were called.</p>
+            <pre><code>function add(a, b) {
+  return a + b;
+}
+
+let result = add(10, 5); // result will be 15
+console.log(result);</code></pre>
+        </div>
+
+        <div class="assignment-box">
+            <h2 style="color: #2e7d32;">🎯 Minute Activity</h2>
+            <ol>
+                <li>Write a function <code>square(n)</code> that returns the square of a number.</li>
+                <li>Write a function <code>isAdult(age)</code> that returns <code>true</code> if age is 18 or above, and
+                    <code>false</code> otherwise.</li>
+                <li>Create a function that takes <code>celsius</code> and converts it to <code>fahrenheit</code>.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

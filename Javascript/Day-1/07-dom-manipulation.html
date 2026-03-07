@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 - DOM Manipulation (Document Object)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f1c40f;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .assignment-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>🌐 DOM Manipulation (The `document` Object)</h1>
+        <p>The <strong>document</strong> object is our gateway to the HTML page. It allows JavaScript to "talk" to the
+            browser.</p>
+
+        <div class="mini-section">
+            <h2>1. Selecting Elements</h2>
+            <p>To change something on the page, we first need to <b>find</b> it.</p>
+            <pre><code>// Find element by its ID
+let myTitle = document.getElementById("main-title");
+
+// Find element using CSS-like selection
+let myBtn = document.querySelector(".my-button");</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>2. Changing Content</h2>
+            <p>Once we have an element, we can change what's inside it.</p>
+            <pre><code>// Changes just the text
+myTitle.innerText = "Hello JavaScript!";
+
+// Changes HTML (allows tags like &lt;b&gt;)
+myTitle.innerHTML = "&lt;i&gt;Welcome to the Course&lt;/i&gt;";</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>3. Changing Style</h2>
+            <p>We can change the look and feel directly from JS.</p>
+            <pre><code>myTitle.style.color = "red";
+myTitle.style.backgroundColor = "yellow";
+myTitle.style.fontSize = "40px";</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>4. Handling User Interaction</h2>
+            <p>We can make things happen when a user clicks a button.</p>
+            <div class="example-box">
+                <strong>HTML:</strong>
+                <pre><code>&lt;button onclick="changeMe()"&gt;Click Me&lt;/button&gt;</code></pre>
+                <strong>JS:</strong>
+                <pre><code>function changeMe() {
+  document.body.style.backgroundColor = "lightblue";
+  alert("Page color changed!");
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="assignment-box">
+            <h2 style="color: #2e7d32;">🎯 Minute Activity</h2>
+            <ol>
+                <li>Create an input field: <code>&lt;input type="text" id="userInput"&gt;</code>.</li>
+                <li>Write a function that gets the value of the input using <code>.value</code> property and shows it in
+                    an alert.</li>
+                <li>Change the font color of every <code>&lt;h1&gt;</code> to your favorite color.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

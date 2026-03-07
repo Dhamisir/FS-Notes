@@ -3,390 +3,113 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>JavaScript Basics – Beginner Notes + Code</title>
+    <title>JS Day 2 – Advanced Fundamentals</title>
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
             margin: 32px;
-            max-width: 800px;
+            max-width: 900px;
             line-height: 1.6;
-            background: #f9fbfc;
-        }
-
-        code,
-        pre {
-            background: #f4f4f6;
-            border-radius: 4px;
-            padding: 2px 6px;
-            font-size: 1em;
-        }
-
-        .section {
-            margin-bottom: 32px;
-        }
-
-        .mini-section {
-            margin-top: 20px;
-            background: #f7fcff;
-            padding: 16px 22px;
-            border-left: 4px solid #35baf6;
-            border-radius: 6px;
-        }
-
-        .example-box {
-            background: #f5fff5;
-            border-left: 4px solid #27ae60;
-            padding: 12px 17px;
-            margin: 13px 0;
+            background: #f4f7f6;
         }
 
         h1 {
-            color: #0174af;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
         }
 
-        .practice {
-            background: #fff8e1;
-            padding: 5px 12px;
-            border-left: 4px solid #ffc107;
-            border-radius: 3px;
-            margin-bottom: 7px;
+        .nav-container {
+            background: #eaf2f8;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            border-radius: 6px;
+            margin: 20px 0;
         }
 
-        button {
-            padding: 7px 15px;
-            font-size: 16px;
-            background: #03a9f4;
-            color: white;
-            border: none;
+        .nav-item {
+            margin: 10px 0;
+            padding: 8px 12px;
+            background: white;
             border-radius: 4px;
-            margin: 7px 0px 18px 0;
-            cursor: pointer;
+            border-left: 3px solid #2980b9;
+            transition: 0.2s;
         }
 
-        button:hover {
-            background: #0277bd;
+        .nav-item:hover {
+            transform: translateX(5px);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .cheat-title {
-            font-size: 1.05em;
+        .nav-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            display: block;
+        }
+
+        .topic-number {
+            color: #2980b9;
             font-weight: bold;
-            color: #195568;
+            margin-right: 8px;
         }
 
-        .btn-row {
-            margin-bottom: 20px;
+        .intro {
+            background: #ebf5fb;
+            padding: 15px 20px;
+            border-left: 4px solid #3498db;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .js-logo {
+            float: right;
+            width: 80px;
+            border-radius: 8px;
         }
     </style>
 </head>
 
 <body>
-    <h1>✅ JavaScript Basics – Beginner Notes + Code</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" class="js-logo" alt="JS Logo">
+    <h1>🚀 JavaScript Day 2 – Logic & Data</h1>
+    <a href="../../index.html"
+        style="display:inline-block; margin-bottom:18px; background:#eaf2f8; color:#2980b9; padding:9px 22px; border-radius:6px; font-weight:bold; text-decoration:none; border:1px solid #b3d7f2;">
+        ⬅️ Home
+    </a>
 
-    <!-- 1) Variables (var) -->
-    <div class="section">
-        <div class="mini-section">
-            <b>1) Variables (<code>var</code>)</b>
-            <div class="cheat-title">📘 Definition</div>
-            <div>A variable is used to store data so we can use it later.</div>
-            <div class="example-box">
-                <b>🧠 Example Code</b>
-                <pre><code>var name = "Aman";
-var age = 18;
-console.log(name);
-console.log(age);</code></pre>
-            </div>
-            <div class="practice">
-                <b>✏ Practice:</b>
-                <pre><code>var city = "Mumbai";
-console.log(city);</code></pre>
-            </div>
+    <div class="intro">
+        <h3>🎓 Day 2: Functions & Structured Data</h3>
+        <p>Today we level up! We'll learn how to write reusable code and how to manage complex data using Arrays and
+            Objects.</p>
+        <ul>
+            <li>Reusable Code with Functions</li>
+            <li>Storing Lists with Arrays</li>
+            <li>Mapping Data with Objects</li>
+        </ul>
+    </div>
+
+    <div class="nav-container">
+        <h2>📖 Topics (Follow Sequentially)</h2>
+
+        <div class="nav-item">
+            <a href="01-functions.html"><span class="topic-number">1️⃣</span>Functions (The Building Blocks)</a>
+        </div>
+
+        <div class="nav-item">
+            <a href="02-arrays.html"><span class="topic-number">2️⃣</span>Arrays & Methods (Lists)</a>
+        </div>
+
+        <div class="nav-item">
+            <a href="03-objects.html"><span class="topic-number">3️⃣</span>Objects (Key-Value Pairs)</a>
+        </div>
+
+        <div class="nav-item" style="border-left-color: #27ae60;">
+            <a href="04-assignment.html" style="color: #27ae60;"><span class="topic-number">🎯</span>Day 2
+                Assignments</a>
         </div>
     </div>
 
-    <!-- 2) Datatypes -->
-    <div class="section">
-        <div class="mini-section">
-            <b>2) Datatypes</b>
-            <div class="cheat-title">📘 Definition</div>
-            <div>Datatype tells us what kind of value a variable holds.</div>
-            <div class="cheat-title">🧠 Basic Datatypes</div>
-            <div>
-                <pre><code>var text = "Hello";     // String
-var number = 10;       // Number
-var isStudent = true;  // Boolean
-var x;                 // Undefined
-console.log(text, number, isStudent, x);</code></pre>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3) Operators -->
-    <div class="section">
-        <div class="mini-section">
-            <b>3) Operators</b>
-            <div class="cheat-title">📘 Definition</div>
-            <div>Operators are symbols used to do calculations and comparisons.</div>
-
-            <!-- A) Assignment Operators -->
-            <div style="margin-top: 14px;">
-                <b>A) Assignment Operators</b><br>
-                <span class="cheat-title">📘 Definition</span><br>
-                Used to assign or update value in a variable.
-                <div class="example-box">
-                    <pre><code>var a = 10;
-a += 5;   // a = a + 5
-console.log(a);</code></pre>
-                </div>
-            </div>
-
-            <!-- B) Arithmetic Operators -->
-            <div style="margin-top:12px;">
-                <b>B) Arithmetic Operators</b><br>
-                <span class="cheat-title">📘 Definition</span><br>
-                Used to do math calculations.
-                <div class="example-box">
-                    <pre><code>var sum = 10 + 5;
-var mul = 10 * 2;
-var div = 10 / 2;
-console.log(sum, mul, div);</code></pre>
-                </div>
-            </div>
-
-            <!-- C) Comparison Operators -->
-            <div style="margin-top:12px;">
-                <b>C) Comparison Operators</b><br>
-                <span class="cheat-title">📘 Definition</span><br>
-                Used to compare two values and give true or false.
-                <div class="example-box">
-                    <pre><code>console.log(5 > 3);     
-console.log(5 == "5");  
-console.log(5 === "5");</code></pre>
-                </div>
-            </div>
-
-            <!-- D) Logical Operators -->
-            <div style="margin-top:12px;">
-                <b>D) Logical Operators</b><br>
-                <span class="cheat-title">📘 Definition</span><br>
-                Used to check multiple conditions together.
-                <div class="example-box">
-                    <pre><code>var age = 20;
-var hasId = true;
-console.log(age >= 18 && hasId == true);
-console.log(age < 18 || hasId == true);
-console.log(!hasId);</code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4) DOM Manipulation -->
-    <div class="section">
-        <div class="mini-section">
-            <b>4) DOM Manipulation</b>
-            <div class="cheat-title">📘 Definition</div>
-            <div>DOM allows JavaScript to change HTML content and style.</div>
-
-            <!-- A) Print text using DOM -->
-            <div style="margin-top:12px;">
-                <b>A) Print text using DOM</b>
-                <div class="example-box">
-                    <pre><code>document.getElementById("msg").innerHTML = "Hello Student";</code></pre>
-                </div>
-            </div>
-            <!-- B) Change innerHTML -->
-            <div style="margin-top:12px;">
-                <b>B) Change <code>innerHTML</code></b>
-                <span class="cheat-title">📘 Definition</span>
-                <div>innerHTML is used to change text inside an HTML element.</div>
-                <div class="example-box">
-                    <pre><code>document.getElementById("msg").innerHTML = "New Message";</code></pre>
-                </div>
-            </div>
-            <!-- C) Change Style -->
-            <div style="margin-top:12px;">
-                <b>C) Change Style</b>
-                <span class="cheat-title">📘 Definition</span>
-                <div>JavaScript can change CSS styles of HTML elements.</div>
-                <div class="example-box">
-                    <pre><code>document.getElementById("msg").style.color = "green";
-document.getElementById("msg").style.fontSize = "24px";</code></pre>
-                </div>
-            </div>
-        </div>
-        <div id="msg" style="margin-top:18px; font-size:18px;"></div>
-        <div class="btn-row">
-            <button onclick="document.getElementById('msg').innerHTML = 'Hello Student'">Show Hello Student</button>
-            <button onclick="document.getElementById('msg').innerHTML='New Message'">Change to New Message</button>
-            <button
-                onclick="document.getElementById('msg').style.color='green';document.getElementById('msg').style.fontSize='24px'">Change
-                Style</button>
-            <button
-                onclick="document.getElementById('msg').innerHTML = '' ; document.getElementById('msg').style.color = 'black'; document.getElementById('msg').style.fontSize = '18px'">Clear</button>
-        </div>
-    </div>
-
-    <!-- 5) Function (Button Click) -->
-    <div class="section">
-        <div class="mini-section">
-            <b>5) Function (Button Click)</b>
-            <div class="cheat-title">📘 Definition</div>
-            <div>A function is a block of code that runs when called.</div>
-            <div class="example-box">
-                <pre><code>function changeText() {
-  document.getElementById("title").innerHTML = "Button Clicked";
-  document.getElementById("title").style.color = "blue";
-}</code></pre>
-            </div>
-            <div>
-                <h3 id="title">Click the button.</h3>
-                <button onclick="changeText()">Run changeText()</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 6) Data Structures -->
-    <div class="section">
-        <div class="mini-section">
-            <b>6) Data Structures</b>
-            <div class="cheat-title">📘 Definition</div>
-            <div>Data structures are used to store multiple values together.</div>
-            <!-- A) Array -->
-            <div style="margin-top:12px;">
-                <b>A) Array</b>
-                <span class="cheat-title">📘 Definition</span>
-                <div>An array stores multiple values in one variable.</div>
-                <div class="example-box">
-                    <pre><code>var marks = [50, 60, 70];
-console.log(marks);
-console.log(marks[0]);</code></pre>
-                </div>
-            </div>
-            <!-- B) Object -->
-            <div style="margin-top:12px;">
-                <b>B) Object</b>
-                <span class="cheat-title">📘 Definition</span>
-                <div>An object stores data in key-value pairs.</div>
-                <div class="example-box">
-                    <pre><code>var student = {
-  name: "Aman",
-  age: 18
-};
-console.log(student.name);</code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 7) Array Methods -->
-    <div class="section">
-        <div class="mini-section">
-            <b>7) Array Methods</b>
-            <div class="cheat-title">📘 Definition</div>
-            <div>Array methods help us work with array data easily.</div>
-
-            <!-- push & pop -->
-            <div style="margin-top:12px;">
-                <b>push & pop</b>
-                <div class="example-box">
-                    <pre><code>var nums = [1, 2, 3];
-nums.push(4);
-nums.pop();
-console.log(nums);</code></pre>
-                </div>
-            </div>
-
-            <!-- map -->
-            <div style="margin-top:12px;">
-                <b>map</b>
-                <span class="cheat-title">📘 Definition</span>
-                <div><code>map()</code> creates a new array by changing each value.</div>
-                <div class="example-box">
-                    <pre><code>var nums = [1, 2, 3];
-var doubled = nums.map(function(n) {
-  return n * 2;
-});
-console.log(doubled);</code></pre>
-                </div>
-            </div>
-
-            <!-- filter -->
-            <div style="margin-top:12px;">
-                <b>filter</b>
-                <span class="cheat-title">📘 Definition</span>
-                <div><code>filter()</code> keeps only values that match a condition.</div>
-                <div class="example-box">
-                    <pre><code>var marks = [40, 60, 80];
-var pass = marks.filter(function(m) {
-  return m >= 60;
-});
-console.log(pass);</code></pre>
-                </div>
-            </div>
-
-            <!-- reduce -->
-            <div style="margin-top:12px;">
-                <b>reduce</b>
-                <span class="cheat-title">📘 Definition</span>
-                <div><code>reduce()</code> combines all values into one single result.</div>
-                <div class="example-box">
-                    <pre><code>var marks = [50, 60, 70];
-var total = marks.reduce(function(sum, m) {
-  return sum + m;
-}, 0);
-console.log(total);</code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Final Project -->
-    <div class="section">
-        <div class="mini-section">
-            <b>✅ Final Beginner Project</b>
-            <div class="cheat-title">📘 Goal</div>
-            <div>Show marks, total, and pass marks on screen.</div>
-            <div class="example-box">
-                <pre><code>function changeText() {
-  var marks = [40, 60, 80];
-  document.getElementById("msg2").innerHTML = "Marks: " + marks;
-  var total = marks.reduce(function(sum, m) {
-    return sum + m;
-  }, 0);
-  document.getElementById("msg2").innerHTML += "<br>Total: " + total;
-  var pass = marks.filter(function(m) {
-    return m >= 60;
-  });
-  document.getElementById("msg2").innerHTML += "<br>Pass Marks: " + pass;
-}</code></pre>
-            </div>
-            <button onclick="runProject()">Show Project Output</button>
-            <button onclick="document.getElementById('msg2').innerHTML = ''">Clear Output</button>
-            <div id="msg2"
-                style="background:#f6fcff; border-radius:6px; margin-top:11px; font-size:19px; min-height:30px; padding:14px 17px">
-            </div>
-        </div>
-    </div>
-
-    <!-- JS for buttons/functions -->
-    <script>
-        function changeText() {
-            document.getElementById("title").innerHTML = "Button Clicked";
-            document.getElementById("title").style.color = "blue";
-        }
-        function runProject() {
-            var marks = [40, 60, 80];
-            document.getElementById("msg2").innerHTML = "Marks: " + marks;
-            var total = marks.reduce(function (sum, m) {
-                return sum + m;
-            }, 0);
-            document.getElementById("msg2").innerHTML += "<br>Total: " + total;
-            var pass = marks.filter(function (m) {
-                return m >= 60;
-            });
-            document.getElementById("msg2").innerHTML += "<br>Pass Marks: " + pass;
-        }
-    </script>
 </body>
 
 </html>

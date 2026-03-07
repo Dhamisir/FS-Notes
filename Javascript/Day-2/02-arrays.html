@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Arrays & Methods</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #e3f2fd;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .assignment-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>📚 Arrays (Storing Lists)</h1>
+        <p>An <strong>Array</strong> is a special variable which can hold more than one value at a time.</p>
+
+        <div class="mini-section">
+            <h2>1. Creating an Array</h2>
+            <pre><code>let fruits = ["Apple", "Banana", "Mango"];
+console.log(fruits[0]); // Output: Apple (Index starts at 0)</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>2. Array Methods (Power Tools)</h2>
+            <ul>
+                <li><code>push()</code>: Adds item to the <b>end</b>.</li>
+                <li><code>pop()</code>: Removes item from the <b>end</b>.</li>
+                <li><code>unshift()</code>: Adds item to the <b>beginning</b>.</li>
+                <li><code>shift()</code>: Removes item from the <b>beginning</b>.</li>
+            </ul>
+            <div class="example-box">
+                <pre><code>let colors = ["Red", "Blue"];
+colors.push("Green"); // ["Red", "Blue", "Green"]
+colors.pop(); // ["Red", "Blue"]</code></pre>
+            </div>
+        </div>
+
+        <div class="mini-section">
+            <h2>3. Advanced Methods (Functional)</h2>
+            <p>These methods help you transform and filter data easily.</p>
+            <pre><code>let nums = [1, 2, 3, 4, 5];
+
+// Map: Transform every item
+let doubled = nums.map(n => n * 2); // [2, 4, 6, 8, 10]
+
+// Filter: Keep only items that match a condition
+let evens = nums.filter(n => n % 2 === 0); // [2, 4]</code></pre>
+        </div>
+
+        <div class="assignment-box">
+            <h2 style="color: #2e7d32;">🎯 Minute Activity</h2>
+            <ol>
+                <li>Create an array <code>myFriends</code> with 3 names.</li>
+                <li>Add a new friend using <code>push()</code>.</li>
+                <li>Use <code>map()</code> to convert an array of numbers into their Squares.</li>
+                <li>Use <code>filter()</code> to find all numbers greater than 50 from <code>[10, 60, 30, 80]</code>.
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 - If / Else Control Flow</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f1c40f;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .assignment-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>🤔 Conditionals (If / Else)</h1>
+        <p>Conditionals allow our code to make decisions. "If this happens, do that; otherwise, do this."</p>
+
+        <div class="mini-section">
+            <h2>Basic If Statement:</h2>
+            <pre><code>let hour = 14;
+
+if (hour < 12) {
+  console.log("Good Morning!");
+} else {
+  console.log("Good afternoon!");
+}</code></pre>
+        </div>
+
+        <div class="mini-section">
+            <h2>Else If (Multiple Choices):</h2>
+            <pre><code>let score = 85;
+
+if (score >= 90) {
+  console.log("Grade: A");
+} else if (score >= 80) {
+  console.log("Grade: B");
+} else {
+  console.log("Grade: C");
+}</code></pre>
+        </div>
+
+        <div class="assignment-box">
+            <h2 style="color: #2e7d32;">🎯 Minute Assignment</h2>
+            <ol>
+                <li>Write a program that checks if a number is <b>Even</b> or <b>Odd</b>. (Hint: Use <code>% 2</code>)
+                </li>
+                <li>Write a program that takes an <code>age</code> variable and prints if the person is a <b>Minor</b>
+                    (under 18) or <b>Adult</b>.</li>
+                <li>Extra: Check if a number is <b>Positive, Negative, or Zero</b>.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

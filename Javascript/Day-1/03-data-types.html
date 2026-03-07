@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 - Data Types</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 32px;
+            line-height: 1.6;
+            max-width: 850px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #f1c40f;
+            padding-bottom: 10px;
+        }
+
+        code,
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .type-list dt {
+            font-weight: bold;
+            color: #2980b9;
+            margin-top: 15px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .assignment-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Menu</a>
+        <h1>📂 Data Types in JS</h1>
+        <p>JavaScript variables can hold different types of data. JavaScript is <b>Dynamic</b>, meaning you don't need
+            to specify the type.</p>
+
+        <div class="mini-section">
+            <h2>Common Data Types:</h2>
+            <dl class="type-list">
+                <dt>1. String (Text)</dt>
+                <dd>Always wrapped in quotes: <code>"Hello"</code> or <code>'World'</code>.</dd>
+
+                <dt>2. Number (Digits)</dt>
+                <dd>Integers or Decimals: <code>25</code> or <code>99.99</code>.</dd>
+
+                <dt>3. Boolean (True/False)</dt>
+                <dd>Logical values: <code>true</code> or <code>false</code>.</dd>
+
+                <dt>4. Undefined</dt>
+                <dd>When a variable is declared but not assigned a value.</dd>
+
+                <dt>5. Null</dt>
+                <dd>Represents "nothing" or "empty".</dd>
+            </dl>
+        </div>
+
+        <div class="mini-section">
+            <h2>Check the Type:</h2>
+            <p>Use the <span class="highlight">typeof</span> operator to find out what data is inside a variable.</p>
+            <pre><code>let age = 20;
+console.log(typeof age); // "number"
+
+let myName = "Rahul";
+console.log(typeof myName); // "string"</code></pre>
+        </div>
+
+        <div class="assignment-box">
+            <h2 style="color: #2e7d32;">🎯 Minute Assignment</h2>
+            <ol>
+                <li>Declare a variable <code>isStudent</code> and assign it a boolean value.</li>
+                <li>Declare a variable <code>price</code> and assign it a decimal number.</li>
+                <li>Write <code>console.log(typeof price);</code> and check the result in your browser's console
+                    (Right-click -> Inspect -> Console).</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>
