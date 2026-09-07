@@ -37,7 +37,7 @@ export default function TeachingDataset() {
               <CodeBlock
                 language="sql"
                 code={`CREATE TABLE students (
-  student_id INT PRIMARY KEY,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
   age INT CHECK (age >= 18),
   email VARCHAR(100) UNIQUE,
@@ -63,7 +63,7 @@ export default function TeachingDataset() {
                 <strong>DEFAULT</strong> → status
               </li>
               <li>
-                <strong>PRIMARY KEY</strong> → student_id
+                <strong>PRIMARY KEY</strong> → id (AUTO_INCREMENT)
               </li>
               <li>
                 <strong>UNIQUE</strong> → email
@@ -77,14 +77,14 @@ export default function TeachingDataset() {
             <div className="mt-2">
               <CodeBlock
                 language="sql"
-                code={`INSERT INTO students VALUES
-(1, 'Amit', 20, 'amit@gmail.com', 'Delhi', 'active'),
-(2, 'Neha', 22, 'neha@gmail.com', 'Mumbai', 'active'),
-(3, 'Ravi', 19, 'ravi@gmail.com', 'Delhi', 'inactive'),
-(4, 'Priya', 21, 'priya@gmail.com', 'Pune', 'active'),
-(5, 'Karan', 23, NULL, 'Mumbai', 'active'),
-(6, 'Anjali', 20, 'anjali@gmail.com', 'Delhi', 'active'),
-(7, 'Rahul', 24, 'rahul@gmail.com', 'Pune', 'inactive');`}
+                code={`INSERT INTO students (name, age, email, city, status) VALUES
+('Amit', 20, 'amit@gmail.com', 'Delhi', 'active'),
+('Neha', 22, 'neha@gmail.com', 'Mumbai', 'active'),
+('Ravi', 19, 'ravi@gmail.com', 'Delhi', 'inactive'),
+('Priya', 21, 'priya@gmail.com', 'Pune', 'active'),
+('Karan', 23, NULL, 'Mumbai', 'active'),
+('Anjali', 20, 'anjali@gmail.com', 'Delhi', 'active'),
+('Rahul', 24, 'rahul@gmail.com', 'Pune', 'inactive');`}
               />
             </div>
           </Callout>
@@ -100,7 +100,7 @@ export default function TeachingDataset() {
               <CodeBlock
                 language="sql"
                 code={`CREATE TABLE courses (
-  course_id INT PRIMARY KEY,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   course_name VARCHAR(50) NOT NULL,
   fees INT CHECK (fees > 0)
 );`}
@@ -112,11 +112,11 @@ export default function TeachingDataset() {
             <div className="mt-2">
               <CodeBlock
                 language="sql"
-                code={`INSERT INTO courses VALUES
-(101, 'Web Development', 15000),
-(102, 'Data Science', 25000),
-(103, 'Python', 12000),
-(104, 'SQL Basics', 8000);`}
+                code={`INSERT INTO courses (course_name, fees) VALUES
+('Web Development', 15000),
+('Data Science', 25000),
+('Python', 12000),
+('SQL Basics', 8000);`}
               />
             </div>
           </Callout>
@@ -132,12 +132,12 @@ export default function TeachingDataset() {
               <CodeBlock
                 language="sql"
                 code={`CREATE TABLE enrollments (
-  enroll_id INT PRIMARY KEY,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   student_id INT,
   course_id INT,
   enroll_date DATE,
-  FOREIGN KEY (student_id) REFERENCES students(student_id),
-  FOREIGN KEY (course_id) REFERENCES courses(course_id)
+  FOREIGN KEY (student_id) REFERENCES students(id),
+  FOREIGN KEY (course_id) REFERENCES courses(id)
 );`}
               />
             </div>
@@ -147,16 +147,16 @@ export default function TeachingDataset() {
             <div className="mt-2">
               <CodeBlock
                 language="sql"
-                code={`INSERT INTO enrollments VALUES
-(1, 1, 101, '2024-01-10'),
-(2, 1, 104, '2024-01-12'),
-(3, 2, 102, '2024-01-15'),
-(4, 3, 103, '2024-01-18'),
-(5, 4, 101, '2024-01-20'),
-(6, 5, 104, '2024-01-22'),
-(7, 6, 103, '2024-01-25'),
-(8, 6, 101, '2024-01-28'),
-(9, 7, 102, '2024-01-30');`}
+                code={`INSERT INTO enrollments (student_id, course_id, enroll_date) VALUES
+(1, 1, '2024-01-10'),
+(1, 4, '2024-01-12'),
+(2, 2, '2024-01-15'),
+(3, 3, '2024-01-18'),
+(4, 1, '2024-01-20'),
+(5, 4, '2024-01-22'),
+(6, 3, '2024-01-25'),
+(6, 1, '2024-01-28'),
+(7, 2, '2024-01-30');`}
               />
             </div>
           </Callout>
@@ -194,4 +194,3 @@ SELECT * FROM enrollments;`}
     </SqlLesson>
   );
 }
-

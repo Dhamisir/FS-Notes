@@ -20,7 +20,7 @@ export default function Constraints() {
             <CodeBlock
               language="sql"
               code={`CREATE TABLE students (
-  student_id INT PRIMARY KEY,      -- PRIMARY KEY
+  id INT PRIMARY KEY AUTO_INCREMENT, -- PRIMARY KEY + AUTO_INCREMENT
   name VARCHAR(50) NOT NULL,       -- NOT NULL
   age INT CHECK (age >= 18),       -- CHECK
   email VARCHAR(100) UNIQUE,       -- UNIQUE
@@ -40,4 +40,3 @@ export default function Constraints() {
     </SqlLesson>
   );
 }
-

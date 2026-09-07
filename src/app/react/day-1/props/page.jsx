@@ -6,7 +6,7 @@ export const metadata = { title: "Props" };
 
 export default function Props() {
   return (
-    <ReactLesson backHref="/react/day-2" title="5️⃣ Props: Passing Data to Components">
+    <ReactLesson backHref="/react/day-1" title="8️⃣ Props: Passing Data to Components">
       <Callout variant="reactMini">
         <div className="text-sm text-[#2c3e50]">
           Props are inputs to components. They come from the parent and are
@@ -38,4 +38,3 @@ export default function App() {
     </ReactLesson>
   );
 }
-

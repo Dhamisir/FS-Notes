@@ -20,10 +20,11 @@ export const sqlDays = [
     slug: "day-2",
     title: "Day 2 – SQL Query Mastery",
     description:
-      "Constraints, keys, select/where/order, distinct, operators, like, group by/having, aggregates, joins, and dataset setup.",
+      "Constraints, keys, select/where/order, distinct, operators, like, group by/having, aggregates, and dataset setup.",
     lessons: [
       { slug: "constraints", title: "Constraints (Rules on Columns)" },
       { slug: "keys", title: "Keys in Database" },
+      { slug: "teaching-dataset", title: "Teaching Dataset (Tables + Sample Data)" },
       { slug: "select", title: "SELECT Data" },
       { slug: "where", title: "WHERE (Filter)" },
       { slug: "order-by", title: "ORDER BY (Sorting)" },
@@ -32,9 +33,17 @@ export const sqlDays = [
       { slug: "like", title: "LIKE (Wildcard Search)" },
       { slug: "group-by-having", title: "GROUP BY & HAVING" },
       { slug: "aggregate-functions", title: "Aggregate Functions" },
+      { slug: "assignment", title: "GROUP BY & HAVING Assignment" },
+      { slug: "assignment-2", title: "Student Table Assignment" },
+    ],
+  },
+  {
+    slug: "day-3",
+    title: "Day 3 – SQL Joins",
+    description: "Combine related data from multiple tables using SQL joins.",
+    lessons: [
       { slug: "joins", title: "JOINS (Combining Tables)" },
-      { slug: "teaching-dataset", title: "Teaching Dataset (Tables + Sample Data)" },
+      { slug: "assignment", title: "SQL JOIN Assignment" },
     ],
   },
 ];
-

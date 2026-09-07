@@ -6,7 +6,7 @@ export const metadata = { title: "State (useState)" };
 
 export default function State() {
   return (
-    <ReactLesson backHref="/react/day-2" title="🧠 State: Component Memory">
+    <ReactLesson backHref="/react/day-3" title="1️⃣ State: Component Memory">
       <Callout variant="reactInfo" className="border-l-[#03a9f4] bg-[#e1f5fe]">
         <h3 className="text-base font-semibold text-[#2c3e50]">What is state?</h3>
         <p className="mt-2 text-sm text-[#2c3e50]">
@@ -14,6 +14,32 @@ export default function State() {
           When state changes, React automatically updates the UI.
         </p>
       </Callout>
+
+      <section>
+        <h2 className="text-lg font-semibold text-[#2c3e50]">
+          🧠 useState syntax
+        </h2>
+        <CodeBlock
+          language="jsx"
+          code={`const [stateValue, updateFunction] = useState(initialValue);`}
+        />
+        <Callout variant="reactMini" className="mt-3">
+          <div className="text-sm text-[#2c3e50]">
+            <p>
+              <code>useState</code> takes an <strong>initial value</strong> and
+              returns an array containing two values:
+            </p>
+            <ol className="mt-2 list-decimal space-y-1 pl-6">
+              <li>
+                <strong>Current state value</strong> — the data used in the UI
+              </li>
+              <li>
+                <strong>Update function</strong> — the function that changes the state
+              </li>
+            </ol>
+          </div>
+        </Callout>
+      </section>
 
       <section>
         <h2 className="text-lg font-semibold text-[#2c3e50]">
@@ -29,10 +55,14 @@ export default function State() {
 function Counter() {
   const [count, setCount] = useState(0);
 
+  const handleCount = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div>
       <p>Current Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <button onClick={handleCount}>Increase</button>
     </div>
   );
 }`}
@@ -53,7 +83,19 @@ function Counter() {
           <li>
             <code>useState(0)</code>: initial value is 0
           </li>
+          <li>
+            <code>handleCount</code>: event handler that calls the update function
+          </li>
+          <li>
+            <code>onClick={`{handleCount}`}</code>: passes the function to the button
+          </li>
         </ul>
+        <Callout variant="reactInfo" className="mt-3">
+          <p className="text-sm text-[#2c3e50]">
+            Pass <code>handleCount</code> to <code>onClick</code>. Writing
+            <code> handleCount()</code> would call it immediately while rendering.
+          </p>
+        </Callout>
       </section>
 
       <Callout
@@ -106,4 +148,3 @@ function Counter() {
     </ReactLesson>
   );
 }
-

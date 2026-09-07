@@ -34,14 +34,14 @@ export default function Keys() {
             <CodeBlock
               language="sql"
               code={`CREATE TABLE students (
-  student_id INT PRIMARY KEY,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE enrollments (
-  enroll_id INT PRIMARY KEY,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   student_id INT,
-  FOREIGN KEY (student_id) REFERENCES students(student_id)
+  FOREIGN KEY (student_id) REFERENCES students(id)
 );`}
             />
           </div>
@@ -50,4 +50,3 @@ CREATE TABLE enrollments (
     </SqlLesson>
   );
 }
-

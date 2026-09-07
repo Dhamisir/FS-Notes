@@ -95,7 +95,45 @@ export default App;`}
         </details>
       </Task>
 
-      <Task badge="Task 3" title="JSX Challenge">
+      <Task badge="Task 3" title="Profile Props Challenge">
+        Create a <code>UserProfile</code> component that accepts <code>name</code>,{" "}
+        <code>age</code>, and <code>city</code> props, then render five users.
+        <details className="mt-3 rounded-lg bg-[#f0f7ff] p-3">
+          <summary className="cursor-pointer font-semibold text-[#0066cc]">
+            💡 View Solution
+          </summary>
+          <div className="mt-3 rounded-md border-l-4 border-[#0066cc] bg-white p-3">
+            <CodeBlock
+              language="jsx"
+              code={`function UserProfile({ name, age, city }) {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>Age: {age}</p>
+      <p>City: {city}</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <UserProfile name="Rahul" age={25} city="Delhi" />
+      <UserProfile name="Sanya" age={22} city="Mumbai" />
+      <UserProfile name="Amit" age={24} city="Pune" />
+      <UserProfile name="Neha" age={23} city="Jaipur" />
+      <UserProfile name="Kabir" age={26} city="Bengaluru" />
+    </div>
+  );
+}
+
+export default App;`}
+            />
+          </div>
+        </details>
+      </Task>
+
+      <Task badge="Task 4" title="JSX Challenge">
         Create <code>currentTime</code> using <code>new Date().toLocaleTimeString()</code> and display it via {"{ }"}.
         <details className="mt-3 rounded-lg bg-[#f0f7ff] p-3">
           <summary className="cursor-pointer font-semibold text-[#0066cc]">
@@ -121,7 +159,7 @@ export default App;`}
         </details>
       </Task>
 
-      <Task badge="Task 4 (Theoretical)" title='The "Why React" Summary'>
+      <Task badge="Task 5 (Theoretical)" title='The "Why React" Summary'>
         Write 3 differences between MPA and SPA in your own words.
       </Task>
 
@@ -137,4 +175,3 @@ export default App;`}
     </ReactLesson>
   );
 }
-

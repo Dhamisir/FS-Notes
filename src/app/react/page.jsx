@@ -38,6 +38,19 @@ export default function ReactHome() {
           </Link>
         ))}
       </div>
+
+      <Link
+        href="/react/final-assignment"
+        className="rounded-xl border bg-white p-5 text-[#195568] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      >
+        <div className="text-lg font-semibold tracking-tight text-[#0174af]">
+          🏁 Final Assignment: Product Store App
+        </div>
+        <div className="mt-1 text-sm text-muted-foreground">
+          A capstone task covering components &amp; props, React Router,
+          useState, and useEffect with a real API.
+        </div>
+      </Link>
     </div>
   );
 }
