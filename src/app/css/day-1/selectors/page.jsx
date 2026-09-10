@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { CodeBlock } from "@/components/code/CodeBlock";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "CSS Selectors" };
+export const metadata = pageMetadata({
+  title: "CSS Selectors",
+  description:
+    "An introduction to the three core beginner CSS selectors — element, class, and ID — plus how specificity decides which one wins when they overlap.",
+  path: "/css/day-1/selectors",
+});
 
 export default function Selectors() {
   return (

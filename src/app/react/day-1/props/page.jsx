@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Props" };
+export const metadata = pageMetadata({
+  title: "Props",
+  description:
+    "Explains how props pass read-only data from parent to child components, illustrated with a UserProfile component rendered for multiple users.",
+  path: "/react/day-1/props",
+});
 
 export default function Props() {
   return (

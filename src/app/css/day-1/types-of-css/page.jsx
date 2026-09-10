@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { CodeBlock } from "@/components/code/CodeBlock";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Types of CSS & Evolution" };
+export const metadata = pageMetadata({
+  title: "Types of CSS & Evolution",
+  description:
+    "Walks through inline, internal, and external CSS in order, explaining the problems each method has and how the next approach evolved to fix them.",
+  path: "/css/day-1/types-of-css",
+});
 
 export default function TypesOfCss() {
   return (

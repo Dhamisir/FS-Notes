@@ -1,8 +1,14 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Folder Structure" };
+export const metadata = pageMetadata({
+  title: "Folder Structure",
+  description:
+    "Shows how to organize an Express app into routes and controllers instead of one index.js file, with an activity to build product.routes.js and product.controller.js and test a /product/all endpoint.",
+  path: "/nodejs/day-2/folder-structure",
+});
 
 export default function FolderStructure() {
   return (

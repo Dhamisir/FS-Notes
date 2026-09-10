@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "SQL Assignment: JOINS" };
+export const metadata = pageMetadata({
+  title: "SQL Assignment: JOINS",
+  description:
+    "A practice assignment using employees, departments, and projects tables requiring 10 queries across INNER, LEFT, RIGHT, CROSS, and SELF joins, with worked solutions.",
+  path: "/sql/day-3/assignment",
+});
 
 export default function JoinAssignment() {
   return (

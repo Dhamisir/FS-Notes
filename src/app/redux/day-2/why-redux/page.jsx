@@ -1,7 +1,13 @@
 import { ReduxLesson } from "@/app/redux/components/ReduxLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Why Redux" };
+export const metadata = pageMetadata({
+  title: "Why Redux",
+  description:
+    "Explains when to reach for Redux over Context and useReducer, covering DevTools time-travel debugging, middleware, and multi-team scale, and closes with a comparison table tracing useState through useContext, useReducer, and Redux.",
+  path: "/redux/day-2/why-redux",
+});
 
 export default function WhyRedux() {
   return (

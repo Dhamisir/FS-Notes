@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "React Router Basic Setup" };
+export const metadata = pageMetadata({
+  title: "React Router Basic Setup",
+  description:
+    "Shows how to install react-router-dom and define your first routes using BrowserRouter, Routes, and Route.",
+  path: "/react/day-2/basic-setup",
+});
 
 export default function BasicSetup() {
   return (

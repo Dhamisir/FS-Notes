@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { nodeDays } from "@/app/nodejs/data";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Node.js Notes" };
+export const metadata = pageMetadata({
+  title: "Node.js Notes",
+  description:
+    "Backend fundamentals with the Node.js runtime and Express patterns: modules, the fs module, folder structure, and an intro to databases.",
+  path: "/nodejs",
+});
 
 export default function NodeHome() {
   return (

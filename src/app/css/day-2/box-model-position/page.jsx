@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { CodeBlock } from "@/components/code/CodeBlock";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Box Model & Positioning" };
+export const metadata = pageMetadata({
+  title: "Box Model & Positioning",
+  description:
+    "Covers the CSS box model (content, padding, border, margin) and why box-sizing: border-box matters, then the position family, z-index stacking, and the difference between opacity, visibility, and display.",
+  path: "/css/day-2/box-model-position",
+});
 
 export default function BoxModelPosition() {
   return (

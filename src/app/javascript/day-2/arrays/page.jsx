@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Arrays" };
+export const metadata = pageMetadata({
+  title: "Arrays",
+  description:
+    "Covers creating JavaScript arrays, core methods like push, pop, shift, and unshift, and the functional methods map and filter for transforming and filtering lists.",
+  path: "/javascript/day-2/arrays",
+});
 
 export default function Arrays() {
   return (

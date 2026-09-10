@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Axios, Fetch & Dummy API CRUD" };
+export const metadata = pageMetadata({
+  title: "Axios, Fetch & Dummy API CRUD",
+  description:
+    "Compares Fetch and Axios syntax for GET, POST, PUT, PATCH, and DELETE requests against the DummyJSON API, plus a pros-and-cons breakdown of each library.",
+  path: "/react/day-4/axios-dummy-api",
+});
 
 export default function AxiosDummyApi() {
   return (

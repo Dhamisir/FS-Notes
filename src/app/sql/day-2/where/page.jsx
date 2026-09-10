@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "WHERE" };
+export const metadata = pageMetadata({
+  title: "WHERE",
+  description:
+    "Learn how to filter rows with the WHERE clause, including comparison conditions and checking for NULL values.",
+  path: "/sql/day-2/where",
+});
 
 export default function Where() {
   return (

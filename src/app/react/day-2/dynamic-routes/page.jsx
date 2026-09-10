@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Dynamic Routes (useParams)" };
+export const metadata = pageMetadata({
+  title: "Dynamic Routes (useParams)",
+  description:
+    "Teaches dynamic routing with useParams: reading URL parameters, building links from data, looking up the matching record, and handling a not-found case, with a complete product-routing example.",
+  path: "/react/day-2/dynamic-routes",
+});
 
 export default function DynamicRoutes() {
   return (

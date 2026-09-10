@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { jsDays } from "@/app/javascript/data";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "JavaScript Notes" };
+export const metadata = pageMetadata({
+  title: "JavaScript Notes",
+  description:
+    "Core JavaScript fundamentals for building interactive web pages: variables, data types, operators, loops, DOM manipulation, arrays, objects, and functions, organized day by day.",
+  path: "/javascript",
+});
 
 export default function JavaScriptHome() {
   return (

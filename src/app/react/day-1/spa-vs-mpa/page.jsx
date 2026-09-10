@@ -1,7 +1,13 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "SPA vs MPA" };
+export const metadata = pageMetadata({
+  title: "SPA vs MPA",
+  description:
+    "Contrasts multi-page applications, which reload a new HTML page per route, with single-page applications, which swap views in the browser without a full reload.",
+  path: "/react/day-1/spa-vs-mpa",
+});
 
 export default function SpaVsMpa() {
   return (

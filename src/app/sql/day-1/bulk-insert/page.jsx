@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Bulk Insert" };
+export const metadata = pageMetadata({
+  title: "Bulk Insert",
+  description:
+    "Learn how to insert multiple rows in a single INSERT statement and why bulk inserts outperform inserting one row at a time.",
+  path: "/sql/day-1/bulk-insert",
+});
 
 export default function BulkInsert() {
   return (

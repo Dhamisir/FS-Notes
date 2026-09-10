@@ -1,7 +1,13 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Web Dev Basics" };
+export const metadata = pageMetadata({
+  title: "Web Dev Basics",
+  description:
+    "Covers the web fundamentals behind React: client-server communication, HTTP requests and responses, the roles of HTML/CSS/JavaScript, and the request-render-interact cycle.",
+  path: "/react/day-1/web-dev-basics",
+});
 
 export default function WebDevBasics() {
   return (

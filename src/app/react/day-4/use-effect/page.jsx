@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "useEffect & API Integration" };
+export const metadata = pageMetadata({
+  title: "useEffect & API Integration",
+  description:
+    "Explains why data fetching needs useEffect to avoid an infinite render loop, covers how the dependency array controls when effects run, and demonstrates fetching products and refetching when a dependency like productId changes.",
+  path: "/react/day-4/use-effect",
+});
 
 export default function UseEffectLesson() {
   return (

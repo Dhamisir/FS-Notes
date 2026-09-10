@@ -1,8 +1,14 @@
 import { ReduxLesson } from "@/app/redux/components/ReduxLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Admin Dashboard Prop Drilling" };
+export const metadata = pageMetadata({
+  title: "Admin Dashboard Prop Drilling",
+  description:
+    "Walks through an admin dashboard where a user object and a logout action must be threaded from App through DashboardLayout, Content, and ProfilePage down to ProfileSettings, showing how prop drilling emerges naturally.",
+  path: "/redux/day-1/admin-dashboard",
+});
 
 export default function AdminDashboard() {
   return (

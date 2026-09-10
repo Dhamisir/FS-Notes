@@ -1,8 +1,14 @@
 import { ReduxLesson } from "@/app/redux/components/ReduxLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Redux Toolkit Example" };
+export const metadata = pageMetadata({
+  title: "Redux Toolkit Example",
+  description:
+    "A basic Redux Toolkit walkthrough covering configureStore, an authSlice created with createSlice, wrapping the app in a Provider, and reading and dispatching state with useSelector and useDispatch.",
+  path: "/redux/day-2/rtk-example",
+});
 
 export default function RtkExample() {
   return (

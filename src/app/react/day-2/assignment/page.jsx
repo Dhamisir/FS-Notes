@@ -1,7 +1,13 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "React Day 2 Assignment" };
+export const metadata = pageMetadata({
+  title: "React Day 2 Assignment",
+  description:
+    "Three React Router tasks for Day 2: build reload-free navigation across three pages, a product catalog with dynamic /products/:productId detail pages, and a job portal with dynamic /jobs/:jobId listings.",
+  path: "/react/day-2/assignment",
+});
 
 function Task({ badge, title, description, solution }) {
   return (

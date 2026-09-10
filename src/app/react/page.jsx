@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { reactDays } from "@/app/react/data";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "React Notes" };
+export const metadata = pageMetadata({
+  title: "React Notes",
+  description:
+    "Learn React foundations, routing, props, state, and form handling with practical examples, ending in a capstone Product Store app that ties components, routing, and API calls together.",
+  path: "/react",
+});
 
 export default function ReactHome() {
   return (

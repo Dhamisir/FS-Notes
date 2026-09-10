@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "React Final Assignment" };
+export const metadata = pageMetadata({
+  title: "React Final Assignment",
+  description:
+    "Capstone project combining Day 1-4 skills into a Product Store app with React Router pages, a reusable ProductCard component, search-filtered product listing, dynamic product details with delete, and a controlled add-product form backed by the DummyJSON API.",
+  path: "/react/final-assignment",
+});
 
 function Task({ badge, title, description, solution }) {
   return (

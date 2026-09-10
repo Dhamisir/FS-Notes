@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Tables & Data Types" };
+export const metadata = pageMetadata({
+  title: "Tables & Data Types",
+  description:
+    "Covers table terminology (rows, columns, primary keys) and the common MySQL data types such as INT, VARCHAR, TEXT, DATE, DATETIME, DECIMAL, and BOOLEAN.",
+  path: "/sql/day-1/tables-and-datatypes",
+});
 
 export default function TablesAndDatatypes() {
   return (

@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Objects" };
+export const metadata = pageMetadata({
+  title: "Objects",
+  description:
+    "Explains creating, reading, and updating JavaScript objects with dot and bracket notation, adding object methods, and building arrays of objects.",
+  path: "/javascript/day-2/objects",
+});
 
 export default function Objects() {
   return (

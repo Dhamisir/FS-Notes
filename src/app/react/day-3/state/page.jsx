@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "State (useState)" };
+export const metadata = pageMetadata({
+  title: "State (useState)",
+  description:
+    "Introduces the useState hook through a counter example, explains why state must be updated with its setter function rather than mutated directly, and compares props with state.",
+  path: "/react/day-3/state",
+});
 
 export default function State() {
   return (

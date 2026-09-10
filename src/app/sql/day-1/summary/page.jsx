@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Day 1 Summary & Exercises" };
+export const metadata = pageMetadata({
+  title: "Day 1 Summary & Exercises",
+  description:
+    "Recaps Day 1's database and table commands, then sets a hands-on exercise to create a practice database, build a students table, bulk insert records, and update or delete a row.",
+  path: "/sql/day-1/summary",
+});
 
 export default function Summary() {
   return (

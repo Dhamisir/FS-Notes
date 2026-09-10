@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { CodeBlock } from "@/components/code/CodeBlock";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Flexbox (Mastery & Proofs)" };
+export const metadata = pageMetadata({
+  title: "Flexbox (Mastery & Proofs)",
+  description:
+    "Builds up Flexbox step by step — display: flex, justify-content, align-items, flex-direction, wrap and gap — then proves flex-grow, flex-shrink, and flex-basis with worked examples and a responsive card layout.",
+  path: "/css/day-2/flexbox",
+});
 
 export default function Flexbox() {
   return (

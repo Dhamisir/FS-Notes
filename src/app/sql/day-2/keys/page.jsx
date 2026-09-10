@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Keys" };
+export const metadata = pageMetadata({
+  title: "Keys",
+  description:
+    "Introduces primary keys, foreign keys, and unique keys, explaining how they identify rows uniquely and link related tables together.",
+  path: "/sql/day-2/keys",
+});
 
 export default function Keys() {
   return (

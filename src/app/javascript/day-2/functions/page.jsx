@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Functions" };
+export const metadata = pageMetadata({
+  title: "Functions",
+  description:
+    "Covers defining JavaScript functions, passing parameters, and returning values, with practice writing square, isAdult, and Celsius-to-Fahrenheit functions.",
+  path: "/javascript/day-2/functions",
+});
 
 export default function Functions() {
   return (

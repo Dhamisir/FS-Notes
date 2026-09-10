@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "If / Else" };
+export const metadata = pageMetadata({
+  title: "If / Else",
+  description:
+    "Covers basic if/else and else-if branching in JavaScript, illustrated with a time-of-day greeting example and a numeric grade calculator.",
+  path: "/javascript/day-1/if-else",
+});
 
 export default function IfElse() {
   return (

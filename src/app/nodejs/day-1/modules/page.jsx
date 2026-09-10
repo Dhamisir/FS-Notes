@@ -1,7 +1,13 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Node Modules" };
+export const metadata = pageMetadata({
+  title: "Node Modules",
+  description:
+    "How Node.js treats every file as a module: exporting values with module.exports, importing them with require(), and using built-in core modules like os.",
+  path: "/nodejs/day-1/modules",
+});
 
 export default function Modules() {
   return (

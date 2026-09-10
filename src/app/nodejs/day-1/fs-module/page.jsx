@@ -1,8 +1,14 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "fs module" };
+export const metadata = pageMetadata({
+  title: "fs module",
+  description:
+    "Learn Node's built-in fs module: writing, reading, appending, and deleting files with writeFileSync, readFileSync, appendFileSync, and unlinkSync, plus a hands-on activity creating and reading a bio.txt file.",
+  path: "/nodejs/day-1/fs-module",
+});
 
 export default function FsModule() {
   return (

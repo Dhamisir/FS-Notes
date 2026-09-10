@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Operators" };
+export const metadata = pageMetadata({
+  title: "Operators",
+  description:
+    "Reference tables and examples for JavaScript arithmetic, comparison, and logical operators, including the difference between == and === equality checks.",
+  path: "/javascript/day-1/operators",
+});
 
 export default function Operators() {
   return (

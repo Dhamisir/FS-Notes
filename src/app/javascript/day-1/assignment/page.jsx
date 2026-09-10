@@ -1,6 +1,12 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Day 1 Assignment" };
+export const metadata = pageMetadata({
+  title: "Day 1 Assignment",
+  description:
+    "Capstone assignment combining Day 1 topics: a math/logic task, a dynamic welcome message built with DOM updates, an even-number loop generator, and an age eligibility checker using if/else.",
+  path: "/javascript/day-1/assignment",
+});
 
 export default function Day1Assignment() {
   return (

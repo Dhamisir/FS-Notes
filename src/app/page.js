@@ -1,7 +1,18 @@
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
+
+const title = "FS Notes — Full-Stack Web Development Notes & Practice";
 
 export const metadata = {
-  title: "FS Notes",
+  ...pageMetadata({
+    title,
+    description:
+      "Full-stack developer notes and practice: CSS, JavaScript, SQL, React, Redux, and Node.js lessons organized day by day, plus a DSA interview roadmap, downloadable coding assignments, and mock interview questions.",
+    path: "/",
+  }),
+  // Bypass the layout's title template on the homepage — this *is* the
+  // brand title, so appending "| FS Notes" again would duplicate it.
+  title: { absolute: title },
 };
 
 export default function Home() {

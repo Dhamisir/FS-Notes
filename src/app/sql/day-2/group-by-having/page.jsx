@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "GROUP BY & HAVING" };
+export const metadata = pageMetadata({
+  title: "GROUP BY & HAVING",
+  description:
+    "Explains how GROUP BY groups rows for aggregation and how HAVING filters those groups, with examples counting and ordering students per city.",
+  path: "/sql/day-2/group-by-having",
+});
 
 export default function GroupByHaving() {
   return (

@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { cssDays } from "@/app/css/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "CSS Notes",
-};
+  description:
+    "Complete CSS learning path from selectors and the box model to Flexbox, Grid, and positioning, with a Monaco code viewer and a hands-on assignment for each day.",
+  path: "/css",
+});
 
 export default function CssHome() {
   return (

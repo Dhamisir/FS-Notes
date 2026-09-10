@@ -1,6 +1,12 @@
 import { starterAssignments } from "@/app/assignments/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Assignments" };
+export const metadata = pageMetadata({
+  title: "Coding Assignments",
+  description:
+    "Download starter React, Node.js, Express, and MySQL projects and complete real backend challenges — from connecting a frontend to live data through to authentication, authorization, and validation.",
+  path: "/assignments",
+});
 
 export default function AssignmentsPage() {
   return (

@@ -1,8 +1,14 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Node Runtime" };
+export const metadata = pageMetadata({
+  title: "Node Runtime",
+  description:
+    "An introduction to Node.js as a JavaScript runtime environment: checking your installed version, running your first script with node index.js, and using the global object in place of window.",
+  path: "/nodejs/day-1/node-runtime",
+});
 
 export default function NodeRuntime() {
   return (

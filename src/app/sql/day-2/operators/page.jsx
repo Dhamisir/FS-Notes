@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Operators" };
+export const metadata = pageMetadata({
+  title: "Operators",
+  description:
+    "Covers comparison and logical operators for building WHERE conditions, including AND, OR, IN, BETWEEN, and NOT.",
+  path: "/sql/day-2/operators",
+});
 
 export default function Operators() {
   return (

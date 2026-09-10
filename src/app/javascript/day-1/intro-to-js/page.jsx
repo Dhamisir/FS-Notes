@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Introduction to JavaScript" };
+export const metadata = pageMetadata({
+  title: "Introduction to JavaScript",
+  description:
+    "Beginner-friendly intro covering what a programming language is, what JavaScript does alongside HTML and CSS, and how to include JS in a page with the script tag.",
+  path: "/javascript/day-1/intro-to-js",
+});
 
 export default function IntroToJs() {
   return (

@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Day 3 Assignments (Animations & UI Challenges)" };
+export const metadata = pageMetadata({
+  title: "Day 3 Assignments (Animations & UI Challenges)",
+  description:
+    "Five advanced challenges plus a bonus asking learners to build animated cards, responsive typography, hover transitions, a dark-mode dashboard UI, and a loading screen using CSS animations and custom properties.",
+  path: "/css/day-3/assignment",
+});
 
 const challenges = [
   {

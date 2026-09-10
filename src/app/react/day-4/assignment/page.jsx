@@ -1,7 +1,13 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "React Day 4 API Assignment" };
+export const metadata = pageMetadata({
+  title: "React Day 4 API Assignment",
+  description:
+    "Assignment to build a product dashboard that fetches ten products from DummyJSON with Axios and useEffect, then supports creating, editing, and deleting products with loading and error states.",
+  path: "/react/day-4/assignment",
+});
 
 export default function Day4Assignment() {
   return (

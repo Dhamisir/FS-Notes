@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "MySQL Assignment: GROUP BY and HAVING" };
+export const metadata = pageMetadata({
+  title: "MySQL Assignment: GROUP BY and HAVING",
+  description:
+    "A practice assignment across three datasets (employees/departments, customers/orders, and products/categories/sales) requiring 12 GROUP BY and HAVING queries, with worked solutions.",
+  path: "/sql/day-2/assignment",
+});
 
 export default function GroupByAssignment() {
   return (

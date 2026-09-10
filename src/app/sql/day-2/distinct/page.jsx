@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "DISTINCT" };
+export const metadata = pageMetadata({
+  title: "DISTINCT",
+  description:
+    "Learn how the DISTINCT keyword removes duplicate rows from query results, with examples of selecting unique cities and status values.",
+  path: "/sql/day-2/distinct",
+});
 
 export default function Distinct() {
   return (

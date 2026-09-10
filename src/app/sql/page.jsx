@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { sqlDays } from "@/app/sql/data";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "SQL Notes" };
+export const metadata = pageMetadata({
+  title: "SQL Notes",
+  description:
+    "Learn databases from fundamentals to joins and aggregation with ready-to-run SQL examples covering tables, constraints, filtering, grouping, and multi-table queries.",
+  path: "/sql",
+});
 
 export default function SqlHome() {
   return (

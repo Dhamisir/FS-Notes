@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "SQL JOIN – Complete Notes" };
+export const metadata = pageMetadata({
+  title: "SQL JOIN – Complete Notes",
+  description:
+    "Complete notes on SQL joins covering INNER, LEFT, RIGHT, FULL (via UNION), CROSS, and SELF joins, each with a sample employees/departments dataset and result output.",
+  path: "/sql/day-3/joins",
+});
 
 const Result = ({ children }) => (
   <div className="mt-3 overflow-x-auto rounded-md bg-[#fff8e1] px-4 py-3 text-sm text-[#2c3e50]">

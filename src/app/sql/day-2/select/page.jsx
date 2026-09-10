@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "SELECT" };
+export const metadata = pageMetadata({
+  title: "SELECT",
+  description:
+    "Learn how to read data from a table using SELECT, including selecting all columns versus specific columns, with a practice exercise.",
+  path: "/sql/day-2/select",
+});
 
 export default function Select() {
   return (

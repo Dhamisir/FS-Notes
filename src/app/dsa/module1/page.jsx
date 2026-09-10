@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { module1Sections, neetcodeReference } from "@/app/dsa/data";
 import { DsaTopicTable } from "@/app/dsa/components/DsaTopicTable";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "DSA Course Roadmap — Module 1 & 2",
-};
+  description:
+    "Beginner-to-interview-ready DSA course structure: Box 1 covers arrays, complexity, and problem-solving fundamentals, Box 2 builds core interview patterns on top of them.",
+  path: "/dsa/module1",
+});
 
 export default function DsaModule1Page() {
   return (

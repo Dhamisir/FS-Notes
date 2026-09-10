@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Data Types" };
+export const metadata = pageMetadata({
+  title: "Data Types",
+  description:
+    "Overview of JavaScript's core data types - string, number, boolean, undefined, and null - plus how to check a variable's type with the typeof operator.",
+  path: "/javascript/day-1/data-types",
+});
 
 export default function DataTypes() {
   return (

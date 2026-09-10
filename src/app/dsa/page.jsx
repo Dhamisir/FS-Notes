@@ -1,6 +1,12 @@
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "DSA" };
+export const metadata = pageMetadata({
+  title: "DSA Interview Roadmap",
+  description:
+    "A company-focused data structures and algorithms roadmap prioritizing the patterns that repeatedly show up in Amazon, Google, and Meta interview loops — arrays, hashing, trees, graphs, heaps, greedy, DP, and backtracking.",
+  path: "/dsa",
+});
 
 const weightage = [
   ["Arrays + Strings", "⭐⭐⭐⭐⭐"],

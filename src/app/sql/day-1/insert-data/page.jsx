@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Insert Data" };
+export const metadata = pageMetadata({
+  title: "Insert Data",
+  description:
+    "Learn how to add new rows to a table with INSERT, covering both single-row and multi-row inserts and why naming columns explicitly is good practice.",
+  path: "/sql/day-1/insert-data",
+});
 
 export default function InsertData() {
   return (

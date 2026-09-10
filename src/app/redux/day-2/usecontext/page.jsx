@@ -1,8 +1,14 @@
 import { ReduxLesson } from "@/app/redux/components/ReduxLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "useContext + useState" };
+export const metadata = pageMetadata({
+  title: "useContext + useState",
+  description:
+    "Shows how to eliminate prop drilling by building an AuthContext with createContext and useState, wrapping the app in an AuthProvider, and reading user data or calling logout from any component with useContext.",
+  path: "/redux/day-2/usecontext",
+});
 
 export default function UseContext() {
   return (

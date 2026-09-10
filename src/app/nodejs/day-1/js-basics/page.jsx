@@ -1,8 +1,14 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "JS Basics (Node)" };
+export const metadata = pageMetadata({
+  title: "JS Basics (Node)",
+  description:
+    "A quick refresher on writing JavaScript outside the browser: why there's no document or window in Node.js, using console.log to print to the terminal, and using ES6 arrow functions.",
+  path: "/nodejs/day-1/js-basics",
+});
 
 export default function JsBasicsNode() {
   return (

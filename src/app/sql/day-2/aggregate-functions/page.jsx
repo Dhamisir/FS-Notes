@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Aggregate Functions" };
+export const metadata = pageMetadata({
+  title: "Aggregate Functions",
+  description:
+    "Explains SQL aggregate functions COUNT, SUM, AVG, MAX, and MIN for summarizing data across rows, including combining multiple aggregates and using them with GROUP BY.",
+  path: "/sql/day-2/aggregate-functions",
+});
 
 export default function AggregateFunctions() {
   return (

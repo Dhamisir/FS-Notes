@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Navigation with Link" };
+export const metadata = pageMetadata({
+  title: "Navigation with Link",
+  description:
+    "Shows how to use React Router's Link component instead of a plain anchor tag so navigating between pages doesn't trigger a full page reload.",
+  path: "/react/day-2/navigation",
+});
 
 export default function Navigation() {
   return (

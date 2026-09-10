@@ -1,7 +1,13 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Node Day 2 Assignment" };
+export const metadata = pageMetadata({
+  title: "Node Day 2 Assignment",
+  description:
+    "Day 2 project: build a User Management API with Express using an MVC folder structure, including a /profile route, POST /login and GET /all endpoints, and a bonus request-logging middleware.",
+  path: "/nodejs/day-2/assignment",
+});
 
 function Task({ title, items }) {
   return (

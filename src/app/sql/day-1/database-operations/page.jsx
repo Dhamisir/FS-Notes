@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Database Operations" };
+export const metadata = pageMetadata({
+  title: "Database Operations",
+  description:
+    "Learn the core database-level commands CREATE DATABASE, USE, and DROP DATABASE, and the typical workflow for setting up a database before creating tables.",
+  path: "/sql/day-1/database-operations",
+});
 
 export default function DatabaseOperations() {
   return (

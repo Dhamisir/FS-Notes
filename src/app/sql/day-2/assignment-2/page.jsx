@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "SQL Assignment 2: Student Table" };
+export const metadata = pageMetadata({
+  title: "SQL Assignment 2: Student Table",
+  description:
+    "A practice assignment where learners create and populate a students table, then write 20 SQL queries covering basic SELECT, aggregate functions, ORDER BY, and combined GROUP BY queries, with solutions included.",
+  path: "/sql/day-2/assignment-2",
+});
 
 const QuestionSection = ({ title, start, children }) => (
   <div className="mt-4 rounded-lg bg-white p-4">

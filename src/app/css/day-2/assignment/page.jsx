@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Day 2 Assignments (Flex & Grid Projects)" };
+export const metadata = pageMetadata({
+  title: "Day 2 Assignments (Flex & Grid Projects)",
+  description:
+    "Ten layout challenges plus a bonus round asking learners to recreate reference UI designs — cards, navbars, sidebars, galleries, and a Holy Grail layout — using Flexbox and Grid.",
+  path: "/css/day-2/assignment",
+});
 
 const challenges = [
   {

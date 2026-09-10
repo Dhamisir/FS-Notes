@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { reduxDays } from "@/app/redux/data";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Redux Notes" };
+export const metadata = pageMetadata({
+  title: "Redux Notes",
+  description:
+    "Learn the \"why\" of Redux by feeling the pain of prop drilling, then follow the natural evolution through Context and useReducer to Redux Toolkit.",
+  path: "/redux",
+});
 
 export default function ReduxHome() {
   return (

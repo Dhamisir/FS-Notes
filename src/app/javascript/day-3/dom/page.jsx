@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "DOM (Document Object Model)" };
+export const metadata = pageMetadata({
+  title: "DOM (Document Object Model)",
+  description:
+    "Deep dive into the DOM: nodes vs elements, all the ways to select and traverse elements, reading/writing content and attributes, classes and styles, event handling with bubbling and delegation, and creating or removing elements dynamically.",
+  path: "/javascript/day-3/dom",
+});
 
 export default function DomDay3() {
   return (

@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Update & Delete" };
+export const metadata = pageMetadata({
+  title: "Update & Delete",
+  description:
+    "Learn how to modify existing rows with UPDATE and remove rows with DELETE, and why a WHERE clause is essential to avoid affecting the whole table.",
+  path: "/sql/day-1/update-delete",
+});
 
 export default function UpdateDelete() {
   return (

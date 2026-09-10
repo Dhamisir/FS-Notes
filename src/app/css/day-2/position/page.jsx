@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { CodeBlock } from "@/components/code/CodeBlock";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "CSS Position" };
+export const metadata = pageMetadata({
+  title: "CSS Position",
+  description:
+    "Explains all five CSS position values — static, relative, absolute, fixed, and sticky — with code examples and a comparison table of how each affects movement and reserved space.",
+  path: "/css/day-2/position",
+});
 
 export default function Position() {
   return (

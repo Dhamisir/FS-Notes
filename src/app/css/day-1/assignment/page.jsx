@@ -1,6 +1,12 @@
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Day 1 Assignment: Career Resume" };
+export const metadata = pageMetadata({
+  title: "Day 1 Assignment: Career Resume",
+  description:
+    "Assignment: recreate a career resume layout using external CSS, proper heading tags, a border-radius profile image, lists for skills and experience, and a professional color palette.",
+  path: "/css/day-1/assignment",
+});
 
 export default function Day1Assignment() {
   return (

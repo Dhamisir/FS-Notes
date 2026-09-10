@@ -1,8 +1,14 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Database Intro" };
+export const metadata = pageMetadata({
+  title: "Database Intro",
+  description:
+    "Compares SQL and NoSQL databases, shows how to connect to MySQL with a promise-based connection pool, and how to run queries inside an Express controller, with an activity to create a test_db users table.",
+  path: "/nodejs/day-2/database-intro",
+});
 
 export default function DatabaseIntro() {
   return (

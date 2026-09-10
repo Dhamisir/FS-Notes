@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Teaching Dataset" };
+export const metadata = pageMetadata({
+  title: "Teaching Dataset",
+  description:
+    "Sets up the shared students, courses, and enrollments tables with sample data used throughout the Day 2 lessons to demonstrate constraints, filtering, and joins.",
+  path: "/sql/day-2/teaching-dataset",
+});
 
 export default function TeachingDataset() {
   return (

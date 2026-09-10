@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "LIKE" };
+export const metadata = pageMetadata({
+  title: "LIKE",
+  description:
+    "Learn how to use the LIKE operator with % and _ wildcards to search text patterns, such as names starting with, ending with, or containing a substring.",
+  path: "/sql/day-2/like",
+});
 
 export default function Like() {
   return (

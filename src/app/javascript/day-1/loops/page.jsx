@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Loops" };
+export const metadata = pageMetadata({
+  title: "Loops",
+  description:
+    "Explains for loops and while loops for repeating code in JavaScript, with counting and multiplication-table examples plus practice printing sequences of numbers.",
+  path: "/javascript/day-1/loops",
+});
 
 export default function Loops() {
   return (

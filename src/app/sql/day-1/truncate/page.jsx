@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Truncate vs Delete vs Drop" };
+export const metadata = pageMetadata({
+  title: "Truncate vs Delete vs Drop",
+  description:
+    "Compares DELETE, TRUNCATE, and DROP for removing data, explaining how each behaves differently and when to use each one safely.",
+  path: "/sql/day-1/truncate",
+});
 
 export default function Truncate() {
   return (

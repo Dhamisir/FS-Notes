@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Components & JSX" };
+export const metadata = pageMetadata({
+  title: "Components & JSX",
+  description:
+    "Introduces React components as reusable UI building blocks, covers functional component syntax, and explains how JSX lets you write HTML-like markup inside JavaScript.",
+  path: "/react/day-1/components-jsx",
+});
 
 export default function ComponentsJsx() {
   return (

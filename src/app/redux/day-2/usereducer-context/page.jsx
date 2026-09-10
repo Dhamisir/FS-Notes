@@ -1,8 +1,14 @@
 import { ReduxLesson } from "@/app/redux/components/ReduxLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "useReducer + Context" };
+export const metadata = pageMetadata({
+  title: "useReducer + Context",
+  description:
+    "Upgrades a Context-based auth provider to useReducer, introducing an action-based authReducer with LOGIN, LOGOUT, and UPDATE_EMAIL cases so components dispatch actions instead of managing state directly.",
+  path: "/redux/day-2/usereducer-context",
+});
 
 export default function UseReducerContext() {
   return (

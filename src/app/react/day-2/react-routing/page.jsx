@@ -1,7 +1,13 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "React Routing" };
+export const metadata = pageMetadata({
+  title: "React Routing",
+  description:
+    "Introduces the concept of client-side routing in React, comparing traditional full-page-reload navigation with the SPA approach and explaining why routing matters.",
+  path: "/react/day-2/react-routing",
+});
 
 export default function ReactRouting() {
   return (

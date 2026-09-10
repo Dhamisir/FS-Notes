@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "React Day 1 Assignment" };
+export const metadata = pageMetadata({
+  title: "React Day 1 Assignment",
+  description:
+    "Five hands-on tasks for Day 1: build a first Vite app, split it into Header and Footer components, render five UserProfile cards with props, display a live JSX timestamp, and summarize the differences between MPA and SPA.",
+  path: "/react/day-1/assignment",
+});
 
 function Task({ badge, title, children }) {
   return (

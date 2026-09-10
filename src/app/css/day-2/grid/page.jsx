@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { CodeBlock } from "@/components/code/CodeBlock";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "CSS Grid" };
+export const metadata = pageMetadata({
+  title: "CSS Grid",
+  description:
+    "A step-by-step build-up of CSS Grid: defining columns, fr units, gap, spanning cells, auto-fit with minmax for responsive galleries, and a full media-query breakpoint example.",
+  path: "/css/day-2/grid",
+});
 
 export default function Grid() {
   return (

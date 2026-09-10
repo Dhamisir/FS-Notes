@@ -1,7 +1,13 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "CSR vs SSR" };
+export const metadata = pageMetadata({
+  title: "CSR vs SSR",
+  description:
+    "Compares client-side rendering and server-side rendering in React apps, outlining the trade-offs in initial load speed, SEO, and where rendering work happens.",
+  path: "/react/day-1/csr-vs-ssr",
+});
 
 export default function CsrVsSsr() {
   return (

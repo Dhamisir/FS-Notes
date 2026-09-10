@@ -1,8 +1,14 @@
 import { ReduxLesson } from "@/app/redux/components/ReduxLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Prop Drilling" };
+export const metadata = pageMetadata({
+  title: "Prop Drilling",
+  description:
+    "A realistic prop drilling example that forwards user, theme, and cartCount state plus an addToCart action through Layout, Header, and Main so that distant components like Navbar and ProductCard can use them.",
+  path: "/redux/day-1/prop-drilling",
+});
 
 export default function PropDrilling() {
   return (

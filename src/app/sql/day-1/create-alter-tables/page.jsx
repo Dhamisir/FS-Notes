@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Create & Alter Tables" };
+export const metadata = pageMetadata({
+  title: "Create & Alter Tables",
+  description:
+    "Learn how to create tables with CREATE TABLE and modify existing ones with ALTER TABLE, including adding, renaming, modifying, and dropping columns.",
+  path: "/sql/day-1/create-alter-tables",
+});
 
 export default function CreateAlterTables() {
   return (

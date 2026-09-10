@@ -1,8 +1,14 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Express Intro" };
+export const metadata = pageMetadata({
+  title: "Express Intro",
+  description:
+    "Sets up Express.js from scratch: installing the package, starting a server with app.listen, and building a /user JSON endpoint, plus an activity to add /health and /user routes on port 5000.",
+  path: "/nodejs/day-2/express-intro",
+});
 
 export default function ExpressIntro() {
   return (

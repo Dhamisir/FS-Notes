@@ -1,7 +1,13 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "React Day 3 useState Assignment" };
+export const metadata = pageMetadata({
+  title: "React Day 3 useState Assignment",
+  description:
+    "Three useState tasks for Day 3: a dark/light mode toggle, a controlled feedback comment form, and a student registration manager that collects and lists submitted records.",
+  path: "/react/day-3/assignment",
+});
 
 export default function ReactDay3Assignment() {
   return (

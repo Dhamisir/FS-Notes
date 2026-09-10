@@ -1,7 +1,13 @@
 import { NodeLesson } from "@/app/nodejs/components/NodeLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Node Day 1 Assignment" };
+export const metadata = pageMetadata({
+  title: "Node Day 1 Assignment",
+  description:
+    "Graduation assignment for Node.js Day 1: build a calculator module with module.exports, log timestamped activity to a file with fs.appendFile, and read free RAM and home directory with the os module.",
+  path: "/nodejs/day-1/assignment",
+});
 
 function Task({ title, items }) {
   return (

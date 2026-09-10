@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "DOM Manipulation" };
+export const metadata = pageMetadata({
+  title: "DOM Manipulation",
+  description:
+    "Introduction to the document object: selecting elements by ID or selector, changing their text/HTML content and inline styles, and responding to button clicks.",
+  path: "/javascript/day-1/dom-manipulation",
+});
 
 export default function DomManipulation() {
   return (

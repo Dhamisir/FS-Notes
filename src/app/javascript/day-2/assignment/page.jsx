@@ -1,6 +1,12 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Day 2 Assignments" };
+export const metadata = pageMetadata({
+  title: "Day 2 Assignments",
+  description:
+    "Four-part challenge covering a multiplier function, shop inventory array operations, a user profile object, and filtering a numbers array with filter().",
+  path: "/javascript/day-2/assignment",
+});
 
 export default function Day2Assignment() {
   return (

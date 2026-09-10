@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Vite Setup" };
+export const metadata = pageMetadata({
+  title: "Vite Setup",
+  description:
+    "Walks through scaffolding a React project with Vite's CLI and explains the roles of main.jsx, App.jsx, and the components folder in a typical project structure.",
+  path: "/react/day-1/vite-setup",
+});
 
 export default function ViteSetup() {
   return (

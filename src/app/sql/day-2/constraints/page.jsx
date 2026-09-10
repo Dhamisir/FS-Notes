@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Constraints" };
+export const metadata = pageMetadata({
+  title: "Constraints",
+  description:
+    "Covers common table constraints — PRIMARY KEY, AUTO_INCREMENT, NOT NULL, CHECK, UNIQUE, and DEFAULT — used to enforce valid, clean data in columns.",
+  path: "/sql/day-2/constraints",
+});
 
 export default function Constraints() {
   return (

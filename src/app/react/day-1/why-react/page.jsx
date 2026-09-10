@@ -1,7 +1,13 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Why React" };
+export const metadata = pageMetadata({
+  title: "Why React",
+  description:
+    "Explains the pain points of manual DOM manipulation in growing JavaScript apps and how React's data-driven approach to updating the UI solves them.",
+  path: "/react/day-1/why-react",
+});
 
 export default function WhyReact() {
   return (

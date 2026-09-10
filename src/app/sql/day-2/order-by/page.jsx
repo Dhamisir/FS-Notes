@@ -1,8 +1,14 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "ORDER BY" };
+export const metadata = pageMetadata({
+  title: "ORDER BY",
+  description:
+    "Learn how to sort query results with ORDER BY in ascending or descending order, including sorting by multiple columns.",
+  path: "/sql/day-2/order-by",
+});
 
 export default function OrderBy() {
   return (

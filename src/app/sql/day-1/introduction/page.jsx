@@ -1,7 +1,13 @@
 import { SqlLesson } from "@/app/sql/components/SqlLesson";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Database Introduction" };
+export const metadata = pageMetadata({
+  title: "Database Introduction",
+  description:
+    "An introduction to what a database is, the difference between data and information, and the distinction between relational (SQL) and NoSQL databases.",
+  path: "/sql/day-1/introduction",
+});
 
 export default function SqlIntro() {
   return (

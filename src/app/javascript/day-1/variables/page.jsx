@@ -1,8 +1,14 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Variables (var, let, const)" };
+export const metadata = pageMetadata({
+  title: "Variables (var, let, const)",
+  description:
+    "Compares var, let, and const for declaring JavaScript variables and lays out naming rules and best practices like camelCase and descriptive names.",
+  path: "/javascript/day-1/variables",
+});
 
 export default function Variables() {
   return (

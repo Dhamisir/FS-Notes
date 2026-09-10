@@ -1,7 +1,13 @@
 import { LessonContainer } from "@/components/notes/LessonContainer";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Day 3 Assignment (DOM Projects)" };
+export const metadata = pageMetadata({
+  title: "Day 3 Assignment (DOM Projects)",
+  description:
+    "Three DOM capstone projects to build - a TODO app, an expense tracker, and a student marks management system - using event listeners, dynamic element creation, and event delegation.",
+  path: "/javascript/day-3/assignment",
+});
 
 export default function Day3Assignment() {
   return (

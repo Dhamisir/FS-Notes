@@ -1,8 +1,14 @@
 import { ReactLesson } from "@/app/react/components/ReactLesson";
 import { Callout } from "@/components/notes/Callout";
 import { CodeBlock } from "@/components/code/CodeBlock";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Form Handling" };
+export const metadata = pageMetadata({
+  title: "Form Handling",
+  description:
+    "Covers controlled form inputs in React, progressing from a single field without a name attribute to a multi-field form with one dynamic handleChange, then saving submissions to an array and rendering them with map.",
+  path: "/react/day-3/form-handling",
+});
 
 export default function FormHandling() {
   return (

@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { CodeBlock } from "@/components/code/CodeBlock";
 import { Callout } from "@/components/notes/Callout";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Common CSS Properties" };
+export const metadata = pageMetadata({
+  title: "Common CSS Properties",
+  description:
+    "Reference notes on everyday CSS properties for typography (color, font-size, text-align, font-family), box and layout basics (background, width/height, border, border-radius), and spacing (margin, padding).",
+  path: "/css/day-1/common-properties",
+});
 
 export default function CommonProperties() {
   return (
