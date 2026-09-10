@@ -27,8 +27,11 @@ export default function TypesOfCss() {
       <Callout variant="intro">
         <p className="text-sm text-[#2c3e50]">
           CSS (Cascading Style Sheets) can be added to an HTML document in{" "}
-          <b>three ways</b>. Each method improved the previous one to solve real
-          problems.
+          <b>three ways</b>. Each method improved the previous one to solve
+          real problems. Every code block below is a{" "}
+          <b>complete, standalone HTML file</b> — copy it into a{" "}
+          <code>.html</code> file, open it, and it&apos;ll look exactly like
+          the preview under it.
         </p>
       </Callout>
 
@@ -42,9 +45,27 @@ export default function TypesOfCss() {
         </p>
         <CodeBlock
           language="html"
-          code={`<h1 style="color: blue; text-align: center;">Hello World</h1>
-<p style="color: red; font-size: 20px;">This is a paragraph.</p>`}
+          code={`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Inline CSS</title>
+</head>
+<body>
+  <h1 style="color: blue; text-align: center;">Hello World</h1>
+  <p style="color: red; font-size: 20px;">This is a paragraph.</p>
+</body>
+</html>`}
         />
+
+        <div className="rounded-md border border-black/10 bg-[#f7f9fb] p-4">
+          <h3 className="text-center text-xl font-bold text-blue-600">
+            Hello World
+          </h3>
+          <p className="mt-2 text-red-600" style={{ fontSize: 20 }}>
+            This is a paragraph.
+          </p>
+        </div>
 
         <Callout variant="problem">
           <h3 className="text-base font-semibold text-[#2c3e50]">
@@ -76,19 +97,33 @@ export default function TypesOfCss() {
         </p>
         <CodeBlock
           language="html"
-          code={`<head>
-  <style>
-    p {
-      color: red;
-      font-size: 20px;
-    }
-  </style>
+          code={`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Internal CSS</title>
+<style>
+  p {
+    color: red;
+    font-size: 20px;
+  }
+</style>
 </head>
 <body>
   <p>Paragraph 1</p>
   <p>Paragraph 2</p>
-</body>`}
+</body>
+</html>`}
         />
+
+        <div className="rounded-md border border-black/10 bg-[#f7f9fb] p-4">
+          <p className="text-red-600" style={{ fontSize: 20 }}>
+            Paragraph 1
+          </p>
+          <p className="text-red-600" style={{ fontSize: 20 }}>
+            Paragraph 2
+          </p>
+        </div>
 
         <Callout variant="problem">
           <h3 className="text-base font-semibold text-[#2c3e50]">
@@ -112,11 +147,12 @@ export default function TypesOfCss() {
         </h2>
         <p>
           Create a separate <code>.css</code> file and link it in HTML using{" "}
-          <code>&lt;link&gt;</code>.
+          <code>&lt;link&gt;</code>. This is the only method that needs{" "}
+          <b>two files saved in the same folder</b>.
         </p>
 
         <div className="text-sm font-semibold text-muted-foreground">
-          Step 1: Create <code>style.css</code>
+          File 1: <code>style.css</code>
         </div>
         <CodeBlock
           language="css"
@@ -128,14 +164,37 @@ p {
         />
 
         <div className="text-sm font-semibold text-muted-foreground">
-          Step 2: Link it in HTML
+          File 2: <code>index.html</code> (same folder as style.css)
         </div>
         <CodeBlock
           language="html"
-          code={`<head>
-  <link rel="stylesheet" href="style.css" />
-</head>`}
+          code={`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>External CSS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+</body>
+</html>`}
         />
+
+        <p className="text-xs text-muted-foreground">
+          Save both files in the same folder, then open{" "}
+          <code>index.html</code> — it&apos;ll look identical to the Internal
+          CSS example above, just with styles kept in their own file.
+        </p>
+        <div className="rounded-md border border-black/10 bg-[#f7f9fb] p-4">
+          <p className="text-red-600" style={{ fontSize: 20 }}>
+            Paragraph 1
+          </p>
+          <p className="text-red-600" style={{ fontSize: 20 }}>
+            Paragraph 2
+          </p>
+        </div>
 
         <Callout variant="solution">
           <h3 className="text-base font-semibold text-[#2c3e50]">
@@ -157,4 +216,3 @@ p {
     </div>
   );
 }
-

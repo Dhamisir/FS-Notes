@@ -8,6 +8,10 @@ export const cssDays = [
       { slug: "selectors", title: "ID, Class & Element Selectors" },
       { slug: "common-properties", title: "Common CSS Properties" },
       { slug: "assignment", title: "Day 1 Assignment (Resume Project)" },
+      {
+        slug: "selectors-assignment",
+        title: "Day 1 Assignment 2: Selector Showdown",
+      },
     ],
   },
   {
@@ -15,18 +19,29 @@ export const cssDays = [
     title: "Day 2 – Box Model, Flex, Grid & Position",
     description: "Layout fundamentals and responsive patterns.",
     lessons: [
-      { slug: "box-model-position", title: "Box Model + Position Intro" },
+      { slug: "box-model", title: "Box Model & box-sizing" },
+      { slug: "position", title: "Position (relative/absolute/fixed/sticky) & z-index" },
       { slug: "flexbox", title: "Flexbox (Mastery & Proofs)" },
       { slug: "grid", title: "CSS Grid" },
-      { slug: "position", title: "Position (relative/absolute/fixed/sticky)" },
       { slug: "assignment", title: "Day 2 Assignment" },
     ],
   },
   {
     slug: "day-3",
     title: "Day 3 – Animations & Advanced",
-    description: "Day 3 topics and assignment.",
-    lessons: [{ slug: "assignment", title: "Day 3 Assignment" }],
+    description:
+      "Transforms, transitions, keyframe animations, CSS variables & dark mode, and responsive typography.",
+    lessons: [
+      { slug: "transforms", title: "CSS Transforms" },
+      { slug: "transitions", title: "CSS Transitions" },
+      { slug: "animations", title: "CSS Animations (@keyframes)" },
+      {
+        slug: "css-variables-dark-mode",
+        title: "CSS Variables & Dark Mode",
+      },
+      { slug: "responsive-typography", title: "Responsive Typography" },
+      { slug: "assignment", title: "Day 3 Assignment" },
+    ],
   },
 ];
 
